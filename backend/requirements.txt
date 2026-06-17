@@ -1,0 +1,19 @@
+# Watan Sehat Backend Dependencies
+# Core
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+python-multipart>=0.0.12
+python-dotenv>=1.0.0
+
+# Offline AI
+ollama>=0.1.7
+
+# RAG (Retrieval-Augmented Generation)
+scikit-learn>=1.3.0
+numpy>=1.24.0
+
+# Week 3 additions (voice):
+# openai-whisper
+# TTS
+# sounddevice
+# scipy

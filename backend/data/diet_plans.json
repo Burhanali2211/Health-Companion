@@ -1,0 +1,2113 @@
+{
+  "chilla_kalan": {
+    "bacha": {
+      "morning": [
+        {
+          "id": "ck_b_mor_1",
+          "name_ur": "کہوا چائے",
+          "name_en": "Kahwa Tea",
+          "desc_ur": "سبز چائے، زعفران، الائچی — بچوں کے لیے ہلکی",
+          "desc_en": "Green tea with saffron and cardamom, mild for children",
+          "benefit_ur": "قوت مدافعت بڑھاتا ہے",
+          "benefit_en": "Boosts immunity in extreme cold",
+          "science": "Saffron contains crocin, a potent anti-inflammatory compound shown to reduce cold-season respiratory infections in children.",
+          "local_name": "کہوا",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "id": "ck_b_mor_2",
+          "name_ur": "چاول کی کھیر",
+          "name_en": "Rice Kheer",
+          "desc_ur": "دودھ، چاول، گڑ — صبح کی توانائی",
+          "desc_en": "Rice pudding with milk and jaggery for morning energy",
+          "benefit_ur": "جسم گرم رکھتا ہے",
+          "benefit_en": "Provides sustained warmth and calories",
+          "science": "High glycemic rice combined with milk fat creates a slow-release energy matrix ideal for cold mornings when basal metabolic rate is elevated.",
+          "local_name": "کھیر",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1512485800893-b08ec1ea59b1?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "id": "ck_b_mor_3",
+          "name_ur": "اخروٹ شہد",
+          "name_en": "Walnut with Honey",
+          "desc_ur": "دو اخروٹ، ایک چمچ شہد — سردی کا ناشتہ",
+          "desc_en": "Two walnuts with a spoon of honey — classic Kashmir winter breakfast",
+          "benefit_ur": "دماغ اور جسم دونوں کو فائدہ",
+          "benefit_en": "Brain development and warming",
+          "science": "Walnuts contain ALA (alpha-linolenic acid) which converts to DHA in children, supporting neural development. Honey provides immediate glucose.",
+          "local_name": "دود کانگ",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1572358826727-b50106a735c0?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "ck_b_aft_1",
+          "name_ur": "ہریسہ",
+          "name_en": "Harissa",
+          "desc_ur": "گوشت اور چاول کی خاص کشمیری ڈش",
+          "desc_en": "Slow-cooked meat and wheat — Kashmir's winter superfood",
+          "benefit_ur": "سردی میں پروٹین کا بہترین ذریعہ",
+          "benefit_en": "Complete protein for winter warmth",
+          "science": "Harissa's 8-hour slow cook breaks down collagen into gelatin, providing gut-healing amino acids. High fat content raises core body temperature for 4-6 hours.",
+          "local_name": "ہریسہ",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1544025162-8111142154ea?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "id": "ck_b_aft_2",
+          "name_ur": "مجی چٹنی کے ساتھ روٹی",
+          "name_en": "Roti with Maji Chutney",
+          "desc_ur": "گندم کی روٹی، سرسوں کا ساگ چٹنی",
+          "desc_en": "Wheat bread with mustard greens chutney",
+          "benefit_ur": "وٹامن کا بھرپور ذریعہ",
+          "benefit_en": "Winter vitamin C and iron",
+          "science": "Mustard greens have 3x more vitamin C than oranges per calorie and contain glucosinolates that enhance immune response during cold season.",
+          "local_name": "مجی",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "id": "ck_b_aft_3",
+          "name_ur": "شلغم یخنی",
+          "name_en": "Turnip Yakhni",
+          "desc_ur": "شلغم کا سفید شوربہ، دہی کی بنیاد",
+          "desc_en": "Turnip in yogurt-based broth",
+          "benefit_ur": "ہاضمہ درست رکھتا ہے",
+          "benefit_en": "Digestive health in cold months",
+          "science": "Turnip is a prebiotic vegetable; the yogurt in yakhni adds probiotics. Together they maintain gut microbiome balance disrupted by sedentary winter lifestyles.",
+          "local_name": "گوگجی یخنی",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1548943487-a2e4b43b6852?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "ck_b_eve_1",
+          "name_ur": "نمکین چائے",
+          "name_en": "Noon Chai (Salt Tea)",
+          "desc_ur": "گلابی چائے، نمک، دودھ — کشمیری شام",
+          "desc_en": "Pink salt tea with milk — the quintessential Kashmir evening ritual",
+          "benefit_ur": "الیکٹرولائٹ توازن",
+          "benefit_en": "Electrolyte balance and warmth",
+          "science": "Noon chai's sodium and potassium from milk maintain electrolyte balance during periods of reduced physical activity and low sweating in winter.",
+          "local_name": "نون چائے",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "id": "ck_b_eve_2",
+          "name_ur": "پھلیاں شوربہ",
+          "name_en": "Bean Soup",
+          "desc_ur": "سفید پھلیاں، ادرک، لہسن",
+          "desc_en": "White beans with ginger and garlic broth",
+          "benefit_ur": "رات کی گرمی اور پروٹین",
+          "benefit_en": "Night protein and internal warmth",
+          "science": "Legumes digest slowly over 6-8 hours, maintaining core temperature through thermogenesis during cold Kashmir nights.",
+          "local_name": "راجمہ",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1548943487-a2e4b43b6852?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "ck_b_imm_1",
+          "name_ur": "زعفران دودھ",
+          "name_en": "Saffron Milk",
+          "desc_ur": "گرم دودھ میں تین تار زعفران",
+          "desc_en": "Three threads of Kashmiri saffron in warm milk",
+          "benefit_ur": "قوت مدافعت کا راز",
+          "benefit_en": "Kashmir's ancient immunity secret",
+          "science": "Kashmiri saffron (Crocus sativus) from Pampore contains safranal and picrocrocin, compounds with documented antiviral properties against respiratory pathogens.",
+          "local_name": "کونگ پوش دود",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1620015525531-bc6a0bc98910?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "id": "ck_b_imm_2",
+          "name_ur": "تلسی ادرک کاڑھا",
+          "name_en": "Tulsi Ginger Decoction",
+          "desc_ur": "تلسی کے پتے، ادرک، شہد کا کاڑھا",
+          "desc_en": "Holy basil, ginger, honey decoction — home pharmacy",
+          "benefit_ur": "گلا اور پھیپھڑے صاف",
+          "benefit_en": "Clears throat and protects lungs",
+          "science": "Gingerols inhibit rhinovirus attachment to nasal epithelium. Tulsi's eugenol is antibacterial. Combined, they reduce Chilla Kalan respiratory illness by up to 40% in traditional practice.",
+          "local_name": "کاڑھا",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1596541604605-720d750ecad3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "ck_b_avo_1",
+          "name_ur": "ٹھنڈا پانی",
+          "name_en": "Cold Water",
+          "desc_ur": "چلہ کلاں میں ٹھنڈا پانی پینے سے بچیں",
+          "desc_en": "Avoid cold water during extreme winter",
+          "reason_ur": "گلے کی سوزش اور بخار کا خطرہ",
+          "reason_en": "Increases risk of throat inflammation and fever",
+          "alternative_ur": "گرم پانی یا کہوا پیئیں",
+          "alternative_en": "Drink warm water or kahwa instead",
+          "image_url": "https://images.unsplash.com/photo-1523362628745-0c100150b504?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "id": "ck_b_avo_2",
+          "name_ur": "کچے پھل",
+          "name_en": "Raw Cold Fruits",
+          "desc_ur": "باہر کے ٹھنڈے پھلوں سے پرہیز",
+          "desc_en": "Avoid refrigerator-cold fruits",
+          "reason_ur": "ہاضمہ خراب ہو سکتا ہے",
+          "reason_en": "Cold foods slow digestion in winter",
+          "alternative_ur": "پھلوں کو کمرے کے درجہ حرارت پر لائیں",
+          "alternative_en": "Bring fruits to room temperature first",
+          "image_url": "https://images.unsplash.com/photo-1481134267576-90c74eb7fc06?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "jawaan": {
+      "morning": [
+        {
+          "id": "ck_j_mor_1",
+          "name_ur": "کہوا قہوہ",
+          "name_en": "Traditional Kahwa",
+          "desc_ur": "سبز چائے، زعفران، الائچی، دار چینی، بادام",
+          "desc_en": "Full-strength kahwa with almonds and cinnamon",
+          "benefit_ur": "ذہنی تازگی، جسمانی گرمی",
+          "benefit_en": "Mental clarity and body warmth",
+          "science": "Cinnamon's cinnamaldehyde activates brown adipose tissue thermogenesis, raising core body temperature 0.5-1°C for 2-3 hours after consumption.",
+          "local_name": "قہوہ",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "id": "ck_j_mor_2",
+          "name_ur": "اخروٹ شیر مال",
+          "name_en": "Walnut Sheermal",
+          "desc_ur": "زعفران روٹی، اخروٹ ملا ہوا",
+          "desc_en": "Saffron flatbread with crushed walnuts",
+          "benefit_ur": "اومیگا تھری اور فائبر",
+          "benefit_en": "Omega-3 and complex carbohydrates for sustained energy",
+          "science": "Walnut polyphenols reduce LDL oxidation, protecting cardiovascular health which is most stressed during extreme cold when blood vessels constrict.",
+          "local_name": "شیر مال",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1572358826727-b50106a735c0?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "id": "ck_j_mor_3",
+          "name_ur": "بادام گری",
+          "name_en": "Almonds with Saffron",
+          "desc_ur": "رات بھیگے بادام، زعفران کے ساتھ",
+          "desc_en": "Overnight soaked almonds with saffron strands",
+          "benefit_ur": "توانائی اور وٹامن ای",
+          "benefit_en": "Sustained energy and vitamin E",
+          "science": "Soaking removes phytic acid, unlocking 20% more zinc and magnesium absorption — minerals critical for immune function during Chilla Kalan.",
+          "local_name": "بادام",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1620015525531-bc6a0bc98910?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "ck_j_aft_1",
+          "name_ur": "ہریسہ",
+          "name_en": "Harissa",
+          "desc_ur": "مٹن اور گندم کی روایتی ڈش",
+          "desc_en": "Traditional slow-cooked mutton and wheat",
+          "benefit_ur": "کشمیر کی مکمل غذا",
+          "benefit_en": "Kashmir's complete winter nutrition in one dish",
+          "science": "Harissa's collagen-rich bone broth has been shown to reduce joint inflammation — critical when cold causes synovial fluid thickening and joint stiffness.",
+          "local_name": "ہریسہ",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1544025162-8111142154ea?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "id": "ck_j_aft_2",
+          "name_ur": "روگن جوش",
+          "name_en": "Rogan Josh",
+          "desc_ur": "کشمیری لال مرچ، ریٹھ مسالہ، مٹن",
+          "desc_en": "Kashmiri red chili and ratan jot mutton curry",
+          "benefit_ur": "جسم گرم اور خون گرم",
+          "benefit_en": "Thermogenic warming and iron",
+          "science": "Kashmiri Deggi Mirch contains capsaicin that activates TRPV1 receptors, raising metabolic rate 4-5% and generating heat for 30-45 minutes post-meal.",
+          "local_name": "روگن جوش",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1544025162-8111142154ea?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "id": "ck_j_aft_3",
+          "name_ur": "دم آلو",
+          "name_en": "Dum Aloo",
+          "desc_ur": "کشمیری آلو، سونف، ادرک، دہی",
+          "desc_en": "Kashmiri style potatoes with fennel and yogurt",
+          "benefit_ur": "سبزی خور کے لیے بہترین",
+          "benefit_en": "Vegetarian warming option with probiotics",
+          "science": "Fennel (saunf) acts as a digestive and the resistant starch in potatoes feeds beneficial gut bacteria, maintaining immunity through microbiome health.",
+          "local_name": "دم آلو",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "ck_j_eve_1",
+          "name_ur": "نون چائے",
+          "name_en": "Noon Chai",
+          "desc_ur": "گلابی نمکین چائے، ملائی",
+          "desc_en": "Pink salted tea with cream — evening ritual",
+          "benefit_ur": "دن کی تھکان دور",
+          "benefit_en": "Recovery electrolytes after cold exposure",
+          "science": "Sodium and potassium in noon chai restore electrolytes lost through skin vasoconstriction responses during cold weather exposure.",
+          "local_name": "نون چائے",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "id": "ck_j_eve_2",
+          "name_ur": "یخنی پلاؤ",
+          "name_en": "Yakhni Pulao",
+          "desc_ur": "دہی شوربہ چاول، ثابت مسالے",
+          "desc_en": "Rice cooked in yogurt broth with whole spices",
+          "benefit_ur": "شام کی مکمل غذا",
+          "benefit_en": "Complete evening meal with probiotics",
+          "science": "Yogurt fermentation produces butyrate, a short-chain fatty acid that seals gut lining and prevents winter-cold-induced intestinal permeability.",
+          "local_name": "یخنی پلاؤ",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1548943487-a2e4b43b6852?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "ck_j_imm_1",
+          "name_ur": "زعفران دودھ",
+          "name_en": "Saffron Milk",
+          "desc_ur": "پانچ تار زعفران، گرم دودھ، الائچی",
+          "desc_en": "Five saffron threads in warm milk with cardamom",
+          "benefit_ur": "قوت مدافعت اور نیند",
+          "benefit_en": "Immunity boost and sleep quality",
+          "science": "Saffron safranal inhibits melatonin breakdown, improving sleep quality. Deep sleep increases natural killer cell activity by 300%, fortifying immunity during Chilla Kalan.",
+          "local_name": "کونگ دود",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1620015525531-bc6a0bc98910?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "id": "ck_j_imm_2",
+          "name_ur": "تلسی ادرک شہد",
+          "name_en": "Tulsi Ginger Honey Mix",
+          "desc_ur": "صبح خالی پیٹ، گرم پانی کے ساتھ",
+          "desc_en": "Empty stomach with warm water each morning",
+          "benefit_ur": "سردی کا سب سے مضبوط علاج",
+          "benefit_en": "Most potent cold-season preventative",
+          "science": "Honey's hydrogen peroxide is activated by glucose oxidase enzyme at body temperature, creating sustained antibacterial activity in throat and sinuses.",
+          "local_name": "کاڑھا",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1596541604605-720d750ecad3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "ck_j_avo_1",
+          "name_ur": "دہی رات کو",
+          "name_en": "Yogurt at Night",
+          "desc_ur": "سردی میں رات کو دہی سے پرہیز",
+          "desc_en": "Avoid cold yogurt at night in extreme winter",
+          "reason_ur": "کفلغم بڑھتا ہے",
+          "reason_en": "Increases kapha (mucus) in Ayurvedic terms; exacerbates respiratory congestion",
+          "alternative_ur": "دہی صرف دوپہر کو، گرم کھانے کے ساتھ",
+          "alternative_en": "Eat yogurt only at lunch with warm food",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "id": "ck_j_avo_2",
+          "name_ur": "ٹھنڈے مشروبات",
+          "name_en": "Cold Drinks",
+          "desc_ur": "سافٹ ڈرنک اور کولڈ جوس سے پرہیز",
+          "desc_en": "Avoid cold soft drinks and chilled juices",
+          "reason_ur": "معدہ کمزور ہوتا ہے",
+          "reason_en": "Cold liquids impair digestive enzymes that are already slowed by winter",
+          "alternative_ur": "کہوا یا کاڑھا پیئیں",
+          "alternative_en": "Drink kahwa or herbal decoction",
+          "image_url": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "buzurg": {
+      "morning": [
+        {
+          "id": "ck_bz_mor_1",
+          "name_ur": "ہلکا کہوا",
+          "name_en": "Mild Kahwa",
+          "desc_ur": "آدھی چائے کی طاقت، زیادہ الائچی",
+          "desc_en": "Half-strength kahwa with extra cardamom, gentle on digestion",
+          "benefit_ur": "بزرگوں کے لیے محفوظ سردی علاج",
+          "benefit_en": "Safe warming for elderly digestion",
+          "science": "Cardamom's volatile oils stimulate digestive secretions that decline with age, improving nutrient absorption which reduces in elderly winter sedentary periods.",
+          "local_name": "قہوہ",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "id": "ck_bz_mor_2",
+          "name_ur": "بھگو بادام کھیر",
+          "name_en": "Soaked Almond Porridge",
+          "desc_ur": "پانچ بادام، دودھ میں پکی دلیہ",
+          "desc_en": "Five almonds blended into warm milk porridge",
+          "benefit_ur": "جوڑوں کی سوزش کم",
+          "benefit_en": "Reduces joint inflammation in cold",
+          "science": "Almond monounsaturated fats inhibit COX-2 enzyme, reducing joint inflammation that worsens in cold temperatures for elderly due to reduced synovial fluid viscosity.",
+          "local_name": "دلیہ",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1508061253366-f7da158b6d46?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "ck_bz_aft_1",
+          "name_ur": "ہریسہ سوپ",
+          "name_en": "Harissa Broth",
+          "desc_ur": "ہریسہ کا پتلا شوربہ، آسانی سے ہضم",
+          "desc_en": "Diluted harissa broth — easy to swallow and digest",
+          "benefit_ur": "پروٹین بغیر بھاری ہضم",
+          "benefit_en": "Complete protein without heavy digestion",
+          "science": "Gelatin from bone broth is pre-broken collagen that requires minimal digestive enzyme activity — ideal for elderly who have 40-60% reduced digestive enzyme production.",
+          "local_name": "یخنی",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1544025162-8111142154ea?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "id": "ck_bz_aft_2",
+          "name_ur": "گوگجی یخنی",
+          "name_en": "Turnip Yakhni",
+          "desc_ur": "نرم پکا شلغم، دہی شوربہ",
+          "desc_en": "Soft-cooked turnip in mild yogurt broth",
+          "benefit_ur": "بلڈ پریشر اور ہاضمہ",
+          "benefit_en": "Blood pressure management and digestive ease",
+          "science": "Turnips contain potassium that counters sodium-induced blood pressure elevation. Their soft-cooked fiber is gentle on elderly intestinal walls that have reduced mucus protection.",
+          "local_name": "گوگجی یخنی",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1548943487-a2e4b43b6852?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "ck_bz_eve_1",
+          "name_ur": "نون چائے ملائی",
+          "name_en": "Noon Chai with Cream",
+          "desc_ur": "گلابی چائے، ملائی، کم نمک",
+          "desc_en": "Pink tea with cream, reduced salt for elderly",
+          "benefit_ur": "رات کی گرمی اور سکون",
+          "benefit_en": "Night warmth and calm",
+          "science": "Cream's fat-soluble vitamins A, D, E, K are best absorbed in evening when bile acid secretion peaks, making this the optimal time for fat intake in elderly.",
+          "local_name": "نون چائے",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "ck_bz_imm_1",
+          "name_ur": "زعفران کا قہوہ",
+          "name_en": "Saffron Decoction",
+          "desc_ur": "تین تار زعفران، گرم پانی — روزانہ صبح",
+          "desc_en": "Three saffron threads in warm water — daily morning ritual",
+          "benefit_ur": "بزرگوں کی قوت مدافعت",
+          "benefit_en": "Elderly immune system support",
+          "science": "Safranal's anti-inflammatory action is particularly beneficial for elderly with age-related inflammaging — chronic low-grade inflammation that accelerates in cold seasons.",
+          "local_name": "زعفران",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1620015525531-bc6a0bc98910?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "ck_bz_avo_1",
+          "name_ur": "بھاری تلی غذا",
+          "name_en": "Heavy Fried Foods",
+          "desc_ur": "تلے ہوئے کھانوں سے پرہیز",
+          "desc_en": "Avoid deep-fried heavy foods in extreme cold",
+          "reason_ur": "بزرگوں کا ہاضمہ کمزور ہوتا ہے",
+          "reason_en": "Elderly digestive systems cannot efficiently process heavy fats in cold when stomach acid decreases",
+          "alternative_ur": "ابلا یا بھاپ میں پکا کھانا",
+          "alternative_en": "Prefer steamed or boiled foods",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    }
+  },
+  "chilla_khurd": {
+    "bacha": {
+      "morning": [
+        {
+          "id": "cx_b_mor_1",
+          "name_ur": "کہوا چائے",
+          "name_en": "Kahwa",
+          "desc_ur": "سبز چائے زعفران — اب تھوڑا ہلکا",
+          "desc_en": "Kahwa continues — cold is easing slightly",
+          "benefit_ur": "قوت مدافعت",
+          "benefit_en": "Sustained immunity through second cold period",
+          "science": "Green tea catechins reduce cold virus shedding duration by 36%, important as Chilla Khurd often sees peak cold-related school absence.",
+          "local_name": "کہوا",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "id": "cx_b_mor_2",
+          "name_ur": "اخروٹ دلیہ",
+          "name_en": "Walnut Oat Porridge",
+          "desc_ur": "جئی دلیہ، اخروٹ، شہد — گرم ناشتہ",
+          "desc_en": "Oat porridge with walnuts and honey",
+          "benefit_ur": "مسلسل توانائی",
+          "benefit_en": "Sustained morning energy for school",
+          "science": "Beta-glucan in oats forms a gel in the gut that slows glucose absorption, providing 4+ hours of steady energy — preventing the energy crashes common in cold-weather school days.",
+          "local_name": "دلیہ",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1572358826727-b50106a735c0?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "cx_b_aft_1",
+          "name_ur": "چکن یخنی",
+          "name_en": "Chicken Yakhni",
+          "desc_ur": "مرغی کا شوربہ، سونف، دہی",
+          "desc_en": "Chicken in fennel and yogurt broth",
+          "benefit_ur": "پروٹین اور قوت",
+          "benefit_en": "Growing children need complete protein",
+          "science": "Chicken contains carnosine which reduces inflammation and supports cartilage growth in developing children's joints during cold-induced inactivity periods.",
+          "local_name": "یخنی",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1548943487-a2e4b43b6852?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "cx_b_eve_1",
+          "name_ur": "نون چائے",
+          "name_en": "Noon Chai",
+          "desc_ur": "شام کی گلابی چائے",
+          "desc_en": "Evening pink salt tea",
+          "benefit_ur": "سکون اور گرمی",
+          "benefit_en": "Warmth and relaxation",
+          "science": "Theanine in tea combined with sodium in noon chai reduces cortisol, the stress hormone elevated in children by cold-weather school transitions.",
+          "local_name": "نون چائے",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "cx_b_imm_1",
+          "name_ur": "شہد ادرک",
+          "name_en": "Honey Ginger",
+          "desc_ur": "ادرک کا رس، شہد — روزانہ چمچ",
+          "desc_en": "Fresh ginger juice with raw honey daily",
+          "benefit_ur": "گلا صاف اور قوت",
+          "benefit_en": "Throat protection and immunity",
+          "science": "6-gingerol inhibits prostaglandin synthesis, reducing throat inflammation. Raw honey's antioxidants degrade at 40°C, so never add to boiling water.",
+          "local_name": "ادرک شہد",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1596541604605-720d750ecad3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "cx_b_avo_1",
+          "name_ur": "ٹھنڈے دودھ",
+          "name_en": "Cold Milk",
+          "desc_ur": "فریج کا ٹھنڈا دودھ نہ پیئیں",
+          "desc_en": "Avoid refrigerator-cold milk",
+          "reason_ur": "گلا خراب ہو سکتا ہے",
+          "reason_en": "Cold milk increases mucus production and throat irritation in winter",
+          "alternative_ur": "گرم دودھ ہلدی کے ساتھ",
+          "alternative_en": "Warm turmeric milk (haldi doodh)",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "jawaan": {
+      "morning": [
+        {
+          "id": "cx_j_mor_1",
+          "name_ur": "کہوا",
+          "name_en": "Kahwa",
+          "desc_ur": "روایتی کہوا، روزانہ",
+          "desc_en": "Traditional kahwa daily routine continues",
+          "benefit_ur": "توجہ اور گرمی",
+          "benefit_en": "Focus and warmth for work",
+          "science": "L-theanine in green tea combined with caffeine improves sustained attention by 30% without the jitteriness of coffee — ideal for winter office workers.",
+          "local_name": "کہوا",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "cx_j_aft_1",
+          "name_ur": "مٹن روگن جوش",
+          "name_en": "Mutton Rogan Josh",
+          "desc_ur": "کشمیری مسالے، مٹن — دوپہر کی توانائی",
+          "desc_en": "Kashmiri spiced mutton for afternoon energy",
+          "benefit_ur": "آئرن اور پروٹین",
+          "benefit_en": "Iron and protein to counter winter fatigue",
+          "science": "Heme iron from mutton absorbs 3x faster than plant iron. Combined with vitamin C in Kashmiri red chili, absorption increases further — critical during low-sun winter.",
+          "local_name": "روگن جوش",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1544025162-8111142154ea?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "cx_j_eve_1",
+          "name_ur": "نون چائے",
+          "name_en": "Noon Chai",
+          "desc_ur": "شام کا ضروری مشروب",
+          "desc_en": "Essential evening ritual",
+          "benefit_ur": "دن کی تھکان دور",
+          "benefit_en": "Recovery and warmth",
+          "science": "Noon chai's unique combination of baking soda (soda bicarbonate) creates the pink color through chemical reaction with tea polyphenols, and also neutralizes stomach acid build-up from winter stress eating.",
+          "local_name": "نون چائے",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "cx_j_imm_1",
+          "name_ur": "زعفران قہوہ",
+          "name_en": "Saffron Kahwa",
+          "desc_ur": "زعفران، دار چینی، الائچی کا خاص مرکب",
+          "desc_en": "Saffron, cinnamon, cardamom blend",
+          "benefit_ur": "مکمل قوت مدافعت",
+          "benefit_en": "Complete immune defense",
+          "science": "Cinnamon cinnamaldehyde has clinically demonstrated MIC (minimum inhibitory concentration) against S. aureus and H. influenzae, common winter respiratory pathogens in Kashmir.",
+          "local_name": "زعفران قہوہ",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "cx_j_avo_1",
+          "name_ur": "رات کا بھاری کھانا",
+          "name_en": "Heavy Late Dinner",
+          "desc_ur": "رات 9 بجے کے بعد بھاری کھانے سے پرہیز",
+          "desc_en": "Avoid heavy meals after 9 PM in winter",
+          "reason_ur": "نیند خراب اور ہاضمہ سست",
+          "reason_en": "Slow winter digestion worsens with lying down after heavy meals",
+          "alternative_ur": "شام 7 بجے تک کھانا کھائیں",
+          "alternative_en": "Finish main meal by 7 PM",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "buzurg": {
+      "morning": [
+        {
+          "id": "cx_bz_mor_1",
+          "name_ur": "ہلکا کہوا",
+          "name_en": "Mild Kahwa",
+          "desc_ur": "آدھی طاقت کا کہوا، ادرک کے ساتھ",
+          "desc_en": "Half-strength kahwa with added ginger",
+          "benefit_ur": "گرمی اور جوڑ درد",
+          "benefit_en": "Warmth and joint pain relief",
+          "science": "Ginger's shogaol compound (formed from gingerol when dried) is a selective COX-2 inhibitor with bioavailability superior to ibuprofen for joint inflammation management.",
+          "local_name": "کہوا",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "cx_bz_aft_1",
+          "name_ur": "دال چاول",
+          "name_en": "Dal Rice",
+          "desc_ur": "لال مسور دال، سادہ چاول",
+          "desc_en": "Red lentil dal with plain rice — easy to digest",
+          "benefit_ur": "پروٹین اور ہاضمہ",
+          "benefit_en": "Complete protein, gentle digestion",
+          "science": "Red lentil's moderate fiber is ideal for elderly; their trypsin inhibitors are destroyed during cooking, making protein fully bioavailable without digestive stress.",
+          "local_name": "دال چاول",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1548943487-a2e4b43b6852?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "cx_bz_eve_1",
+          "name_ur": "گرم دودھ ہلدی",
+          "name_en": "Turmeric Warm Milk",
+          "desc_ur": "گرم دودھ، آدھی چمچ ہلدی، شہد",
+          "desc_en": "Warm milk with turmeric and honey before sleep",
+          "benefit_ur": "نیند اور سوزش",
+          "benefit_en": "Sleep quality and inflammation reduction",
+          "science": "Curcumin in turmeric inhibits NF-κB inflammatory pathway. Fat in milk increases curcumin bioavailability by 2000%. Melatonin-enhancing effect improves elderly sleep duration.",
+          "local_name": "ہلدی دودھ",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "cx_bz_imm_1",
+          "name_ur": "زعفران شہد",
+          "name_en": "Saffron Honey",
+          "desc_ur": "دو تار زعفران، ایک چمچ شہد — روزانہ",
+          "desc_en": "Two saffron threads with honey daily",
+          "benefit_ur": "بزرگ قوت مدافعت",
+          "benefit_en": "Gentle immunity for elderly",
+          "science": "Honey activates macrophage immune cells within 2 hours of consumption. Combined with saffron's anti-inflammatory compounds, this is Kashmir's most scientifically validated elderly immunity formula.",
+          "local_name": "زعفران شہد",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1620015525531-bc6a0bc98910?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "cx_bz_avo_1",
+          "name_ur": "نمک زیادہ",
+          "name_en": "High Salt Intake",
+          "desc_ur": "بزرگوں کے لیے زیادہ نمک خطرناک",
+          "desc_en": "Elderly must limit sodium in winter when blood pressure naturally rises",
+          "reason_ur": "سردی میں بلڈ پریشر بڑھتا ہے",
+          "reason_en": "Cold causes vasoconstriction raising BP; excess salt worsens this",
+          "alternative_ur": "لیموں اور جڑی بوٹیوں سے ذائقہ بڑھائیں",
+          "alternative_en": "Use lemon and herbs for flavor instead",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    }
+  },
+  "chilla_bachha": {
+    "bacha": {
+      "morning": [
+        {
+          "id": "cb_b_mor_1",
+          "name_ur": "کہوا ہلکا",
+          "name_en": "Light Kahwa",
+          "desc_ur": "سردی کم ہو رہی ہے، کہوا بھی ہلکا",
+          "desc_en": "As cold eases, lighter kahwa version",
+          "benefit_ur": "منتقلی کی مدد",
+          "benefit_en": "Supports seasonal transition",
+          "science": "Gradual reduction in kahwa strength mirrors the body's decreasing thermogenic demand as temperatures slowly rise from Chilla Kalan's extreme.",
+          "local_name": "کہوا",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "cb_b_aft_1",
+          "name_ur": "شلجم ساگ",
+          "name_en": "Turnip Greens",
+          "desc_ur": "شلجم کے پتے، ادرک، لہسن",
+          "desc_en": "Fresh turnip greens appearing now — first spring greens",
+          "benefit_ur": "وٹامن اے اور سی",
+          "benefit_en": "Vitamins A and C emerging after winter",
+          "science": "Turnip greens have the highest vitamin K density of any winter vegetable. Vitamin K activates osteocalcin for bone development — critical for growing children.",
+          "local_name": "ساگ",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "cb_b_eve_1",
+          "name_ur": "دودھ شہد",
+          "name_en": "Warm Honey Milk",
+          "desc_ur": "گرم دودھ، شہد — ابھی بھی ٹھنڈی راتیں",
+          "desc_en": "Nights still cold — warm milk with honey",
+          "benefit_ur": "نیند اور گرمی",
+          "benefit_en": "Sleep and warmth in cold nights",
+          "science": "Honey raises insulin slightly, driving tryptophan into the brain where it converts to serotonin then melatonin. Children fall asleep faster with honey milk than plain milk.",
+          "local_name": "شہد دودھ",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "cb_b_imm_1",
+          "name_ur": "تلسی قہوہ",
+          "name_en": "Tulsi Decoction",
+          "desc_ur": "تلسی پتے، ادرک — سردی ختم ہونے پر بھی جاری رکھیں",
+          "desc_en": "Continue tulsi ginger even as cold eases",
+          "benefit_ur": "قوت مدافعت برقرار",
+          "benefit_en": "Maintain immunity through seasonal transition",
+          "science": "Seasonal transitions are high-risk periods for illness. Tulsi's adaptogenic compounds help the immune system adjust to temperature changes without overreacting.",
+          "local_name": "تلسی",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1596541604605-720d750ecad3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "cb_b_avo_1",
+          "name_ur": "باہر کا ٹھنڈا کھانا",
+          "name_en": "Cold Street Food",
+          "desc_ur": "ابھی بھی ٹھنڈا باہری کھانا نہ کھائیں",
+          "desc_en": "Still avoid cold outdoor food in Chilla Bachha",
+          "reason_ur": "موسم بدل رہا ہے، مزاحمت کمزور",
+          "reason_en": "Seasonal transition reduces immune resilience temporarily",
+          "alternative_ur": "گھر کا گرم کھانا بہتر",
+          "alternative_en": "Prefer warm home-cooked food",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "jawaan": {
+      "morning": [
+        {
+          "id": "cb_j_mor_1",
+          "name_ur": "کہوا یا سبز چائے",
+          "name_en": "Kahwa or Green Tea",
+          "desc_ur": "انتخاب آپ کا — سردی کم ہو رہی ہے",
+          "desc_en": "Your choice — cold is easing",
+          "benefit_ur": "موسمی منتقلی",
+          "benefit_en": "Flexible as season transitions",
+          "science": "EGCG in green tea continues providing antiviral protection through seasonal transitions when respiratory viruses peak due to changing temperature gradients.",
+          "local_name": "چائے",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "cb_j_aft_1",
+          "name_ur": "دم آلو",
+          "name_en": "Dum Aloo",
+          "desc_ur": "کشمیری دم آلو — موسم بدل رہا ہے",
+          "desc_en": "Kashmiri dum aloo as seasons shift",
+          "benefit_ur": "سبزی اور توانائی",
+          "benefit_en": "Vegetable nutrition for season change",
+          "science": "Potatoes' resistant starch increases as they cool; serving at room temperature provides prebiotic fiber that supports microbiome diversity during seasonal transitions.",
+          "local_name": "دم آلو",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "cb_j_eve_1",
+          "name_ur": "نون چائے",
+          "name_en": "Noon Chai",
+          "desc_ur": "ابھی بھی شام کا گرم مشروب",
+          "desc_en": "Still continue warm evening tradition",
+          "benefit_ur": "سکون اور گرمی",
+          "benefit_en": "Warmth and comfort",
+          "science": "The evening ritual's social and sensory cues trigger relaxation responses independent of chemical compounds — cultural practices have measurable physiological effects.",
+          "local_name": "نون چائے",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "cb_j_imm_1",
+          "name_ur": "لہسن چٹنی",
+          "name_en": "Garlic Chutney",
+          "desc_ur": "روزانہ دو لونگ لہسن، چٹنی کی صورت",
+          "desc_en": "Two garlic cloves daily as fresh chutney",
+          "benefit_ur": "قوت مدافعت اور قلب",
+          "benefit_en": "Immunity and cardiovascular support",
+          "science": "Allicin forms when garlic is crushed and exposed to air for 10 minutes. Heating destroys allicin, so fresh garlic chutney delivers 10x more allicin than cooked garlic.",
+          "local_name": "لہسن",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1596541604605-720d750ecad3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "cb_j_avo_1",
+          "name_ur": "اچانک ٹھنڈا",
+          "name_en": "Sudden Cold Foods",
+          "desc_ur": "گرم موسم آ رہا ہے پر ابھی ٹھنڈا نہیں",
+          "desc_en": "Don't rush to cold foods — transition gradually",
+          "reason_ur": "جسم کو آہستہ ڈھلنا ہے",
+          "reason_en": "Body needs gradual temperature acclimatization",
+          "alternative_ur": "کمرے کے درجہ حرارت کا کھانا",
+          "alternative_en": "Room temperature foods for gradual transition",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "buzurg": {
+      "morning": [
+        {
+          "id": "cb_bz_mor_1",
+          "name_ur": "ادرک چائے",
+          "name_en": "Ginger Tea",
+          "desc_ur": "تازہ ادرک، گرم پانی — سادہ اور مؤثر",
+          "desc_en": "Fresh ginger in warm water — simple and effective",
+          "benefit_ur": "جوڑ درد اور ہاضمہ",
+          "benefit_en": "Joint pain and digestion",
+          "science": "Zingerone (formed when ginger is heated) has analgesic properties comparable to aspirin without gastric side effects — important for elderly with thin stomach lining.",
+          "local_name": "ادرک چائے",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "cb_bz_aft_1",
+          "name_ur": "مونگ دال",
+          "name_en": "Moong Dal",
+          "desc_ur": "پیلی دال، ہلکی — بزرگوں کے لیے بہترین",
+          "desc_en": "Yellow moong dal — easiest legume to digest",
+          "benefit_ur": "پروٹین بغیر گیس",
+          "benefit_en": "Protein without flatulence for elderly",
+          "science": "Moong dal has negligible oligosaccharides (the flatulence-causing compounds in most legumes), making it the most digestively appropriate protein for elderly with reduced gut motility.",
+          "local_name": "مونگ دال",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1548943487-a2e4b43b6852?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "cb_bz_eve_1",
+          "name_ur": "ہلکی نون چائے",
+          "name_en": "Light Noon Chai",
+          "desc_ur": "کم نمک، گرم — موسم بدل رہا ہے",
+          "desc_en": "Reduced salt, warm — transitioning season",
+          "benefit_ur": "سکون اور روایت",
+          "benefit_en": "Comfort and tradition",
+          "science": "Reducing sodium as temperatures rise prevents the blood pressure elevation spike that commonly affects elderly in the Chilla Bachha to Sonth transition.",
+          "local_name": "نون چائے",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "cb_bz_imm_1",
+          "name_ur": "ہلدی دودھ",
+          "name_en": "Turmeric Milk",
+          "desc_ur": "گرم دودھ ہلدی — بزرگوں کا علاج",
+          "desc_en": "Warm turmeric milk — elderly protective formula",
+          "benefit_ur": "سوزش اور ہڈیاں",
+          "benefit_en": "Anti-inflammation and bone protection",
+          "science": "Piperine in black pepper increases curcumin absorption by 2000%. Adding a pinch of black pepper to turmeric milk transforms a folk remedy into a clinically effective anti-inflammatory.",
+          "local_name": "ہلدی دودھ",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "cb_bz_avo_1",
+          "name_ur": "کچی سبزی",
+          "name_en": "Raw Vegetables",
+          "desc_ur": "ابھی کچی سبزی ہضم مشکل",
+          "desc_en": "Raw vegetables still difficult to digest in transition",
+          "reason_ur": "بزرگ ہاضمہ ٹھنڈی غذا سے کمزور",
+          "reason_en": "Elderly gut enzymes still adapted to warm cooked winter foods",
+          "alternative_ur": "ابلی یا بھاپ میں پکی سبزی",
+          "alternative_en": "Steamed or lightly cooked vegetables",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    }
+  },
+  "sonth": {
+    "bacha": {
+      "morning": [
+        {
+          "id": "so_b_mor_1",
+          "name_ur": "سبز چائے لیموں",
+          "name_en": "Green Tea with Lemon",
+          "desc_ur": "سبز چائے، تازہ لیموں — بہار کا خیرمقدم",
+          "desc_en": "Green tea with fresh lemon — welcoming spring",
+          "benefit_ur": "وٹامن سی اور تازگی",
+          "benefit_en": "Vitamin C and refreshment",
+          "science": "Lemon's limonene compound promotes detoxification enzymes that clear metabolic waste accumulated during winter's reduced physical activity and heavy diet.",
+          "local_name": "چائے",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "id": "so_b_mor_2",
+          "name_ur": "تازہ پھل",
+          "name_en": "Fresh Spring Fruits",
+          "desc_ur": "سیب، ناشپاتی — کشمیر کی بہار",
+          "desc_en": "Apples and pears — Kashmir spring fruits",
+          "benefit_ur": "قدرتی وٹامن",
+          "benefit_en": "Natural vitamins as spring arrives",
+          "science": "Kashmir apples contain quercetin, a flavonoid that reduces histamine release, helping children adjust to spring pollen season.",
+          "local_name": "سیب",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "so_b_aft_1",
+          "name_ur": "تازہ ساگ",
+          "name_en": "Fresh Greens",
+          "desc_ur": "پالک، میتھی — بہار کا ہرا کھانا",
+          "desc_en": "Spinach, fenugreek — spring green food",
+          "benefit_ur": "آئرن اور وٹامن",
+          "benefit_en": "Iron and vitamins after winter",
+          "science": "Spring greens contain 3x more folate than stored winter vegetables. Folate is critical for DNA synthesis in rapidly growing spring-energized children.",
+          "local_name": "ساگ",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "so_b_eve_1",
+          "name_ur": "لسی",
+          "name_en": "Lassi",
+          "desc_ur": "دہی، پانی، پودینہ — بہار کی لسی",
+          "desc_en": "Yogurt, water, mint — spring lassi",
+          "benefit_ur": "ہاضمہ اور ٹھنڈک",
+          "benefit_en": "Digestion and gentle cooling",
+          "science": "Probiotic transition from warm to cooler season foods: lassi's live cultures help recolonize gut microbiome after winter's heavy meat-heavy diet.",
+          "local_name": "لسی",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "so_b_imm_1",
+          "name_ur": "تلسی شربت",
+          "name_en": "Tulsi Sherbet",
+          "desc_ur": "تلسی، لیموں، شہد — بہار کا مشروب",
+          "desc_en": "Tulsi, lemon, honey spring drink",
+          "benefit_ur": "الرجی سے بچاؤ",
+          "benefit_en": "Protection against spring allergies",
+          "science": "Tulsi's rosmarinic acid stabilizes mast cells that release histamine in response to spring allergens. Critical for children in Kashmir's flowering season.",
+          "local_name": "تلسی",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1596541604605-720d750ecad3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "so_b_avo_1",
+          "name_ur": "بھاری مسالے",
+          "name_en": "Heavy Spices",
+          "desc_ur": "بہار میں بھاری مسالے کم کریں",
+          "desc_en": "Reduce heavy spices as spring arrives",
+          "reason_ur": "جسم ٹھنڈک کی طرف جا رہا ہے",
+          "reason_en": "Body transitioning to lighter foods for warmer season",
+          "alternative_ur": "تازہ جڑی بوٹیاں استعمال کریں",
+          "alternative_en": "Use fresh herbs instead",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "jawaan": {
+      "morning": [
+        {
+          "id": "so_j_mor_1",
+          "name_ur": "سبز چائے",
+          "name_en": "Green Tea",
+          "desc_ur": "کہوا کی جگہ سادہ سبز چائے",
+          "desc_en": "Switching from kahwa to plain green tea",
+          "benefit_ur": "ہلکی تازگی",
+          "benefit_en": "Light refreshment for mild season",
+          "science": "EGCG in green tea supports detoxification of heavy winter metabolites while maintaining the antioxidant protection needed through spring pollen season.",
+          "local_name": "سبز چائے",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "so_j_aft_1",
+          "name_ur": "یخنی پلاؤ",
+          "name_en": "Yakhni Pulao",
+          "desc_ur": "ہلکا یخنی چاول — موسم کے مطابق",
+          "desc_en": "Lighter yakhni rice for spring",
+          "benefit_ur": "توانائی اور ہاضمہ",
+          "benefit_en": "Energy and digestion",
+          "science": "Fennel seeds in yakhni contain anethole that prevents spring seasonal digestive bloating — a common complaint during diet transition from heavy winter foods.",
+          "local_name": "یخنی پلاؤ",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1548943487-a2e4b43b6852?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "so_j_eve_1",
+          "name_ur": "دہی پودینہ",
+          "name_en": "Yogurt Mint",
+          "desc_ur": "تازہ دہی، پودینہ، زیرہ",
+          "desc_en": "Fresh yogurt with mint and cumin",
+          "benefit_ur": "ہاضمہ بہتر",
+          "benefit_en": "Digestive transition support",
+          "science": "Menthol in mint activates TRPM8 cold receptors, creating a cooling sensation without actually lowering temperature — psychologically refreshing as spring arrives.",
+          "local_name": "رائتہ",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "so_j_imm_1",
+          "name_ur": "آنولہ",
+          "name_en": "Amla (Indian Gooseberry)",
+          "desc_ur": "تازہ آنولہ یا جوس — بہار کا ٹانک",
+          "desc_en": "Fresh amla or juice — spring immunity tonic",
+          "benefit_ur": "وٹامن سی کا خزانہ",
+          "benefit_en": "Richest vitamin C source",
+          "science": "Amla contains tannins that bind vitamin C, making it heat-stable — it retains potency even when cooked, unlike synthetic vitamin C which degrades at 40°C.",
+          "local_name": "آنولہ",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "so_j_avo_1",
+          "name_ur": "ہریسہ ابھی",
+          "name_en": "Harissa in Spring",
+          "desc_ur": "موسم گرم ہو گیا — ہریسہ اب نہ کھائیں",
+          "desc_en": "Season is warming — harissa no longer appropriate",
+          "reason_ur": "جسم میں گرمی بڑھ سکتی ہے",
+          "reason_en": "High fat thermogenic foods cause overheating in warming season",
+          "alternative_ur": "ہلکا یخنی یا دال",
+          "alternative_en": "Switch to lighter yakhni or lentils",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "buzurg": {
+      "morning": [
+        {
+          "id": "so_bz_mor_1",
+          "name_ur": "ادرک لیموں چائے",
+          "name_en": "Ginger Lemon Tea",
+          "desc_ur": "ادرک، لیموں، شہد — بہار کی صبح",
+          "desc_en": "Ginger, lemon, honey — spring morning",
+          "benefit_ur": "جوڑ اور ہاضمہ",
+          "benefit_en": "Joint comfort and digestion",
+          "science": "Spring temperature variability stresses elderly thermoregulation. Ginger's thermogenic properties buffer these daily temperature swings that can cause joint pain flares.",
+          "local_name": "ادرک چائے",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "so_bz_aft_1",
+          "name_ur": "مونگ دال پالک",
+          "name_en": "Moong Dal Spinach",
+          "desc_ur": "مونگ دال، تازہ پالک — بہار کا کھانا",
+          "desc_en": "Moong dal with fresh spinach — spring combination",
+          "benefit_ur": "آئرن اور پروٹین",
+          "benefit_en": "Iron and protein for spring energy",
+          "science": "Vitamin C in spinach (143mg/100g) dramatically increases iron absorption from moong dal's non-heme iron — consuming together increases absorption by 400%.",
+          "local_name": "دال پالک",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1548943487-a2e4b43b6852?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "so_bz_eve_1",
+          "name_ur": "ہلکی لسی",
+          "name_en": "Light Lassi",
+          "desc_ur": "ہلکی لسی، پودینہ — شام کی ٹھنڈک",
+          "desc_en": "Light lassi with mint for evening cooling",
+          "benefit_ur": "ہاضمہ اور سکون",
+          "benefit_en": "Digestion and comfort",
+          "science": "Lassi's probiotics are most effective when consumed in the evening, as they colonize gut overnight during the fasting period with minimum competition from food.",
+          "local_name": "لسی",
+          "season_fit": 7,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "so_bz_imm_1",
+          "name_ur": "ہلدی آنولہ",
+          "name_en": "Turmeric Amla",
+          "desc_ur": "آنولہ جوس، ہلدی — قوت مدافعت",
+          "desc_en": "Amla juice with turmeric — immune protection",
+          "benefit_ur": "سوزش اور وٹامن",
+          "benefit_en": "Anti-inflammation and vitamins",
+          "science": "Vitamin C in amla regenerates vitamin E, which regenerates glutathione — creating a synergistic antioxidant cascade particularly important for elderly oxidative stress management.",
+          "local_name": "آنولہ ہلدی",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "so_bz_avo_1",
+          "name_ur": "بہت تیز مسالہ",
+          "name_en": "Very Spicy Food",
+          "desc_ur": "بہار میں تیز مسالے کم کریں",
+          "desc_en": "Reduce spicy foods in spring",
+          "reason_ur": "معدے پر زور",
+          "reason_en": "Spicy foods stress elderly stomach lining in season transition",
+          "alternative_ur": "ہلکے مسالے اور تازہ جڑی بوٹیاں",
+          "alternative_en": "Mild spices and fresh herbs",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    }
+  },
+  "wahaar": {
+    "bacha": {
+      "morning": [
+        {
+          "id": "wa_b_mor_1",
+          "name_ur": "تازہ پھل",
+          "name_en": "Fresh Fruits",
+          "desc_ur": "وہار کے پھل — سیب، چیری، خوبانی",
+          "desc_en": "Spring fruits — apple, cherry, apricot",
+          "benefit_ur": "قدرتی مٹھاس اور وٹامن",
+          "benefit_en": "Natural vitamins and energy",
+          "science": "Kashmir apricots (zardaalu) contain beta-carotene that converts to vitamin A, supporting eye health and immune function in children during the pleasant season.",
+          "local_name": "زردالو",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "id": "wa_b_mor_2",
+          "name_ur": "دہی کا ناشتہ",
+          "name_en": "Yogurt Breakfast",
+          "desc_ur": "دہی، شہد، میوے — گرمی کی صبح",
+          "desc_en": "Yogurt with honey and nuts for pleasant morning",
+          "benefit_ur": "پروبائیوٹک اور توانائی",
+          "benefit_en": "Probiotics and energy for outdoor play",
+          "science": "Yogurt probiotics establish a healthy gut that reduces summer allergy responses. Wahaar is the critical window to seed microbiome diversity before hot Grind season.",
+          "local_name": "دہی",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "wa_b_aft_1",
+          "name_ur": "چاول دال",
+          "name_en": "Rice and Dal",
+          "desc_ur": "سادہ چاول، دال — پلیسینٹ سیزن کا کھانا",
+          "desc_en": "Simple rice and dal — pleasant season lunch",
+          "benefit_ur": "مکمل پروٹین",
+          "benefit_en": "Complete protein combination",
+          "science": "Rice and lentils together provide all 9 essential amino acids. During Wahaar's outdoor activities, children need complete protein for muscle recovery.",
+          "local_name": "چاول دال",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1548943487-a2e4b43b6852?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "wa_b_eve_1",
+          "name_ur": "پھلوں کا رس",
+          "name_en": "Fresh Fruit Juice",
+          "desc_ur": "تازہ سیب یا خوبانی کا رس",
+          "desc_en": "Fresh apple or apricot juice",
+          "benefit_ur": "وٹامن اور ہاضمہ",
+          "benefit_en": "Vitamins and digestion",
+          "science": "Fresh fruit juices consumed in the evening provide fructose that liver converts to glycogen overnight, fueling the next day's outdoor activities for children.",
+          "local_name": "شربت",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "wa_b_imm_1",
+          "name_ur": "گلاب شربت",
+          "name_en": "Rose Sherbet",
+          "desc_ur": "کشمیری گلاب، شربت — موسم کی خوشبو",
+          "desc_en": "Kashmiri rose sherbet — taste of the season",
+          "benefit_ur": "وٹامن سی اور خوشی",
+          "benefit_en": "Vitamin C and seasonal joy",
+          "science": "Rose petals contain 20x more vitamin C than lemons. Kashmir's Damask roses are the world's highest quality; their quercetin content provides seasonal allergy protection.",
+          "local_name": "گلاب شربت",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "wa_b_avo_1",
+          "name_ur": "بہت میٹھا",
+          "name_en": "Excessive Sugar",
+          "desc_ur": "میٹھے مشروبات اور جوس بہت زیادہ نہ پیئیں",
+          "desc_en": "Don't over-consume sweet drinks in pleasant weather",
+          "reason_ur": "دانت اور وزن",
+          "reason_en": "Excessive sugar intake during outdoor season leads to dental decay and energy crashes",
+          "alternative_ur": "پانی اور تازہ پھل",
+          "alternative_en": "Water and whole fresh fruits",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "jawaan": {
+      "morning": [
+        {
+          "id": "wa_j_mor_1",
+          "name_ur": "سبز چائے لیموں",
+          "name_en": "Green Tea with Lemon",
+          "desc_ur": "تازہ صبح، سبز چائے — پلیسینٹ موسم",
+          "desc_en": "Fresh morning, green tea for pleasant season",
+          "benefit_ur": "میٹابولزم اور توجہ",
+          "benefit_en": "Metabolism and mental focus",
+          "science": "Catechins in green tea increase fat oxidation by 17% during moderate exercise — aligning with Wahaar's increased outdoor activity potential.",
+          "local_name": "سبز چائے",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "wa_j_aft_1",
+          "name_ur": "تبق ماز",
+          "name_en": "Tabak Maaz",
+          "desc_ur": "تلی ہوئی پسلیاں — کشمیر کی خاص ڈش",
+          "desc_en": "Fried ribs — Kashmiri specialty for festive season",
+          "benefit_ur": "پروٹین اور ہڈیاں",
+          "benefit_en": "Protein and bone health",
+          "science": "Rib bones provide hydroxyapatite and collagen precursors when slow-cooked. The fat-soluble vitamins D and K in lamb fat support bone density during active season.",
+          "local_name": "تبق ماز",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "wa_j_eve_1",
+          "name_ur": "لسی",
+          "name_en": "Lassi",
+          "desc_ur": "سادہ لسی یا شکر لسی — موسم کا مزہ",
+          "desc_en": "Plain or sweet lassi — season's delight",
+          "benefit_ur": "پروبائیوٹک اور پانی",
+          "benefit_en": "Probiotics and hydration",
+          "science": "Evening lassi consumption increases overnight probiotic colonization by 60% compared to morning consumption, as reduced gut motility at night extends bacteria-gut contact time.",
+          "local_name": "لسی",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "wa_j_imm_1",
+          "name_ur": "خوبانی",
+          "name_en": "Fresh Apricot",
+          "desc_ur": "کشمیری خوبانی — زردالو",
+          "desc_en": "Kashmir's golden apricot season",
+          "benefit_ur": "بیٹا کیروٹین اور آئرن",
+          "benefit_en": "Beta-carotene and iron",
+          "science": "Kashmiri apricots contain amygdalin (B17) in their seeds and 64% of daily vitamin A per 100g. Beta-carotene converts to vitamin A only as needed, preventing vitamin A toxicity.",
+          "local_name": "زردالو",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "wa_j_avo_1",
+          "name_ur": "زیادہ گوشت",
+          "name_en": "Excessive Meat",
+          "desc_ur": "موسم ہلکا ہے — گوشت کم کریں",
+          "desc_en": "Pleasant season calls for lighter protein balance",
+          "reason_ur": "گرمی بڑھ رہی ہے",
+          "reason_en": "Excessive meat generates metabolic heat inappropriate for warming season",
+          "alternative_ur": "دال اور مچھلی",
+          "alternative_en": "Lentils and fish for lighter protein",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "buzurg": {
+      "morning": [
+        {
+          "id": "wa_bz_mor_1",
+          "name_ur": "خوبانی دلیہ",
+          "name_en": "Apricot Porridge",
+          "desc_ur": "خوبانی، دلیہ، دودھ — موسم کا خاص",
+          "desc_en": "Apricot oat porridge with milk",
+          "benefit_ur": "آئرن اور وٹامن",
+          "benefit_en": "Iron and vitamins for elderly energy",
+          "science": "Apricot iron is non-heme but its co-occurring vitamin C dramatically improves absorption. Oat beta-glucan reduces elderly cholesterol by binding bile acids in the gut.",
+          "local_name": "دلیہ",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "wa_bz_aft_1",
+          "name_ur": "مچھلی یخنی",
+          "name_en": "Fish Yakhni",
+          "desc_ur": "ڈل جھیل کی مچھلی، دہی شوربہ",
+          "desc_en": "Dal Lake fish in yogurt broth",
+          "benefit_ur": "اومیگا تھری اور آسان ہضم",
+          "benefit_en": "Omega-3 and easy digestion for elderly",
+          "science": "Freshwater fish from Dal Lake have higher DHA content than farmed fish. DHA reduces Alzheimer's risk by 39% in elderly who consume fish 2+ times weekly.",
+          "local_name": "مچھلی یخنی",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1548943487-a2e4b43b6852?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "wa_bz_eve_1",
+          "name_ur": "ہلکی لسی",
+          "name_en": "Light Lassi",
+          "desc_ur": "تازہ لسی، پودینہ — شام کا سکون",
+          "desc_en": "Fresh lassi with mint — evening comfort",
+          "benefit_ur": "ہاضمہ اور ٹھنڈک",
+          "benefit_en": "Digestion and cooling",
+          "science": "Mint's menthol activates smooth muscle relaxation in the gut, reducing the cramping and bloating that can worsen in elderly during dietary transitions.",
+          "local_name": "لسی",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "wa_bz_imm_1",
+          "name_ur": "آنولہ چٹنی",
+          "name_en": "Amla Chutney",
+          "desc_ur": "تازہ آنولہ، پودینہ — وٹامن سی",
+          "desc_en": "Fresh amla with mint — vitamin C powerhouse",
+          "benefit_ur": "وٹامن سی اور قوت",
+          "benefit_en": "Highest vitamin C for elderly immunity",
+          "science": "Amla's vitamin C protects elderly telomeres from seasonal oxidative stress. Longer telomeres correlate with reduced age-related disease progression.",
+          "local_name": "آنولہ",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "wa_bz_avo_1",
+          "name_ur": "بہت میٹھا",
+          "name_en": "Excess Sweets",
+          "desc_ur": "بزرگوں کے لیے میٹھا کم",
+          "desc_en": "Elderly must limit sweets in warmer season",
+          "reason_ur": "ذیابیطس کا خطرہ",
+          "reason_en": "Reduced physical activity in elderly with sweet overindulgence risks blood sugar spikes",
+          "alternative_ur": "تازہ پھل اور خشک میوے",
+          "alternative_en": "Fresh fruits and dried nuts",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    }
+  },
+  "grind": {
+    "bacha": {
+      "morning": [
+        {
+          "id": "gr_b_mor_1",
+          "name_ur": "ستو شربت",
+          "name_en": "Sattu Sherbet",
+          "desc_ur": "بھنی جئی، شربت، لیموں — گرمی کا بچاؤ",
+          "desc_en": "Roasted barley flour sherbet with lemon — summer cooling",
+          "benefit_ur": "گرمی سے بچاؤ",
+          "benefit_en": "Natural cooling for peak summer",
+          "science": "Barley's high silicon content regulates body temperature by improving perspiration efficiency. The electrolytes in sattu prevent heat exhaustion in active children.",
+          "local_name": "ستو",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "id": "gr_b_mor_2",
+          "name_ur": "تربوز",
+          "name_en": "Watermelon",
+          "desc_ur": "گرند کا سرخ تربوز — 92% پانی",
+          "desc_en": "Grind season watermelon — 92% water content",
+          "benefit_ur": "پانی کی ضرورت پوری",
+          "benefit_en": "Hydration for outdoor summer activities",
+          "science": "Watermelon's L-citrulline converts to L-arginine which dilates blood vessels, improving body heat dissipation by 15% — critical for children in peak Kashmir summer.",
+          "local_name": "تربوز",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "gr_b_aft_1",
+          "name_ur": "دال چاول",
+          "name_en": "Dal Chawal",
+          "desc_ur": "ہلکی دال، چاول — گرمی میں ہلکا",
+          "desc_en": "Light dal and rice — appropriate for summer heat",
+          "benefit_ur": "توانائی بغیر گرمی",
+          "benefit_en": "Energy without generating body heat",
+          "science": "Lentils' thermic effect of food (TEF) is 20% vs 30% for meat — they generate less metabolic heat during digestion, keeping children cooler in Grind season.",
+          "local_name": "دال چاول",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1548943487-a2e4b43b6852?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "gr_b_eve_1",
+          "name_ur": "لسی پودینہ",
+          "name_en": "Mint Lassi",
+          "desc_ur": "ٹھنڈی لسی، پودینہ — گرمی کا علاج",
+          "desc_en": "Cold lassi with mint — summer relief",
+          "benefit_ur": "ٹھنڈک اور پروبائیوٹک",
+          "benefit_en": "Cooling and gut health",
+          "science": "Lassi's lactic acid and mint's menthol create dual cooling: metabolic cooling from the acid and sensory cooling from menthol — most effective summer beverage combination.",
+          "local_name": "لسی",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "gr_b_imm_1",
+          "name_ur": "پودینہ شربت",
+          "name_en": "Mint Sherbet",
+          "desc_ur": "تازہ پودینہ، لیموں، شہد",
+          "desc_en": "Fresh mint, lemon, honey sherbet",
+          "benefit_ur": "ہیٹ اسٹروک سے بچاؤ",
+          "benefit_en": "Heat stroke prevention",
+          "science": "Mint's rosmarinic acid prevents heat-induced oxidative stress that suppresses immune function in summer. Children's smaller body mass makes them especially vulnerable.",
+          "local_name": "پودینہ شربت",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "gr_b_avo_1",
+          "name_ur": "تلا کھانا",
+          "name_en": "Fried Foods",
+          "desc_ur": "گرمی میں تلا کھانا نہ دیں",
+          "desc_en": "No fried foods in peak summer heat",
+          "reason_ur": "جسم کی گرمی بڑھتی ہے",
+          "reason_en": "Fried foods increase metabolic heat generation and slow summer digestion",
+          "alternative_ur": "ابلا یا بھاپ کا کھانا",
+          "alternative_en": "Boiled or steamed food only",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "jawaan": {
+      "morning": [
+        {
+          "id": "gr_j_mor_1",
+          "name_ur": "ستو شربت",
+          "name_en": "Sattu Sherbet",
+          "desc_ur": "گرمی کا مشروب — روزانہ صبح",
+          "desc_en": "Summer cooling drink — daily morning ritual",
+          "benefit_ur": "الیکٹرولائٹ اور توانائی",
+          "benefit_en": "Electrolytes and sustained energy",
+          "science": "Sattu provides 22g protein per 100g with cooling effect (negative thermogenic index), making it unique among protein sources suitable for summer physical work.",
+          "local_name": "ستو",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        },
+        {
+          "id": "gr_j_mor_2",
+          "name_ur": "تربوز ناشتہ",
+          "name_en": "Watermelon Breakfast",
+          "desc_ur": "صبح کا تربوز — پانی اور لائکوپین",
+          "desc_en": "Morning watermelon — water and lycopene",
+          "benefit_ur": "گرمی سے تحفظ",
+          "benefit_en": "Heat and sun damage protection",
+          "science": "Lycopene in red watermelon absorbs UV radiation that penetrates skin, providing internal sun protection factor equivalent to SPF 3. Critical for outdoor Kashmir summer workers.",
+          "local_name": "تربوز",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "gr_j_aft_1",
+          "name_ur": "مچھلی تاوہ",
+          "name_en": "Tawa Fish",
+          "desc_ur": "ڈل جھیل مچھلی، مسالے، پین میں پکی",
+          "desc_en": "Dal Lake fish cooked on tawa with spices",
+          "benefit_ur": "اومیگا تھری اور ہلکی غذا",
+          "benefit_en": "Omega-3 and light summer protein",
+          "science": "Fish protein has the lowest TEF (thermic effect) among animal proteins at 20-30%, generating 50% less metabolic heat than beef — ideal for hot summer digestion.",
+          "local_name": "مچھلی",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "gr_j_eve_1",
+          "name_ur": "ٹھنڈی لسی",
+          "name_en": "Cold Lassi",
+          "desc_ur": "شام کی ٹھنڈی لسی — گرمی کا اختتام",
+          "desc_en": "Cold lassi to end the hot day",
+          "benefit_ur": "ریکوری اور ٹھنڈک",
+          "benefit_en": "Recovery and cooling down",
+          "science": "Post-heat-exposure probiotic intake increases gut mucosal integrity by 45%, protecting against the intestinal permeability (leaky gut) that worsens in hot environments.",
+          "local_name": "لسی",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "gr_j_imm_1",
+          "name_ur": "آم پانی",
+          "name_en": "Aam Panna",
+          "desc_ur": "کچا آم، پودینہ، بھنا زیرہ",
+          "desc_en": "Raw mango cooler with mint and roasted cumin",
+          "benefit_ur": "ہیٹ اسٹروک سے بچاؤ",
+          "benefit_en": "Heat stroke prevention and electrolytes",
+          "science": "Raw mango contains malic acid that protects against heat shock proteins that cause cellular damage during sustained heat. Traditional Kashmiri wisdom confirmed by biochemistry.",
+          "local_name": "کچا آم",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "gr_j_avo_1",
+          "name_ur": "ہریسہ یا بریانی",
+          "name_en": "Heavy Winter Dishes",
+          "desc_ur": "گرمی میں ہریسہ یا بریانی بالکل نہ کھائیں",
+          "desc_en": "Absolutely avoid heavy thermogenic dishes in Grind",
+          "reason_ur": "جسم کی گرمی خطرناک",
+          "reason_en": "High-calorie thermogenic foods can trigger heat exhaustion in peak summer",
+          "alternative_ur": "مچھلی، دال، سبزی",
+          "alternative_en": "Fish, dal, and vegetables only",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "buzurg": {
+      "morning": [
+        {
+          "id": "gr_bz_mor_1",
+          "name_ur": "ستو شربت ہلکا",
+          "name_en": "Light Sattu",
+          "desc_ur": "آدھی مقدار ستو، زیادہ پانی — بزرگوں کے لیے",
+          "desc_en": "Half-strength sattu, more water for elderly",
+          "benefit_ur": "گرمی سے بچاؤ",
+          "benefit_en": "Heat protection for elderly",
+          "science": "Elderly are at 4x higher risk of heat stroke due to impaired thermoregulation. Sattu's cooling electrolytes support the struggling sweating mechanism in elderly.",
+          "local_name": "ستو",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "gr_bz_aft_1",
+          "name_ur": "مونگ دال سوپ",
+          "name_en": "Moong Dal Soup",
+          "desc_ur": "پتلی مونگ دال، زیرہ — ہلکی غذا",
+          "desc_en": "Thin moong dal soup with cumin — lightest summer meal",
+          "benefit_ur": "پروٹین اور پانی",
+          "benefit_en": "Protein and hydration in one dish",
+          "science": "Moong dal's 25% water content combined with its easy digestion (30-minute gastric emptying vs 2+ hours for meat) prevents the post-meal energy drain in summer elderly.",
+          "local_name": "مونگ دال",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1548943487-a2e4b43b6852?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "gr_bz_eve_1",
+          "name_ur": "پودینہ لسی",
+          "name_en": "Mint Lassi",
+          "desc_ur": "ٹھنڈی لسی، پودینہ — شام کی ٹھنڈک",
+          "desc_en": "Cold mint lassi — evening cooling ritual",
+          "benefit_ur": "ہاضمہ اور درجہ حرارت",
+          "benefit_en": "Digestion and temperature regulation",
+          "science": "Elderly cardiovascular systems struggle with summer heat. Lassi's potassium (141mg/cup) supports cardiac function that must work harder during heat stress.",
+          "local_name": "لسی",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "gr_bz_imm_1",
+          "name_ur": "تربوز کا رس",
+          "name_en": "Watermelon Juice",
+          "desc_ur": "تازہ تربوز کا رس — قدرتی کولر",
+          "desc_en": "Fresh watermelon juice — natural cooler",
+          "benefit_ur": "ہیٹ پروٹیکشن",
+          "benefit_en": "Heat protection for elderly",
+          "science": "Watermelon's citrulline converts to arginine which supports kidney filtration function — crucial for elderly who are at risk of acute kidney injury during summer heat.",
+          "local_name": "تربوز",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "gr_bz_avo_1",
+          "name_ur": "باہر دوپہر",
+          "name_en": "Outdoor Midday Activity",
+          "desc_ur": "گرمی میں دوپہر باہر مت نکلیں",
+          "desc_en": "Elderly must avoid outdoor activity 11AM-4PM in Grind",
+          "reason_ur": "ہیٹ اسٹروک کا خطرہ",
+          "reason_en": "Peak summer heat is life-threatening for elderly with impaired thermoregulation",
+          "alternative_ur": "صبح یا شام کی سیر",
+          "alternative_en": "Morning or evening walks only",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    }
+  },
+  "harud": {
+    "bacha": {
+      "morning": [
+        {
+          "id": "ha_b_mor_1",
+          "name_ur": "سیب",
+          "name_en": "Kashmir Apple",
+          "desc_ur": "ہرد کا سیب — خوشبو اور ذائقہ",
+          "desc_en": "Autumn apple — the aroma of harvest",
+          "benefit_ur": "وٹامن اور فائبر",
+          "benefit_en": "Vitamins and fiber for autumn",
+          "science": "Autumn Kashmiri apples have 30% higher polyphenol content than spring-harvested varieties due to cold-stress-induced anthocyanin accumulation. Peak nutritional value now.",
+          "local_name": "چونت",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "ha_b_aft_1",
+          "name_ur": "شلغم یخنی",
+          "name_en": "Turnip Yakhni",
+          "desc_ur": "تازہ شلغم، دہی شوربہ — ہرد کا کھانا",
+          "desc_en": "Fresh turnip in yogurt broth — autumn meal",
+          "benefit_ur": "معدنیات اور گرمی",
+          "benefit_en": "Minerals and beginning warmth",
+          "science": "Autumn turnips accumulate more glucosinolates as temperature drops. These compounds boost liver detoxification enzymes, clearing summer's metabolic residue.",
+          "local_name": "گوگجی یخنی",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1548943487-a2e4b43b6852?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "ha_b_eve_1",
+          "name_ur": "کہوا ہلکا",
+          "name_en": "Light Kahwa",
+          "desc_ur": "ہرد میں کہوا واپس — سردی آ رہی ہے",
+          "desc_en": "Kahwa returns in autumn — cold approaching",
+          "benefit_ur": "گرمی کی واپسی",
+          "benefit_en": "Returning warmth as cold approaches",
+          "science": "Reintroducing kahwa in Harud acclimatizes the body's thermogenic responses before winter arrives — a traditional preventative measure now supported by circadian biology research.",
+          "local_name": "کہوا",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "ha_b_imm_1",
+          "name_ur": "اخروٹ",
+          "name_en": "Walnuts",
+          "desc_ur": "ہرد کے اخروٹ — سردی کی تیاری",
+          "desc_en": "Autumn walnuts — preparing for winter",
+          "benefit_ur": "اومیگا تھری شروع",
+          "benefit_en": "Start building omega-3 stores for winter",
+          "science": "ALA in walnuts is converted to DHA over 4-6 weeks. Starting in Harud ensures brain DHA levels are optimal when Chilla Kalan's extreme cold causes cognitive stress.",
+          "local_name": "دود کانگ",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1572358826727-b50106a735c0?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "ha_b_avo_1",
+          "name_ur": "ٹھنڈی لسی",
+          "name_en": "Cold Lassi",
+          "desc_ur": "ہرد میں ٹھنڈی لسی بند کریں",
+          "desc_en": "Stop cold lassi as autumn arrives",
+          "reason_ur": "سردی آ رہی ہے",
+          "reason_en": "Cold dairy in autumn increases mucus production before winter respiratory season",
+          "alternative_ur": "گرم دودھ یا کہوا",
+          "alternative_en": "Warm milk or kahwa",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "jawaan": {
+      "morning": [
+        {
+          "id": "ha_j_mor_1",
+          "name_ur": "کہوا",
+          "name_en": "Kahwa",
+          "desc_ur": "ہرد میں کہوا واپس آ گیا",
+          "desc_en": "Kahwa returns for autumn season",
+          "benefit_ur": "توانائی اور گرمی",
+          "benefit_en": "Energy and warmth for autumn",
+          "science": "Autumn's decreasing daylight reduces serotonin production by 30%. Green tea's L-theanine crosses the blood-brain barrier and boosts serotonin, reducing autumn mood dip.",
+          "local_name": "کہوا",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "ha_j_aft_1",
+          "name_ur": "مٹن کالیا",
+          "name_en": "Mutton Kalia",
+          "desc_ur": "ہلدی مٹن — ہرد کا گرم کھانا",
+          "desc_en": "Turmeric mutton — autumn warming dish",
+          "benefit_ur": "آئرن اور سوزش",
+          "benefit_en": "Iron and anti-inflammation for autumn",
+          "science": "Mutton's zinc and iron rebuild immune reserves depleted during summer's heat stress. Turmeric's curcumin reduces the systemic inflammation that peaks at seasonal transitions.",
+          "local_name": "کالیا",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "ha_j_eve_1",
+          "name_ur": "نون چائے",
+          "name_en": "Noon Chai",
+          "desc_ur": "شام کی گلابی چائے واپس",
+          "desc_en": "Pink tea returns for autumn evenings",
+          "benefit_ur": "گرمی اور سکون",
+          "benefit_en": "Warmth and comfort",
+          "science": "Noon chai's warming ritual in autumn has documented effects on reducing Seasonal Affective Disorder (SAD) through both sensory warmth and the social ritual of sharing.",
+          "local_name": "نون چائے",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "ha_j_imm_1",
+          "name_ur": "ادرک ہلدی زعفران",
+          "name_en": "Ginger Turmeric Saffron",
+          "desc_ur": "تینوں مصالحوں کا کاڑھا — ہرد کی قوت مدافعت",
+          "desc_en": "Triple immunity decoction — Harud preparation",
+          "benefit_ur": "سردی سے پہلے تیاری",
+          "benefit_en": "Pre-winter immune priming",
+          "science": "6-gingerol, curcumin, and crocin together target three different inflammatory pathways simultaneously. This combination has 3x the anti-inflammatory effect of any single compound alone.",
+          "local_name": "کاڑھا",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1620015525531-bc6a0bc98910?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "ha_j_avo_1",
+          "name_ur": "گرمی کا کھانا",
+          "name_en": "Summer Foods",
+          "desc_ur": "ستو اور ٹھنڈی غذا بند کریں",
+          "desc_en": "Phase out sattu and cooling summer foods",
+          "reason_ur": "موسم بدل رہا ہے",
+          "reason_en": "Summer cooling foods are inappropriate as temperatures drop in Harud",
+          "alternative_ur": "ہرد کی گرم غذاؤں پر جائیں",
+          "alternative_en": "Transition to warming autumn foods",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "buzurg": {
+      "morning": [
+        {
+          "id": "ha_bz_mor_1",
+          "name_ur": "ادرک کہوا",
+          "name_en": "Ginger Kahwa",
+          "desc_ur": "ادرک کے ساتھ کہوا — ہرد کی گرمی",
+          "desc_en": "Kahwa with ginger for autumn warming",
+          "benefit_ur": "جوڑ درد اور توانائی",
+          "benefit_en": "Joint pain relief and energy",
+          "science": "Elderly joint pain worsens 40% in autumn due to barometric pressure changes. Ginger's shogaol compounds reduce inflammatory cytokines triggered by pressure changes.",
+          "local_name": "کہوا",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "ha_bz_aft_1",
+          "name_ur": "چکن یخنی",
+          "name_en": "Chicken Yakhni",
+          "desc_ur": "ہلکا مرغی شوربہ — بزرگوں کا کھانا",
+          "desc_en": "Light chicken broth — gentle autumn protein",
+          "benefit_ur": "پروٹین اور ہاضمہ",
+          "benefit_en": "Protein and easy digestion",
+          "science": "Chicken yakhni's carnosine and glycine support mitochondrial function that declines in elderly during autumn's reduced light exposure and lowered physical activity.",
+          "local_name": "یخنی",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1548943487-a2e4b43b6852?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "ha_bz_eve_1",
+          "name_ur": "ہلدی دودھ",
+          "name_en": "Turmeric Milk",
+          "desc_ur": "گرم دودھ ہلدی — ہرد کی رات",
+          "desc_en": "Warm turmeric milk — autumn nights",
+          "benefit_ur": "نیند اور سوزش",
+          "benefit_en": "Sleep and anti-inflammation for autumn",
+          "science": "Autumn's circadian rhythm shift causes melatonin production to begin 2 hours earlier. Turmeric milk synergizes with this shift, improving elderly sleep efficiency by 20%.",
+          "local_name": "ہلدی دودھ",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "ha_bz_imm_1",
+          "name_ur": "زعفران اخروٹ",
+          "name_en": "Saffron Walnut",
+          "desc_ur": "دو اخروٹ، زعفران شہد — ہرد کی قوت",
+          "desc_en": "Two walnuts with saffron honey — autumn strength",
+          "benefit_ur": "دماغ اور قوت مدافعت",
+          "benefit_en": "Brain and immune protection before winter",
+          "science": "Walnut polyphenols and saffron crocin both cross the blood-brain barrier, providing neuroprotection during the cognitive challenges elderly face in decreasing daylight hours.",
+          "local_name": "اخروٹ زعفران",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1572358826727-b50106a735c0?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "ha_bz_avo_1",
+          "name_ur": "ٹھنڈا کھانا",
+          "name_en": "Cold Foods",
+          "desc_ur": "ہرد میں ٹھنڈی غذا بالکل نہ کھائیں",
+          "desc_en": "No cold foods as Harud begins",
+          "reason_ur": "بزرگوں کا جسم جلدی ٹھنڈا ہوتا ہے",
+          "reason_en": "Elderly thermoregulation is impaired; cold foods accelerate heat loss disproportionately",
+          "alternative_ur": "ہمیشہ گرم کھانا",
+          "alternative_en": "Always warm food from Harud onwards",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    }
+  },
+  "early_winter": {
+    "bacha": {
+      "morning": [
+        {
+          "id": "ew_b_mor_1",
+          "name_ur": "کہوا",
+          "name_en": "Kahwa",
+          "desc_ur": "سردی شروع — کہوا ضروری",
+          "desc_en": "Winter begins — kahwa essential again",
+          "benefit_ur": "گرمی اور قوت",
+          "benefit_en": "Warmth and immunity as cold begins",
+          "science": "Increasing kahwa strength from Harud to Early Winter mirrors the body's increasing thermogenic demand. The gradual ramp up prepares metabolic pathways for Chilla Kalan.",
+          "local_name": "کہوا",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "ew_b_aft_1",
+          "name_ur": "ہریسہ شروع",
+          "name_en": "Beginning Harissa Season",
+          "desc_ur": "اب ہریسہ مناسب ہے — سردی کی شروعات",
+          "desc_en": "Now appropriate to start harissa — winter beginning",
+          "benefit_ur": "سردی کی تیاری",
+          "benefit_en": "Preparing body for winter cold",
+          "science": "Reintroducing thermogenic foods in Early Winter pre-activates brown adipose tissue thermogenesis before peak cold, reducing cold-shock response in Chilla Kalan.",
+          "local_name": "ہریسہ",
+          "season_fit": 8,
+          "image_url": "https://images.unsplash.com/photo-1544025162-8111142154ea?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "ew_b_eve_1",
+          "name_ur": "نون چائے",
+          "name_en": "Noon Chai",
+          "desc_ur": "شام کی گلابی چائے — اب روزانہ",
+          "desc_en": "Evening pink tea — now daily ritual",
+          "benefit_ur": "گرمی اور سکون",
+          "benefit_en": "Warmth and comfort",
+          "science": "Establishing the noon chai evening ritual in Early Winter creates physiological and psychological warming associations that buffer cold-stress responses throughout winter.",
+          "local_name": "نون چائے",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "ew_b_imm_1",
+          "name_ur": "تلسی ادرک شہد",
+          "name_en": "Tulsi Ginger Honey",
+          "desc_ur": "سردی شروع — قوت مدافعت شروع کریں",
+          "desc_en": "Winter starting — begin immunity protocol",
+          "benefit_ur": "سردی سے پہلے تیاری",
+          "benefit_en": "Pre-winter immune activation",
+          "science": "Starting immunity herbs 2-3 weeks before peak cold season optimizes their adaptive immune priming effects. Early Winter is the critical window to initiate winter health protocols.",
+          "local_name": "کاڑھا",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1596541604605-720d750ecad3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "ew_b_avo_1",
+          "name_ur": "سرد مشروبات",
+          "name_en": "Cold Beverages",
+          "desc_ur": "اب کوئی ٹھنڈا مشروب نہیں",
+          "desc_en": "No more cold beverages — winter protocol begins",
+          "reason_ur": "سردی کا موسم آ گیا",
+          "reason_en": "Cold season onset makes cold beverages a throat inflammation risk for children",
+          "alternative_ur": "صرف گرم مشروبات",
+          "alternative_en": "Only warm beverages from now",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "jawaan": {
+      "morning": [
+        {
+          "id": "ew_j_mor_1",
+          "name_ur": "کہوا",
+          "name_en": "Full Kahwa",
+          "desc_ur": "مکمل طاقت کا کہوا — ابتدائی سردی",
+          "desc_en": "Full-strength kahwa for early winter",
+          "benefit_ur": "توانائی اور گرمی",
+          "benefit_en": "Energy and warmth",
+          "science": "Cardamom's 1,8-cineole compound enhances blood flow to extremities by 15%, counteracting the vasoconstriction that causes cold hands and feet in early winter.",
+          "local_name": "کہوا",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "ew_j_aft_1",
+          "name_ur": "روگن جوش",
+          "name_en": "Rogan Josh",
+          "desc_ur": "سردی میں مٹن واپس — روگن جوش",
+          "desc_en": "Mutton returns with cold — rogan josh",
+          "benefit_ur": "گرمی اور پروٹین",
+          "benefit_en": "Warmth and protein for cold season",
+          "science": "Rogan josh's 40% fat content activates PPARα receptors that upregulate fat oxidation for heat production — preparing the body for the thermogenic demands of approaching Chilla Kalan.",
+          "local_name": "روگن جوش",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1544025162-8111142154ea?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "ew_j_eve_1",
+          "name_ur": "نون چائے",
+          "name_en": "Noon Chai",
+          "desc_ur": "ملائی کے ساتھ — ابتدائی سردی",
+          "desc_en": "With cream — early winter warming",
+          "benefit_ur": "گرمی اور الیکٹرولائٹ",
+          "benefit_en": "Warmth and electrolytes",
+          "science": "Cream's fatty acids in noon chai provide 9 kcal/g versus tea's minimal calories, providing sustained warmth through evening hours when early winter cold descends quickly.",
+          "local_name": "نون چائے",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "ew_j_imm_1",
+          "name_ur": "زعفران دودھ",
+          "name_en": "Saffron Milk",
+          "desc_ur": "زعفران دودھ روزانہ — سردی کی تیاری",
+          "desc_en": "Saffron milk daily — winter preparation",
+          "benefit_ur": "قوت مدافعت اور نیند",
+          "benefit_en": "Immunity and sleep for cold season",
+          "science": "Three weeks of daily saffron milk consumption before Chilla Kalan raises blood crocin levels to concentrations that demonstrate antiviral activity in clinical studies.",
+          "local_name": "زعفران دودھ",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1620015525531-bc6a0bc98910?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "ew_j_avo_1",
+          "name_ur": "گرمی کی عادات",
+          "name_en": "Summer Habits",
+          "desc_ur": "ٹھنڈا پانی، لسی، ستو — سردی میں بند",
+          "desc_en": "Cold water, lassi, sattu — stop in winter",
+          "reason_ur": "موسم بدل گیا",
+          "reason_en": "Summer cooling foods impair the body's developing winter thermogenic adaptation",
+          "alternative_ur": "گرم مشروبات اور گرم کھانا",
+          "alternative_en": "Switch completely to warm food and drinks",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    },
+    "buzurg": {
+      "morning": [
+        {
+          "id": "ew_bz_mor_1",
+          "name_ur": "ادرک کہوا",
+          "name_en": "Ginger Kahwa",
+          "desc_ur": "بزرگوں کے لیے ادرک کہوا — ضروری",
+          "desc_en": "Ginger kahwa essential for elderly in early winter",
+          "benefit_ur": "جوڑ درد اور گرمی",
+          "benefit_en": "Joint pain and warmth",
+          "science": "Early winter is the highest-risk period for elderly joint inflammation as barometric pressure drops rapidly. Daily ginger reduces pain scores by 40% in osteoarthritis studies.",
+          "local_name": "کہوا",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "afternoon": [
+        {
+          "id": "ew_bz_aft_1",
+          "name_ur": "ہریسہ سوپ",
+          "name_en": "Harissa Soup",
+          "desc_ur": "پتلا ہریسہ شوربہ — بزرگوں کے لیے",
+          "desc_en": "Diluted harissa broth — elderly winter formula",
+          "benefit_ur": "پروٹین اور گرمی",
+          "benefit_en": "Protein and warmth for winter",
+          "science": "Bone broth's collagen peptides (Pro-Hyp dipeptides) are absorbed intact and stimulate synovial fibroblasts to produce hyaluronic acid, lubricating arthritic joints for winter.",
+          "local_name": "یخنی",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1544025162-8111142154ea?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "evening": [
+        {
+          "id": "ew_bz_eve_1",
+          "name_ur": "ہلدی دودھ",
+          "name_en": "Turmeric Milk",
+          "desc_ur": "گرم دودھ ہلدی — سردی کی رات",
+          "desc_en": "Turmeric milk — cold winter nights begin",
+          "benefit_ur": "سوزش اور نیند",
+          "benefit_en": "Anti-inflammation and sleep quality",
+          "science": "Curcumin inhibits amyloid-beta plaque formation that worsens during cold-induced cognitive stress in elderly. Turmeric milk is both a sleep aid and a neuroprotective intervention.",
+          "local_name": "ہلدی دودھ",
+          "season_fit": 9,
+          "image_url": "https://images.unsplash.com/photo-1414235077428-3389886f6220?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "immunity": [
+        {
+          "id": "ew_bz_imm_1",
+          "name_ur": "زعفران ادرک شہد",
+          "name_en": "Saffron Ginger Honey",
+          "desc_ur": "تینوں کا مرکب — بزرگ سردی پروٹوکول",
+          "desc_en": "Triple combination — elderly winter immune protocol",
+          "benefit_ur": "مکمل بزرگ قوت مدافعت",
+          "benefit_en": "Complete elderly winter immunity",
+          "science": "This combination provides: safranal (antiviral), shogaol (anti-inflammatory), and hydrogen peroxide (antibacterial) — three complementary mechanisms targeting all winter pathogen threats.",
+          "local_name": "زعفران ادرک شہد",
+          "season_fit": 10,
+          "image_url": "https://images.unsplash.com/photo-1620015525531-bc6a0bc98910?auto=format&fit=crop&q=80&w=800"
+        }
+      ],
+      "avoid": [
+        {
+          "id": "ew_bz_avo_1",
+          "name_ur": "ٹھنڈی غذا",
+          "name_en": "Cold Food",
+          "desc_ur": "بزرگوں کے لیے اب ٹھنڈی غذا بالکل نہیں",
+          "desc_en": "Elderly must completely eliminate cold foods in early winter",
+          "reason_ur": "جسم کا درجہ حرارت کمزور",
+          "reason_en": "Elderly thermoregulation cannot afford cold food energy drain in dropping temperatures",
+          "alternative_ur": "سب گرم — بغیر استثنا",
+          "alternative_en": "Everything warm — no exceptions",
+          "image_url": "https://images.unsplash.com/photo-1584288003444-4cd0f47e090b?auto=format&fit=crop&q=80&w=800"
+        }
+      ]
+    }
+  }
+}

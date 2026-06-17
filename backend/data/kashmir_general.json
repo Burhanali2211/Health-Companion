@@ -1,0 +1,28 @@
+{
+  "facts": [
+    {
+      "topic": "geography",
+      "text_en": "Kashmir is a Himalayan valley region in the northernmost part of the Indian subcontinent, known for its mountains, lakes (Dal Lake, Wular Lake), and the Jhelum river. Srinagar is its largest city and summer capital."
+    },
+    {
+      "topic": "climate",
+      "text_en": "Kashmir has a temperate climate with a distinct, locally-named eight-season calendar (the Kashmiri Ruth system): Chilla Kalan, Chilla Khurd, Chilla Bachha, Sonth, Wahaar, Grind, Harud, and Early Winter, used to track agriculture, food, and health practices."
+    },
+    {
+      "topic": "culture",
+      "text_en": "Kashmiri culture blends Persian, Central Asian, and South Asian influences, visible in cuisine (Wazwan feast, Noon Chai, Kahwa), handicrafts (Pashmina, papier-mache, carpets), and the Koshur (Kashmiri) language alongside Urdu."
+    },
+    {
+      "topic": "food_tradition",
+      "text_en": "Traditional Kashmiri food emphasizes warming, seasonally-adapted ingredients: mutton-based dishes, haak (collard greens), turnips, dried vegetables for winter, walnuts, saffron, and dried fruits, reflecting centuries of adaptation to long, cold winters."
+    },
+    {
+      "topic": "winter_heating_tradition",
+      "text_en": "The kangri (a portable wicker-covered earthen firepot) is a traditional Kashmiri winter heating method, carried under loose clothing (pheran) for warmth; it requires ventilation and care due to carbon monoxide risk."
+    },
+    {
+      "topic": "scope_note",
+      "text_en": "Watan Sehat is a Kashmir-focused health companion. It can share general factual context about Kashmir's geography, seasons, food culture, and traditions when relevant to a health or wellness question, but does not take positions on Kashmir's political status or contested history."
+    }
+  ]
+}

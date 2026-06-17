@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  /* Creamy gradient matching the Crextio reference */
+  background: radial-gradient(circle at top right, #F8ECCC 0%, #F1E9DC 30%, #E3E5DF 100%);
+  color: #1A1A1A;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.015em;
+}
+
+.urdu, .koshur {
+  font-family: 'Noto Nastaliq Urdu', serif;
+  direction: rtl;
+  unicode-bidi: isolate;
+}
+
+.font-latin {
+  font-family: 'Inter', sans-serif;
+  direction: ltr;
+}
+
+/* Completely Hide Scrollbars for Kiosk Mode */
+::-webkit-scrollbar {
+  display: none;
+  width: 0px;
+  height: 0px;
+}
+
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* Base Reference UI Styles */
+.ref-card {
+  background: #FFFFFF;
+  border-radius: 32px;
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.04);
+}
+
+.ref-card-dark {
+  background: #2B2B2B;
+  border-radius: 32px;
+  color: #FFFFFF;
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.2);
+}
+
+.ref-btn {
+  transition: all 150ms ease;
+  cursor: pointer;
+  outline: none;
+}
+
+.ref-btn:active {
+  transform: scale(0.95);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: repeating-linear-gradient(to right, transparent, transparent 4px, #D4D4D4 4px, #D4D4D4 8px);
+}
