@@ -6,7 +6,7 @@ Serves all APIs offline-first with JSON data bundles.
 """
 
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import JSONResponse
@@ -132,16 +132,25 @@ async def companion_ask(body: dict) -> dict:
 
 # ─── Voice (STT placeholder — Whisper integration Week 3) ───────────
 @app.post("/api/voice/stt")
-async def voice_stt() -> dict:
-    return {
-        "status": "ok",
-        "data": {
-            "transcript": "",
-            "language_detected": "ur",
-            "confidence": 0.0,
-            "message": "Whisper STT will be integrated in Week 3"
+async def voice_stt(file: UploadFile = File(...)) -> dict:
+    from voice.stt import transcribe
+    try:
+        audio_bytes = await file.read()
+        result = transcribe(audio_bytes, language="auto")
+        return {
+            "status": "ok",
+            "data": {
+                "transcript": result["text"],
+                "language_detected": result["language"],
+                "confidence": result["confidence"],
+            }
         }
-    }
+    except Exception as e:
+        print(f"[stt] Error: {e}")
+        return {
+            "status": "error",
+            "message": str(e)
+        }
 
 
 # ─── Voice (TTS placeholder — Coqui integration Week 3) ─────────────

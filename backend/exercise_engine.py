@@ -11,9 +11,14 @@ def _load() -> dict:
     except FileNotFoundError:
         return {}
 
+def _normalize_season(season: str) -> str:
+    """Normalize season name: "Grind" → "grind", "Chilla Kalan" → "chilla_kalan"."""
+    return season.lower().replace(" ", "_")
+
 def get_season_lock(season: str) -> dict:
     lib = _load()
-    return lib.get("season_locks", {}).get(season, {"outdoor": True})
+    normalized = _normalize_season(season)
+    return lib.get("season_locks", {}).get(normalized, {"outdoor": True})
 
 def get_exercises(season: str, age_mode: str, exercise_type: str) -> list[dict] | None:
     """Returns None when outdoor is locked for this season."""
@@ -23,7 +28,8 @@ def get_exercises(season: str, age_mode: str, exercise_type: str) -> list[dict] 
             return None   # caller renders the lock overlay
 
     lib = _load()
-    return lib.get(season, {}).get(age_mode, {}).get(exercise_type, [])
+    normalized_season = _normalize_season(season)
+    return lib.get(normalized_season, {}).get(age_mode.lower(), {}).get(exercise_type.lower(), [])
 
 def get_exercise_types() -> list[str]:
     return ["indoor", "outdoor", "breathing", "morning"]

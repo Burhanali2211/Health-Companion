@@ -2,3 +2,9 @@
 /CLAUDE.md
 /files.zip
 /watan-sehat-PRD.md
+backend/.env
+frontend/.env
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store

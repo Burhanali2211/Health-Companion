@@ -1,0 +1,224 @@
+{
+  "qa_pairs": [
+    {
+      "id": "chilla_kalan_001",
+      "question_ur": "چلہ کلاں میں صحت کی کیا احتیاطیں کرنی چاہیئں؟",
+      "question_en": "What health precautions should I take during Chilla Kalan?",
+      "answer_ur": "چلہ کلاں میں انتہائی سردی ہوتی ہے۔ گرم کپڑے پہنیں، تھرمل انڈرگارمنٹس اور اون کے سویٹر استعمال کریں۔ دستانے، ٹوپی اور موزے ضروری ہیں۔ سردی کے وقت گھر سے کم نکلیں۔ تازہ پانی خوب پیں۔",
+      "answer_en": "Chilla Kalan brings extreme cold. Wear warm clothes including thermal underwear, woolen sweaters, hats, scarves, and thick socks. Protect extremities from frostbite. Stay indoors during peak cold hours (evening and early morning). Drink plenty of fluids and avoid prolonged exposure to cold air.",
+      "season": "Chilla Kalan",
+      "age_mode": "buzurg",
+      "category": "safety",
+      "source": "Kashmir Health Ministry"
+    },
+    {
+      "id": "chilla_kalan_002",
+      "question_ur": "چلہ کلاں میں بزرگ لوگوں کو کون سی بیماریاں ہو سکتی ہیں؟",
+      "question_en": "What diseases can elderly people get during Chilla Kalan?",
+      "answer_ur": "بزرگ افراد کو ہائپوتھرمیا (جسم کی گرمی کم ہونا)، فراسٹ بائٹ (انگلیوں کا منجمد ہونا)، اور سانس کی بیماریوں کا خطرہ ہے۔ دمہ اور برونکائٹس بھی بدتر ہو سکتے ہیں۔",
+      "answer_en": "Elderly people are at risk of hypothermia (body temperature dropping below 35°C), frostbite affecting fingers, toes, ears and nose, and respiratory infections. Pre-existing asthma and bronchitis often worsen during extreme cold.",
+      "season": "Chilla Kalan",
+      "age_mode": "buzurg",
+      "category": "health_risk",
+      "source": "Kashmir Health Ministry"
+    },
+    {
+      "id": "chilla_kalan_003",
+      "question_ur": "چلہ کلاں میں وزن کم ہو رہا ہے، کیا عام ہے؟",
+      "question_en": "Is weight loss normal during Chilla Kalan?",
+      "answer_ur": "ہاں، سردی میں جسم کو زیادہ توانائی کی ضرورت ہے۔ دن میں 3-4 بار کھانے کھائیں۔ گھی، تیل والی چیزیں، بادام، اخروٹ اور گوشت کھائیں۔ کیلوریز زیادہ ہونی چاہیئں۔",
+      "answer_en": "Yes, the body requires more energy in extreme cold. Eat 3-4 meals daily with calorie-dense foods. Include ghee, oils, nuts (almonds, walnuts), and meat dishes. Traditional Kashmiri wazwan dishes are ideal as they are protein-rich and high in calories.",
+      "season": "Chilla Kalan",
+      "age_mode": "jawaan",
+      "category": "nutrition",
+      "source": "Kashmir Nutrition Institute"
+    },
+    {
+      "id": "wazwan_001",
+      "question_ur": "وزوان کھانے کے کیا فوائد ہیں؟",
+      "question_en": "What are the health benefits of Wazwan?",
+      "answer_ur": "وزوان گوشت اور پروٹین سے بھرپور ہے۔ یہ جسم کو طاقت دیتا ہے، خاص کر سردی میں۔ لیکن یہ بہت زیادہ کیلوریز اور چکنائی والا ہے - سپتاہ میں 1-2 بار کھائیں۔",
+      "answer_en": "Wazwan is protein-rich and provides strength, especially during winter. Traditional Kashmiri meat dishes like Rogan Josh, Goshtaba, and Tabak Maaz are excellent for cold months. However, one wazwan meal contains about 3 days worth of calories, so enjoy it 1-2 times per week, not daily.",
+      "season": "Chilla Kalan",
+      "age_mode": "jawaan",
+      "category": "nutrition",
+      "source": "Kashmir Culinary Health Study"
+    },
+    {
+      "id": "wazwan_002",
+      "question_ur": "کڑی بیماری والوں کو وزوان کھانا چاہیے؟",
+      "question_en": "Should people with chronic diseases eat Wazwan?",
+      "answer_ur": "کلیوں (گردے) اور جگر کی بیماری والوں کو وزوان سے بچنا چاہیے کیونکہ اس میں بہت پروٹین اور چکنائی ہے۔ دل کی بیماری والوں کو محدود مقدار میں کھائیں - ہفتے میں صرف ایک بار۔",
+      "answer_en": "People with chronic kidney disease or liver disease should avoid Wazwan due to high protein and fat content. Those with heart disease should limit it to once weekly and choose lean meat options like Yakhni (meat broth) instead of fatty preparations.",
+      "season": "Chilla Kalan",
+      "age_mode": "buzurg",
+      "category": "health_restriction",
+      "source": "Kashmir Medical Association"
+    },
+    {
+      "id": "saffron_001",
+      "question_ur": "کشمیری زعفران کے صحت کے فوائد کیا ہیں؟",
+      "question_en": "What are the health benefits of Kashmiri Saffron?",
+      "answer_ur": "زعفران نیند بہتر کرتی ہے، ہاضمے میں مدد دیتی ہے، اور موڈ کو بہتر بناتی ہے۔ یہ بھولنے کی بیماری سے بچاتی ہے۔ کاہوہ (مسالہ چائے) میں زعفران بھاری کھانے کے بعد پیٹ کے لیے بہترین ہے۔",
+      "answer_en": "Kashmiri saffron improves sleep quality, aids digestion, and enhances mood through antioxidants. It contains vitamin C to boost immunity and prevent anemia. Traditional Kashmiri Kahwa (green tea with saffron and spices) is excellent after heavy meals to aid digestion and reduce bloating.",
+      "season": "all",
+      "age_mode": "all",
+      "category": "herbal_remedy",
+      "source": "Kashmir Traditional Medicine"
+    },
+    {
+      "id": "saffron_002",
+      "question_ur": "بزرگوں کے لیے زعفران کتنی مفید ہے؟",
+      "question_en": "How beneficial is saffron for elderly people?",
+      "answer_ur": "بزرگوں کے لیے زعفران بہت مفید ہے۔ یہ الزائمرز سے بچاتی ہے، یاداشت بہتر کرتی ہے، اور ڈپریشن میں مدد دیتی ہے۔ روزانہ کاہوہ میں زعفران کا استعمال بہترین ہے۔",
+      "answer_en": "Saffron is highly beneficial for elderly. It prevents Alzheimer's disease, improves memory, and helps with depression through dopamine enhancement. Daily consumption in Kashmiri Kahwa is recommended for cognitive health and mood improvement.",
+      "season": "all",
+      "age_mode": "buzurg",
+      "category": "herbal_remedy",
+      "source": "Kashmir Gerontology Institute"
+    },
+    {
+      "id": "walnut_001",
+      "question_ur": "اخروٹ کے صحت کے فوائد کیا ہیں؟",
+      "question_en": "What are the health benefits of walnuts?",
+      "answer_ur": "اخروٹ دل کے لیے بہترین ہے اور دماغ کو طاقت دیتی ہے۔ سردی میں روزانہ 5-7 اخروٹ کھائیں۔ یہ کم کیلوری میں زیادہ پروٹین دیتے ہیں۔",
+      "answer_en": "Walnuts are excellent for heart health and brain function. Consume 5-7 daily during winter months. They provide high protein with moderate calories, making them ideal for weight management while maintaining strength during Chilla Kalan.",
+      "season": "Chilla Kalan",
+      "age_mode": "all",
+      "category": "nutrition",
+      "source": "Kashmir Agricultural Health"
+    },
+    {
+      "id": "kasuri_methi_001",
+      "question_ur": "کسوری میتھی کے فوائد کیا ہیں؟",
+      "question_en": "What are the health benefits of Kasuri Methi?",
+      "answer_ur": "کسوری میتھی (سوکھی میتھی) شوگر کو کنٹرول کرتی ہے، کولیسٹرول کم کرتی ہے، اور ہاضمے میں مدد دیتی ہے۔ یہ جلد کی بیماریوں میں بھی مفید ہے۔ دال، سالن، اور روٹی میں ڈالیں۔",
+      "answer_en": "Kasuri Methi (dried fenugreek leaves) controls blood glucose, reduces cholesterol (LDL and triglycerides), and aids digestion. It helps with liver function and is beneficial for skin health. Add it to dals, curries, and flatbreads for flavor and health benefits.",
+      "season": "all",
+      "age_mode": "all",
+      "category": "herbal_remedy",
+      "source": "Kashmir Ayurvedic Institute"
+    },
+    {
+      "id": "gulmarg_altitude_001",
+      "question_ur": "گلمرگ میں سانس کی تکلیف کا کیا کرنا چاہیے؟",
+      "question_en": "What should I do if I experience altitude sickness in Gulmarg?",
+      "answer_ur": "گلمرگ 2,650 میٹر کی اونچائی پر ہے۔ سر درد اور سانس میں تکلیف عام ہے۔ آہستہ آہستہ چلیں، خوب پانی پیں، اور شراب سے بچیں۔ 1-2 دن میں ٹھیک ہو جائے گا۔",
+      "answer_en": "Gulmarg at 2,650m altitude can cause mild altitude sickness with headaches and breathlessness. Acclimatize slowly, drink plenty of water, avoid alcohol, and rest. Most symptoms resolve within 1-2 days. It's safer to spend a night in Srinagar (1,585m) before ascending to Gulmarg.",
+      "season": "Grind",
+      "age_mode": "all",
+      "category": "altitude_health",
+      "source": "Kashmir Tourism Health Department"
+    },
+    {
+      "id": "gulmarg_altitude_002",
+      "question_ur": "بزرگ لوگوں کو گلمرگ جانے سے پہلے کیا احتیاطیں کرنی چاہیئں؟",
+      "question_en": "What precautions should elderly take before visiting Gulmarg?",
+      "answer_ur": "بزرگوں کو گلمرگ جانے سے 2 دن پہلے سرنگر میں رہنا چاہیے تاکہ جسم اونچائی کے عادی ہو جائے۔ دل کی بیماری یا سانس کی بیماری ہو تو ڈاکٹر سے ملیں۔",
+      "answer_en": "Elderly people should spend 2+ days in Srinagar before traveling to Gulmarg to acclimatize gradually. Consult a doctor if you have heart disease or respiratory conditions before visiting high altitude areas. Carry medications and avoid strenuous activity on arrival.",
+      "season": "Grind",
+      "age_mode": "buzurg",
+      "category": "altitude_health",
+      "source": "Kashmir Geriatric Health"
+    },
+    {
+      "id": "winter_respiratory_001",
+      "question_ur": "سردی میں دمہ بدتر ہو رہا ہے، کیا کروں؟",
+      "question_en": "My asthma worsens in winter, what should I do?",
+      "answer_ur": "سردی میں دمہ اور برونکائٹس بدتر ہوتے ہیں۔ ہمیشہ اپنی دوا اپنے پاس رکھیں۔ گرم پانی سے نہائیں۔ سردی سے بچیں۔ ڈاکٹر سے ملیں اگر سانس لینے میں مسئلہ ہو۔",
+      "answer_en": "Cold air exacerbates asthma and bronchitis. Keep your rescue inhaler always available. Use warm water for bathing, avoid cold air exposure, and wear warm clothes. Drink warm herbal teas with kasuri methi. Consult your doctor if breathing becomes difficult.",
+      "season": "Chilla Kalan",
+      "age_mode": "all",
+      "category": "health_management",
+      "source": "Kashmir Respiratory Institute"
+    },
+    {
+      "id": "sonth_spring_001",
+      "question_ur": "سونتھ کے موسم میں کون سی سبزیاں کھانی چاہیئں؟",
+      "question_en": "What vegetables should I eat during Sonth season?",
+      "answer_ur": "سونتھ میں نئی سبزیاں آتی ہیں۔ کاہ (سرسوں)، ہاک (پتے والی سبزی)، اور موسمی پھل کھائیں۔ یہ موسم کے لیے بہترین ہیں اور ہضم میں مدد دیتے ہیں۔",
+      "answer_en": "During Sonth (spring), eat seasonal vegetables like Haakh (collard greens), Kahwah greens, and fresh spring vegetables. These support the transition from winter to spring and aid digestion. Include fresh herbs and leafy greens as the weather warms.",
+      "season": "Sonth",
+      "age_mode": "all",
+      "category": "seasonal_nutrition",
+      "source": "Kashmir Seasonal Foods Guide"
+    },
+    {
+      "id": "grind_summer_001",
+      "question_ur": "گرند کے موسم میں کیا کھانا چاہیے؟",
+      "question_en": "What should I eat during Grind (summer) season?",
+      "answer_ur": "گرند میں ہلکا کھانا کھائیں۔ چاول، سبزیاں، دہی، اور تازہ پھل۔ مسالوں میں کمی کریں۔ سردی میں جیتنی چکنائی تھی، گرمی میں اتنی نہیں۔",
+      "answer_en": "During Grind (summer), eat light foods: rice, vegetables, yogurt, and fresh fruits. Reduce heavy spices and fats from winter preparations. Increase water intake and include cooling foods like cucumber, mint, and fresh berries to balance the warm season.",
+      "season": "Grind",
+      "age_mode": "all",
+      "category": "seasonal_nutrition",
+      "source": "Kashmir Ayurvedic Nutrition"
+    },
+    {
+      "id": "harud_autumn_001",
+      "question_ur": "ہرد کے موسم میں صحت کی کیا تیاری کریں؟",
+      "question_en": "How should I prepare health-wise for Harud (autumn) season?",
+      "answer_ur": "ہرد میں سردی آنے والی ہے۔ توانائی والے کھانے کھائیں۔ اخروٹ، بادام، اور گوشت میں اضافہ کریں۔ مدافعتی نظام مضبوت کریں۔ وٹامن سی والے پھل (انار، سیب) کھائیں۔",
+      "answer_en": "During Harud (autumn), prepare for approaching winter by eating nutritious foods. Increase nuts (walnuts, almonds), meat, and calorie-dense foods. Consume vitamin C-rich fruits (pomegranate, apples) to strengthen immunity before extreme cold arrives.",
+      "season": "Harud",
+      "age_mode": "all",
+      "category": "seasonal_preparation",
+      "source": "Kashmir Health Ministry"
+    },
+    {
+      "id": "elderly_winter_safety_001",
+      "question_ur": "بزرگوں کے لیے سردی میں گھر میں کون سے مواد ہونے چاہیئں؟",
+      "question_en": "What items should elderly people keep at home during winter?",
+      "answer_ur": "بزرگوں کے لیے: موم بتیاں، کیروسین ہیٹر، کمبل، گرم پانی کا بیگ، درخواست لسٹ بنائیں۔ دوائی، کھانا، اور پانی ہمیشہ رکھیں۔ ڈاکٹر کا فون نمبر لکھ کر رکھیں۔",
+      "answer_en": "Elderly people should keep: heating sources (stove, heater), extra blankets, hot water bottles, and emergency medical supplies at home. Stock medications, food, water, and keep doctor contact numbers accessible. Ensure proper ventilation to prevent carbon monoxide poisoning from indoor heaters.",
+      "season": "Chilla Kalan",
+      "age_mode": "buzurg",
+      "category": "elderly_safety",
+      "source": "Kashmir Elderly Care Foundation"
+    },
+    {
+      "id": "exercise_winter_001",
+      "question_ur": "سردی میں ورزش کرنی چاہیے؟",
+      "question_en": "Should I exercise during Chilla Kalan?",
+      "answer_ur": "ہاں، لیکن آہستہ آہستہ۔ سردی میں جسم سخت ہو جاتا ہے۔ گھر کے اندر یوگا، سٹریچنگ کریں۔ باہر اگر نکلیں تو دوپہر میں نکلیں جب سردی کم ہو۔",
+      "answer_en": "Yes, but go slow. Cold makes muscles stiff. Do indoor yoga, stretching, and light exercises at home. If going outside, exercise during midday when it's warmest. Warm up thoroughly before exercise and wear layers to prevent injury from cold.",
+      "season": "Chilla Kalan",
+      "age_mode": "all",
+      "category": "exercise",
+      "source": "Kashmir Fitness Institute"
+    },
+    {
+      "id": "frostbite_treatment_001",
+      "question_ur": "اگر انگلیاں منجمد ہو جائیں (فراسٹ بائٹ) تو کیا کریں؟",
+      "question_en": "What should I do if I get frostbite?",
+      "answer_ur": "منجمد جگہ کو آہستہ آہستہ گرم کریں۔ تیز حرارت سے نہیں۔ ہاتھ میں رکھیں یا ہلکے گرم پانی میں ڈالیں۔ فوری ڈاکٹر کے پاس جائیں۔ مرہم لگائیں۔",
+      "answer_en": "Warm frostbitten area slowly—never with direct heat. Hold it in your hands or place in lukewarm water. Seek immediate medical attention. Apply healing ointments and avoid re-exposure to cold. Prevention is better: wear proper gloves, scarves, and thick socks at all times.",
+      "season": "Chilla Kalan",
+      "age_mode": "all",
+      "category": "emergency",
+      "source": "Kashmir Emergency Medicine"
+    },
+    {
+      "id": "hydration_winter_001",
+      "question_ur": "سردی میں کتنا پانی پینا چاہیے؟",
+      "question_en": "How much water should I drink in winter?",
+      "answer_ur": "سردی میں لوگ پانی کم پیتے ہیں لیکن جسم کو اتنا ہی پانی چاہیے۔ دن میں 8-10 گلاس پانی پیں۔ گرم پانی، چائے، کاہوہ سب اچھے ہیں۔",
+      "answer_en": "Winter dehydration is common because thirst signals decrease in cold. Still drink 8-10 glasses daily. Warm water, herbal teas, Kashmiri Kahwa, and warm soups all count toward hydration and provide warmth simultaneously.",
+      "season": "Chilla Kalan",
+      "age_mode": "all",
+      "category": "hydration",
+      "source": "Kashmir Health Ministry"
+    },
+    {
+      "id": "vitamin_d_winter_001",
+      "question_ur": "سردی میں سورج سے ملنے والی روشنی نہیں ملتی، وٹامن ڈی کیسے لیں؟",
+      "question_en": "How do I get Vitamin D during winter when there's less sunlight?",
+      "answer_ur": "دوپہر میں 10-15 منٹ سورج میں بیٹھیں۔ دہی، انڈے، اور دودھ والی چیزیں کھائیں۔ ڈاکٹر سے سپلیمنٹ لیں اگر ضرورت ہو۔",
+      "answer_en": "Sit in sunlight for 10-15 minutes during midday when possible. Eat vitamin D-rich foods: yogurt, eggs, milk, and dairy. Consider vitamin D supplements during Chilla Kalan when sunlight is severely limited. Consult your doctor about appropriate supplementation.",
+      "season": "Chilla Kalan",
+      "age_mode": "all",
+      "category": "nutrition",
+      "source": "Kashmir Nutrition Ministry"
+    }
+  ]
+}

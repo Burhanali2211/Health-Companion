@@ -15,7 +15,7 @@ from typing import Optional
 
 from dotenv import load_dotenv
 import ollama
-from rag_engine import retrieve_context
+from rag_engine import retrieve_context, retrieve_qa_answer
 
 load_dotenv()
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
@@ -143,12 +143,16 @@ def _language_name(language: str) -> str:
 # ─── LLM Configuration ──────────────────────────────────────────────
 def get_system_prompt(page_context: str, language: str, retrieved_context: str = "") -> str:
     ctx_instruction = f" The user is on the '{page_context}' page; if their question is vague, assume it relates to this." if page_context else ""
-    context_section = f"\n\nKnowledge base:\n{retrieved_context}" if retrieved_context else ""
+    context_section = f"\n\nKashmir Health Knowledge Base (ONLY use this for answers):\n{retrieved_context}" if retrieved_context else ""
+
+    fallback_text = "If the knowledge base has no answer, respond: 'Main yeh sawaal samajh nahi aaya. Kya aap alag tarah se pooch sakte ho?' (I don't understand this question. Can you ask differently?)" if not context_section else ""
+
     return f"""You are Sehat Saathi, a health assistant for Kashmir.
-Answer the user's actual question directly and specifically — do not change the topic to food or local culture unless the question is about food.
-Only mention Kashmiri foods (Noon Chai, Haakh) or seasons (Chillai Kalan) when the question is specifically about diet or seasonal weather.{ctx_instruction}
-If the question is not about health, diet, fitness, or wellness: if you have factual knowledge about Kashmir (geography, culture, food traditions), answer briefly and neutral, then redirect to health topics. Otherwise decline politely.
-Respond in {_language_name(language)}, under 50 words, plain and factual. End with one short actionable tip. Never diagnose. Do not restate the question.{context_section}"""
+CRITICAL: You MUST ONLY use the Kashmir Health Knowledge Base provided. Do NOT make up health information.
+If the knowledge base doesn't contain relevant information, decline to answer rather than hallucinate.
+Answer the user's actual question directly and specifically — do not change the topic.{ctx_instruction}{context_section}
+Respond in {_language_name(language)}, under 50 words, plain and factual. End with one actionable tip. Never diagnose. Do not restate the question.
+{fallback_text}"""
 
 OLLAMA_MODEL = os.environ.get("WATAN_OLLAMA_MODEL", "qwen2.5:1.5b")
 
@@ -160,7 +164,20 @@ def _gemini_response(query: str, age_mode: str, district: str, season: str, page
 
     context = f"User profile: {age_mode} age group, {district}, Kashmir. Season: {season}. Page context: {page_context}"
 
-    # Retrieve relevant context from the project's data files
+    # First, try direct QA match for high-confidence Kashmir answers
+    resolved_language = _resolve_language(query, language)
+    qa_match = retrieve_qa_answer(query, language=resolved_language)
+
+    if qa_match["confidence"] > 0.3:
+        return {
+            "response_text": qa_match["answer"],
+            "response_koshur": "",
+            "source": f"qa_database ({qa_match.get('source', 'Kashmir Health Data')})",
+            "confidence": qa_match["confidence"],
+            "navigate_to": None
+        }
+
+    # Fallback: Retrieve generic context chunks
     retrieved = retrieve_context(query, top_k=4, min_score=0.08)
     retrieved_context = "\n".join(retrieved) if retrieved else ""
 
@@ -169,7 +186,7 @@ def _gemini_response(query: str, age_mode: str, district: str, season: str, page
     response = gemini_client.models.generate_content(
         model='gemini-2.5-flash',
         contents=f"{system_prompt}\n\n{context}\n\nQuestion: {query}",
-        config=_no_thinking_config(0.7, 400)
+        config=_no_thinking_config(0.5, 400)
     )
 
     text = (response.text or "").strip()
@@ -190,7 +207,25 @@ def _ollama_response(query: str, age_mode: str, district: str, season: str, page
     try:
         context = f"User profile: {age_mode} age group, {district}, Kashmir. Season: {season}. Page context: {page_context}"
 
-        # Retrieve relevant context from the project's data files
+        # First, try direct QA match for high-confidence Kashmir answers
+        try:
+            resolved_language = _resolve_language(query, language)
+            qa_match = retrieve_qa_answer(query, language=resolved_language)
+            print(f"[companion] QA match: conf={qa_match['confidence']:.3f}, answer_len={len(qa_match.get('answer',''))}")
+
+            if qa_match["confidence"] > 0.3 and qa_match["answer"]:
+                print(f"[companion] Returning QA answer!")
+                return {
+                    "response_text": qa_match["answer"],
+                    "response_koshur": "",
+                    "source": f"qa_database ({qa_match.get('source', 'Kashmir Health Data')})",
+                    "confidence": qa_match["confidence"],
+                    "navigate_to": None
+                }
+        except Exception as qa_err:
+            print(f"[companion] QA lookup error: {qa_err}")
+
+        # Fallback: Retrieve generic context chunks
         retrieved = retrieve_context(query, top_k=4, min_score=0.08)
         retrieved_context = "\n".join(retrieved) if retrieved else ""
 
@@ -200,7 +235,7 @@ def _ollama_response(query: str, age_mode: str, district: str, season: str, page
                 {"role": "system", "content": get_system_prompt(page_context, language, retrieved_context)},
                 {"role": "user", "content": f"{context}\n\nQuestion: {query}"}
             ],
-            options={"temperature": 0.4, "num_predict": 220, "top_p": 0.9}
+            options={"temperature": 0.3, "num_predict": 220, "top_p": 0.85}
         )
         return {
             "response_text": response['message']['content'].strip(),
@@ -212,8 +247,8 @@ def _ollama_response(query: str, age_mode: str, district: str, season: str, page
     except Exception as e:
         print(f"[companion] Ollama error: {e}")
         fallback = {
-            "en": "Having trouble responding right now. Please try again shortly.",
-            "ur": "Mujhe abhi jawab dene mein mushkil ho rahi hai. Baad mein try karein.",
+            "en": "I don't have information about this. Please ask a health-related question.",
+            "ur": "Mujhe ismein jaankari nahi hai. Kripya sehat ke baare mein poochiye.",
         }
         return {
             "response_text": fallback.get(language, fallback["en"]),

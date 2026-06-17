@@ -15,6 +15,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 _DATA_DIR = Path(__file__).parent / "data"
 _SOURCE_FILES = [
+    "kashmir_health_qa.json",
     "companion_rules.json",
     "diet_plans.json",
     "exercises.json",
@@ -72,3 +73,46 @@ def retrieve_context(query: str, top_k: int = 4, min_score: float = 0.08) -> lis
     scores = cosine_similarity(query_vec, matrix)[0]
     ranked = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)
     return [corpus[i] for i in ranked[:top_k] if scores[i] >= min_score]
+
+
+def retrieve_qa_answer(query: str, language: str = "en") -> dict:
+    """Search Kashmir QA dataset directly for exact answers. Returns high-confidence match."""
+    qa_file = _DATA_DIR / "kashmir_health_qa.json"
+    try:
+        data = json.loads(qa_file.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return {"answer": "", "source": "", "confidence": 0.0}
+
+    qa_pairs = data.get("qa_pairs", [])
+    if not qa_pairs:
+        return {"answer": "", "source": "", "confidence": 0.0}
+
+    # Build searchable corpus from Q&A
+    question_field = "question_en" if language == "en" else "question_ur"
+    answer_field = "answer_en" if language == "en" else "answer_ur"
+
+    corpus = [qa[question_field] for qa in qa_pairs if question_field in qa]
+    if not corpus:
+        return {"answer": "", "source": "", "confidence": 0.0}
+
+    # TF-IDF match
+    vectorizer = TfidfVectorizer(max_features=2000, analyzer='char', ngram_range=(2, 3))
+    try:
+        matrix = vectorizer.fit_transform(corpus)
+        query_vec = vectorizer.transform([query])
+        scores = cosine_similarity(query_vec, matrix)[0]
+        best_idx = scores.argmax()
+        best_score = scores[best_idx]
+
+        if best_score > 0.3:  # Confidence threshold for QA matches
+            matched_qa = qa_pairs[best_idx]
+            return {
+                "answer": matched_qa.get(answer_field, ""),
+                "source": matched_qa.get("source", "Kashmir Health Data"),
+                "confidence": float(best_score),
+                "season": matched_qa.get("season", ""),
+            }
+    except Exception:
+        pass
+
+    return {"answer": "", "source": "", "confidence": 0.0}
