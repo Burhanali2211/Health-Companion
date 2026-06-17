@@ -1,8 +1,8 @@
 """
-Companion Engine — Rule-first, Cloud API (Gemini), Ollama-fallback architecture.
-Rules match in <1ms (instant).
-Cloud API (Gemini) used if key exists and rate limits allow.
-Ollama used as final fallback.
+HealthCompanion Engine — Rule-first, Ollama (primary), Gemini (fallback).
+RAG-grounded responses from Kashmir health data.
+Rules match in <1ms (instant). Ollama LLM on CPU, offline-capable.
+Gemini API fallback only on Ollama error, not for quality.
 """
 
 import json

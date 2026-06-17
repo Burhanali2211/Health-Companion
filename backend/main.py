@@ -1,5 +1,6 @@
 """
-Watan Sehat — FastAPI Backend
+HealthCompanion — FastAPI Backend
+Kashmir-specific offline-first health companion.
 Optimized for Raspberry Pi 5 and Windows.
 Serves all APIs offline-first with JSON data bundles.
 """
@@ -27,9 +28,9 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="Watan Sehat API",
+    title="HealthCompanion API",
     version="1.0.0",
-    description="Kashmir-specific offline-first health companion",
+    description="Kashmir-specific offline-first health companion kiosk",
     lifespan=lifespan,
 )
 
