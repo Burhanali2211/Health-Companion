@@ -23,7 +23,7 @@ source venv/bin/activate
 
 echo ""
 echo "[3/4] Installing Python requirements..."
-pip install -r requirements.txt
+pip install -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cpu
 
 echo ""
 echo "[4/4] Checking Ollama AI Installation..."

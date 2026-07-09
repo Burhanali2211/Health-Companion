@@ -21,7 +21,7 @@ import qtawesome as qta
 
 
 def custom_excepthook(exc_type, exc_value, exc_traceback):
-    with open("f:\\watan-sehat\\crash.log", "w") as f:
+    with open("crash.log", "w") as f:
         traceback.print_exception(exc_type, exc_value, exc_traceback, file=f)
     sys.__excepthook__(exc_type, exc_value, exc_traceback)
 
