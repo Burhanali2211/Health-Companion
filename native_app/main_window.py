@@ -30,6 +30,7 @@ sys.excepthook = custom_excepthook
 from components.voice_orb import VoiceOrb
 from bridge import AIBridge
 from seasonal_engine import get_context
+from components.triage_wizard import TriageWizardWidget
 
 # ── Design tokens (Minimalist / Clean) ─────────────────────────────────
 BG          = "#FAFAFA"
@@ -742,8 +743,9 @@ class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Health Companion — Sehat Saathi")
-        self.resize(1020, 660)
+        self.resize(1024, 600)  # Standard Pi Touchscreen size
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
+        self.showMaximized()  # Ensure it fills the screen on Pi
 
         self.ai = AIBridge()
         self.chat_sessions: list[ChatSession] = []
@@ -753,7 +755,17 @@ class MainWindow(QMainWindow):
         self._tts_thread: TTSSpeakerThread | None = None
         self._is_listening = False
 
-        self.setStyleSheet(f"QMainWindow {{ background-color: {BG}; }}")
+        self.setStyleSheet(f"""
+            QMainWindow {{ background-color: {BG}; }}
+            QScrollBar:vertical {{
+                border: none; background: transparent; width: 24px; margin: 0px 0px 0px 0px;
+            }}
+            QScrollBar::handle:vertical {{
+                background-color: {BORDER}; min-height: 40px; border-radius: 12px;
+            }}
+            QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {{ height: 0px; }}
+            QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {{ background: none; }}
+        """)
 
         self.splitter = QSplitter(Qt.Orientation.Horizontal)
         self.setCentralWidget(self.splitter)
@@ -763,7 +775,7 @@ class MainWindow(QMainWindow):
 
         self.splitter.addWidget(self.sidebar_widget)
         self.splitter.addWidget(self.main_area)
-        self.splitter.setSizes([230, 790])
+        self.splitter.setSizes([280, 744])  # Wider sidebar for touch targets
         
         self._setup_system_tray()
 
@@ -804,8 +816,8 @@ class MainWindow(QMainWindow):
             f"background-color: {SIDEBAR}; border-right: 1px solid {BORDER};"
         )
         sb = QVBoxLayout(self.sidebar_widget)
-        sb.setContentsMargins(12, 16, 12, 16)
-        sb.setSpacing(6)
+        sb.setContentsMargins(16, 20, 16, 20)
+        sb.setSpacing(12)
 
         brand_frame = QFrame()
         brand_frame.setStyleSheet(
@@ -827,17 +839,19 @@ class MainWindow(QMainWindow):
 
         for icon_name, label, color, bg, border_clr, action in [
             ("fa5s.plus",      "New Chat",         TEXT,   CARD,      BORDER,    self.start_new_chat),
+            ("fa5s.clipboard-list", "Symptom Triage", CHINAR, "#FFF1F2", "#FECDD3", lambda: self.stacked_widget.setCurrentIndex(3)),
             ("fa5s.medkit",    "Medical Kit",       CHINAR, "#FFF1F2", "#FECDD3", lambda: self.stacked_widget.setCurrentIndex(1)),
             ("fa5s.heartbeat", "Health Dashboard",  PINE,   "#F0FDF4", "#BBF7D0", lambda: self.stacked_widget.setCurrentIndex(2)),
         ]:
             btn = QPushButton(f"  {label}")
             btn.setIcon(qta.icon(icon_name, color=color))
-            btn.setFont(QFont("Segoe UI", 10, QFont.Weight.Medium))
+            btn.setIconSize(qta.icon(icon_name).actualSize(btn.size()) * 1.5)  # Larger icons
+            btn.setFont(QFont("Segoe UI", 12, QFont.Weight.Medium))  # Larger font for touch
             btn.setStyleSheet(f"""
                 QPushButton {{
                     background-color: {bg};
                     border: 1px solid {border_clr};
-                    border-radius: 8px; padding: 10px;
+                    border-radius: 12px; padding: 16px 12px;
                     color: {TEXT}; text-align: left;
                 }}
                 QPushButton:hover {{ border-color: {SAFFRON}; }}
@@ -889,6 +903,7 @@ class MainWindow(QMainWindow):
         self.stacked_widget.addWidget(self._build_chat_screen())  # 0
         self.stacked_widget.addWidget(MedicalKitWidget())          # 1
         self.stacked_widget.addWidget(HealthDashboardWidget())     # 2
+        self.stacked_widget.addWidget(TriageWizardWidget())        # 3
 
     def _build_header(self) -> QWidget:
         header = _DragHandle(self)
