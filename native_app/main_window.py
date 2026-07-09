@@ -31,6 +31,7 @@ from components.voice_orb import VoiceOrb
 from bridge import AIBridge
 from seasonal_engine import get_context
 from components.triage_wizard import TriageWizardWidget
+from components.health_vault import HealthVaultWidget
 
 # ── Design tokens (Minimalist / Clean) ─────────────────────────────────
 BG          = "#FAFAFA"
@@ -840,6 +841,7 @@ class MainWindow(QMainWindow):
         for icon_name, label, color, bg, border_clr, action in [
             ("fa5s.plus",      "New Chat",         TEXT,   CARD,      BORDER,    self.start_new_chat),
             ("fa5s.clipboard-list", "Symptom Triage", CHINAR, "#FFF1F2", "#FECDD3", lambda: self.stacked_widget.setCurrentIndex(3)),
+            ("fa5s.lock",      "Health Vault",      DAL,   "#F0F9FF", "#BAE6FD", lambda: self.stacked_widget.setCurrentIndex(4)),
             ("fa5s.medkit",    "Medical Kit",       CHINAR, "#FFF1F2", "#FECDD3", lambda: self.stacked_widget.setCurrentIndex(1)),
             ("fa5s.heartbeat", "Health Dashboard",  PINE,   "#F0FDF4", "#BBF7D0", lambda: self.stacked_widget.setCurrentIndex(2)),
         ]:
@@ -904,6 +906,7 @@ class MainWindow(QMainWindow):
         self.stacked_widget.addWidget(MedicalKitWidget())          # 1
         self.stacked_widget.addWidget(HealthDashboardWidget())     # 2
         self.stacked_widget.addWidget(TriageWizardWidget())        # 3
+        self.stacked_widget.addWidget(HealthVaultWidget())         # 4
 
     def _build_header(self) -> QWidget:
         header = _DragHandle(self)
