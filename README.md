@@ -188,7 +188,7 @@ This is a demonstration kiosk for investor pitches. Architecture and tech stack 
 
 ## License
 
-Proprietary — Watan Sehat initiative.
+Proprietary — Health Wellness Companion initiative.
 
 ## Contact
 

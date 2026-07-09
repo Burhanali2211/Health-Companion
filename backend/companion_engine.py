@@ -12,6 +12,7 @@ import time
 from pathlib import Path
 from functools import lru_cache
 from typing import Optional
+from datetime import datetime
 
 from dotenv import load_dotenv
 import ollama
@@ -143,16 +144,37 @@ def _language_name(language: str) -> str:
 # ─── LLM Configuration ──────────────────────────────────────────────
 def get_system_prompt(page_context: str, language: str, retrieved_context: str = "") -> str:
     ctx_instruction = f" The user is on the '{page_context}' page; if their question is vague, assume it relates to this." if page_context else ""
-    context_section = f"\n\nKashmir Health Knowledge Base (ONLY use this for answers):\n{retrieved_context}" if retrieved_context else ""
 
-    fallback_text = "If the knowledge base has no answer, respond: 'Main yeh sawaal samajh nahi aaya. Kya aap alag tarah se pooch sakte ho?' (I don't understand this question. Can you ask differently?)" if not context_section else ""
+    if retrieved_context:
+        grounding = (
+            "Use the Kashmir Health Knowledge Base below as your primary source. "
+            "You may supplement with general Kashmir health knowledge, but never contradict the Knowledge Base."
+        )
+        context_section = f"\n\nKashmir Health Knowledge Base:\n{retrieved_context}"
+    else:
+        # No retrieved chunks — let the model answer from its Kashmir health knowledge
+        # but still keep safety guardrails (don't diagnose, don't invent medications).
+        grounding = (
+            "You are a Kashmir-specific health assistant. Answer using your knowledge of "
+            "Kashmiri seasonal wellness, diet, traditional practices, and general health. "
+            "For medication or serious medical concerns, always recommend consulting a doctor."
+        )
+        context_section = ""
+
+    medical_disclaimer = (
+        "\nCRITICAL SAFETY RULE: If providing information about tablets or medication, "
+        "ALWAYS append: 'Please consult a doctor before taking any medication.'"
+    ) if retrieved_context and "[MEDICATION:" in retrieved_context else ""
+
+    triage_rule = (
+        "\nCRITICAL TRIAGE RULE: If the knowledge base contains a [CRITICAL TRIAGE ALERT], "
+        "output ONLY the triage alert text — this is a medical emergency."
+    ) if retrieved_context and "[CRITICAL TRIAGE ALERT" in retrieved_context else ""
 
     return f"""You are Sehat Saathi, a health assistant for Kashmir.
-CRITICAL: You MUST ONLY use the Kashmir Health Knowledge Base provided. Do NOT make up health information.
-If the knowledge base doesn't contain relevant information, decline to answer rather than hallucinate.
+{grounding}{triage_rule}
 Answer the user's actual question directly and specifically — do not change the topic.{ctx_instruction}{context_section}
-Respond in {_language_name(language)}, under 50 words, plain and factual. End with one actionable tip. Never diagnose. Do not restate the question.
-{fallback_text}"""
+Respond in {_language_name(language)}, under 60 words, plain and factual. End with one actionable tip. Never diagnose. Do not restate the question.{medical_disclaimer}"""
 
 OLLAMA_MODEL = os.environ.get("WATAN_OLLAMA_MODEL", "qwen2.5:1.5b")
 
@@ -162,7 +184,7 @@ def _gemini_response(query: str, age_mode: str, district: str, season: str, page
     if not api_limiter.can_proceed():
         raise Exception("Rate limit exceeded")
 
-    context = f"User profile: {age_mode} age group, {district}, Kashmir. Season: {season}. Page context: {page_context}"
+    context = f"User profile: {age_mode} age group, {district}, Kashmir. Season: {season}. Page context: {page_context}. Current Date: {datetime.now().strftime('%Y-%m-%d')}"
 
     # First, try direct QA match for high-confidence Kashmir answers
     resolved_language = _resolve_language(query, language)
@@ -177,8 +199,8 @@ def _gemini_response(query: str, age_mode: str, district: str, season: str, page
             "navigate_to": None
         }
 
-    # Fallback: Retrieve generic context chunks
-    retrieved = retrieve_context(query, top_k=4, min_score=0.08)
+    # Fallback: Retrieve generic context chunks with demographic pre-filtering
+    retrieved = retrieve_context(query, top_k=4, min_score=0.10, age_mode=age_mode)
     retrieved_context = "\n".join(retrieved) if retrieved else ""
 
     system_prompt = get_system_prompt(page_context, language, retrieved_context)
@@ -205,7 +227,7 @@ def _gemini_response(query: str, age_mode: str, district: str, season: str, page
 # ─── Ollama LLM Fallback ────────────────────────────────────────────
 def _ollama_response(query: str, age_mode: str, district: str, season: str, page_context: str, language: str) -> dict:
     try:
-        context = f"User profile: {age_mode} age group, {district}, Kashmir. Season: {season}. Page context: {page_context}"
+        context = f"User profile: {age_mode} age group, {district}, Kashmir. Season: {season}. Page context: {page_context}. Current Date: {datetime.now().strftime('%Y-%m-%d')}"
 
         # First, try direct QA match for high-confidence Kashmir answers
         try:
@@ -225,8 +247,8 @@ def _ollama_response(query: str, age_mode: str, district: str, season: str, page
         except Exception as qa_err:
             print(f"[companion] QA lookup error: {qa_err}")
 
-        # Fallback: Retrieve generic context chunks
-        retrieved = retrieve_context(query, top_k=4, min_score=0.08)
+        # Fallback: Retrieve generic context chunks with demographic pre-filtering
+        retrieved = retrieve_context(query, top_k=4, min_score=0.10, age_mode=age_mode)
         retrieved_context = "\n".join(retrieved) if retrieved else ""
 
         response = ollama.chat(

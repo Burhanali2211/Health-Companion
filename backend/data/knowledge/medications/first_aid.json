@@ -1,0 +1,56 @@
+{
+  "resource_type": "medication_knowledge",
+  "category": "first_aid",
+  "entries": [
+    {
+      "id": "fa_burnol_001",
+      "name": "Burnol / Silverex",
+      "usage": "Minor burns, Kangri burns, scalds.",
+      "safe_for_elderly": true,
+      "safe_for_children": true,
+      "contraindications": "Deep, severe 3rd degree burns. Stop if skin irritation occurs.",
+      "season_warnings": "Essential in Chilla Kalan due to frequent Kangri (fire pot) burns.",
+      "text_content": "Burnol is a critical first-aid cream in Kashmiri households during the winter. It provides immediate cooling relief and prevents infection on superficial Kangri burns or hot liquid scalds."
+    },
+    {
+      "id": "fa_volini_001",
+      "name": "Volini / Moov Spray",
+      "usage": "Muscle sprains, joint pain, backache.",
+      "safe_for_elderly": true,
+      "safe_for_children": true,
+      "contraindications": "Do not apply on broken skin or open wounds.",
+      "season_warnings": "Highly used in extreme winter when slipping on icy roads (Frost) is common.",
+      "text_content": "Pain relief sprays are essential for immediate relief from muscle sprains, which are very common in Kashmir during winter due to slippery, icy roads."
+    },
+    {
+      "id": "fa_betadine_001",
+      "name": "Betadine Ointment",
+      "usage": "Antiseptic for minor cuts, scrapes, and wounds.",
+      "safe_for_elderly": true,
+      "safe_for_children": true,
+      "contraindications": "Thyroid disorders (if used extensively over large areas).",
+      "season_warnings": "General year-round use.",
+      "text_content": "Povidone-iodine (Betadine) is the standard antiseptic ointment. Apply to small cuts to prevent infection before bandaging."
+    },
+    {
+      "id": "fa_crepe_001",
+      "name": "Crepe Bandage",
+      "usage": "Support for sprains and strains.",
+      "safe_for_elderly": true,
+      "safe_for_children": true,
+      "contraindications": "Do not wrap too tightly (can cut off circulation).",
+      "season_warnings": "Winter sprains on ice.",
+      "text_content": "Provides firm support and compression to injured ankles or wrists. Very common in winter due to falls on snow/ice."
+    },
+    {
+      "id": "fa_ors_001",
+      "name": "ORS (Oresol / Electral)",
+      "usage": "Dehydration due to diarrhea or vomiting.",
+      "safe_for_elderly": true,
+      "safe_for_children": true,
+      "contraindications": "Severe kidney failure.",
+      "season_warnings": "Summer (Grind) stomach infections.",
+      "text_content": "Oral Rehydration Salts are essential for restoring lost fluids and electrolytes during bouts of diarrhea or vomiting, especially common in summer."
+    }
+  ]
+}

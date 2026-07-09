@@ -1,6 +1,6 @@
 #!/bin/bash
 # ═══════════════════════════════════════════════════════════════
-# Watan Sehat — Raspberry Pi 5 Full Setup Script
+# Health Companion — Raspberry Pi 5 Full Setup Script
 # Run: sudo bash pi-setup/setup.sh
 # ═══════════════════════════════════════════════════════════════
 
@@ -10,7 +10,7 @@ PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 
 echo ""
 echo "══════════════════════════════════════════════════"
-echo "  وطن صحت — Watan Sehat Pi Setup"
+echo "  وطن صحت — Health Companion Pi Setup"
 echo "══════════════════════════════════════════════════"
 echo ""
 
@@ -65,10 +65,10 @@ ollama pull qwen2.5:0.5b
 # ─── 6. Install Systemd Services ────────────────────────────
 echo "[6/6] Installing systemd services..."
 
-# Watan Sehat Backend Service
+# Health Companion Backend Service
 cat > /etc/systemd/system/watan-sehat.service << EOF
 [Unit]
-Description=Watan Sehat Backend
+Description=Health Companion Backend
 After=network.target ollama.service
 Wants=ollama.service
 

@@ -1,13 +1,16 @@
 import { useState, useRef, useCallback } from "react"
 import axios from "axios"
+import { useAppStore } from "../store/appStore"
 
 export function useVoice(ageMode = "jawaan", pageContext = "") {
   const [state, setState] = useState("idle")
   const [transcript, setTranscript] = useState("")
   const [response,   setResponse]   = useState(null)
-  
+
   const recognitionRef = useRef(null)
   const transcriptRef = useRef("")
+
+  const addChat = useAppStore((s) => s.addChat)
 
   const startListening = useCallback(() => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -19,19 +22,18 @@ export function useVoice(ageMode = "jawaan", pageContext = "") {
     }
 
     try {
-      // Create recognition object on the fly inside the click handler for iOS Safari compatibility
       const recognition = new SpeechRecognition();
       recognition.continuous = false;
       recognition.interimResults = true;
-      recognition.lang = 'en-US'; 
-      
+      recognition.lang = 'en-US';
+
       recognition.onstart = () => {
         setState("listening")
         setTranscript("")
         transcriptRef.current = ""
         setResponse(null)
       }
-      
+
       recognition.onresult = (event) => {
         let interimTranscript = '';
         let finalTranscript = '';
@@ -46,29 +48,38 @@ export function useVoice(ageMode = "jawaan", pageContext = "") {
         setTranscript(newTranscript);
         transcriptRef.current = newTranscript;
       }
-      
+
       recognition.onend = async () => {
         const finalWord = transcriptRef.current.trim()
         if (finalWord.length === 0) {
           setState("idle")
           return;
         }
-        
+
         setState("processing")
-        
+
         try {
           const askRes = await axios.post("/api/companion/ask", {
             query: finalWord, age_mode: ageMode, district: "srinagar", language: "auto", page_context: pageContext
           })
-          setResponse(askRes.data.data)
+          const responseData = askRes.data.data
+          setResponse(responseData)
           setState("speaking")
+
+          // Save to chat history
+          addChat({
+            query: finalWord,
+            responsePreview: responseData?.response_text?.slice(0, 80) ?? "",
+            ageMode,
+            source: responseData?.source ?? "unknown",
+          })
 
           const ttsRes = await axios.post(
             "/api/voice/tts",
-            { text: askRes.data.data?.response_text ?? "", age_mode: ageMode, language: "auto" },
+            { text: responseData?.response_text ?? "", age_mode: ageMode, language: "auto" },
             { responseType: "blob" }
           )
-          
+
           if (ttsRes.data?.size > 0) {
             const audio = new Audio(URL.createObjectURL(ttsRes.data))
             audio.onended = () => setState("idle")
@@ -82,7 +93,7 @@ export function useVoice(ageMode = "jawaan", pageContext = "") {
           setTimeout(() => setState("idle"), 3000)
         }
       }
-      
+
       recognition.onerror = (event) => {
         if (event.error !== 'no-speech') {
           setState("error");
@@ -91,7 +102,7 @@ export function useVoice(ageMode = "jawaan", pageContext = "") {
           setState("idle");
         }
       }
-      
+
       recognitionRef.current = recognition;
       recognition.start();
     } catch (e) {
@@ -99,7 +110,7 @@ export function useVoice(ageMode = "jawaan", pageContext = "") {
       setState("error");
       setTimeout(() => setState("idle"), 3000);
     }
-  }, [ageMode, pageContext]);
+  }, [ageMode, pageContext, addChat]);
 
   const stopListening = useCallback(() => {
     if (recognitionRef.current) {
@@ -107,5 +118,13 @@ export function useVoice(ageMode = "jawaan", pageContext = "") {
     }
   }, []);
 
-  return { state, transcript, response, startListening, stopListening }
+  // Allow resetting state externally (for New Chat)
+  const reset = useCallback(() => {
+    if (recognitionRef.current) recognitionRef.current.stop()
+    setState("idle")
+    setTranscript("")
+    setResponse(null)
+  }, [])
+
+  return { state, transcript, response, startListening, stopListening, reset }
 }

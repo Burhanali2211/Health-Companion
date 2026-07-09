@@ -1,0 +1,26 @@
+{
+  "resource_type": "general_knowledge",
+  "name": "Mental Wellness & Sleep Hygiene",
+  "entries": [
+    {
+      "category": "Mental Health",
+      "title": "Grounding Technique for Anxiety (5-4-3-2-1)",
+      "text_content": "When feeling overwhelmed or anxious, use the 5-4-3-2-1 grounding method to bring your mind back to the present. Find 5 things you can see, 4 things you can touch, 3 things you can hear, 2 things you can smell, and 1 thing you can taste."
+    },
+    {
+      "category": "Mental Health",
+      "title": "Winter SAD (Seasonal Affective Disorder)",
+      "text_content": "During the long, dark days of Chilla Kalan, it's common to feel depressed or low on energy. Maximize your sunlight exposure during the day, keep your indoor lighting bright, and maintain social connections by spending time with family around the Hamam."
+    },
+    {
+      "category": "Sleep Hygiene",
+      "title": "Curing Insomnia Naturally",
+      "text_content": "If you cannot sleep, avoid screens (phones/TV) for 1 hour before bed. Drink a warm cup of milk (or mild Kahwa without tea leaves) to relax your stomach. Keep your room cool but your body warm. If you can't sleep after 20 minutes, get out of bed and do a quiet activity like reading until you feel sleepy."
+    },
+    {
+      "category": "Mental Health",
+      "title": "Box Breathing for Stress Relief",
+      "text_content": "To instantly reduce stress, use Box Breathing: Inhale slowly for 4 seconds, hold your breath for 4 seconds, exhale slowly for 4 seconds, and hold empty for 4 seconds. Repeat this cycle 4 times."
+    }
+  ]
+}

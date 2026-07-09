@@ -1,6 +1,6 @@
 #!/bin/bash
 # ═══════════════════════════════════════════════════════════════
-# Watan Sehat — Kiosk Mode Launcher
+# Health Companion — Kiosk Mode Launcher
 # Launches Chromium in fullscreen kiosk mode pointing at the app
 # ═══════════════════════════════════════════════════════════════
 
@@ -8,7 +8,7 @@
 unclutter -idle 3 -root &
 
 # Wait for backend to be ready
-echo "Waiting for Watan Sehat backend..."
+echo "Waiting for Health Companion backend..."
 for i in {1..30}; do
     if curl -s http://localhost:8000/ > /dev/null 2>&1; then
         echo "Backend is ready!"

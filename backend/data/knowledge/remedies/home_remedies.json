@@ -1,0 +1,26 @@
+{
+  "resource_type": "general_knowledge",
+  "name": "Kashmiri Home Remedies (Desi Nuskhe)",
+  "entries": [
+    {
+      "category": "Home Remedy",
+      "title": "Cold and Cough",
+      "text_content": "For winter cold and cough, traditional Kashmiri Kahwa with crushed ginger, cinnamon, and a pinch of saffron is highly effective. Drink it warm. For dry cough, consuming honey mixed with ginger juice provides relief."
+    },
+    {
+      "category": "Home Remedy",
+      "title": "Joint Pain",
+      "text_content": "For joint pain during harsh winters (Chilla Kalan), warming pure mustard oil (Koshur til) with a few cloves of garlic and massaging it on the joints provides significant relief. Keep the area covered with a warm cloth after massage."
+    },
+    {
+      "category": "Home Remedy",
+      "title": "Stomach Ache",
+      "text_content": "For mild stomach ache or indigestion, chewing fennel seeds (Badiyan) or drinking water boiled with mint (Pudina) and fennel can soothe the stomach. A warm compress on the abdomen also helps."
+    },
+    {
+      "category": "Home Remedy",
+      "title": "Sore Throat",
+      "text_content": "For a sore throat, gargling with warm water containing a pinch of turmeric and salt is a trusted remedy. Drinking warm milk with turmeric (Haldi Doodh) before bed also accelerates healing."
+    }
+  ]
+}

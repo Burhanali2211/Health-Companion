@@ -1,0 +1,31 @@
+{
+  "resource_type": "general_knowledge",
+  "name": "Kashmir Emergency Contacts",
+  "entries": [
+    {
+      "category": "Emergency",
+      "title": "Medical Ambulance",
+      "text_content": "For a medical emergency requiring an ambulance in Kashmir, dial 108. For pregnancy-related emergencies or infant care, dial 102 (Janani Shishu Suraksha Karyakram)."
+    },
+    {
+      "category": "Hospital",
+      "title": "SMHS Hospital Srinagar",
+      "text_content": "Shri Maharaja Hari Singh (SMHS) Hospital is a major tertiary care hospital in Srinagar located in Karan Nagar. It handles general emergencies and trauma."
+    },
+    {
+      "category": "Hospital",
+      "title": "SKIMS Soura",
+      "text_content": "Sher-i-Kashmir Institute of Medical Sciences (SKIMS) at Soura is the largest medical institute and hospital in Kashmir. It is best for critical care, specialized surgeries, and severe emergencies."
+    },
+    {
+      "category": "Hospital",
+      "title": "Lal Ded (LD) Hospital",
+      "text_content": "Lal Ded Hospital is the premier maternity hospital in Srinagar. Go here for pregnancy-related emergencies, delivery, and gynecological issues."
+    },
+    {
+      "category": "Hospital",
+      "title": "Bone and Joint Hospital Barzulla",
+      "text_content": "For severe fractures, orthopedic trauma, or bone-related emergencies, the Bone and Joint Hospital in Barzulla, Srinagar is the primary facility."
+    }
+  ]
+}

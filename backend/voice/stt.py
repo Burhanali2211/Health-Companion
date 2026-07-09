@@ -40,12 +40,29 @@ def transcribe(audio_bytes: bytes, language: str = "auto") -> dict:
         }
         whisper_lang = lang_map.get(language, None)
 
-        # Transcribe
-        result = model.transcribe(
-            io.BytesIO(audio_bytes),
-            language=whisper_lang,
-            fp16=False  # CPU only, no CUDA
-        )
+        import tempfile
+        import os
+        import imageio_ffmpeg
+        
+        # Inject bundled ffmpeg into PATH so Whisper can find it
+        os.environ["PATH"] += os.pathsep + os.path.dirname(imageio_ffmpeg.get_ffmpeg_exe())
+        
+        # Whisper requires a filepath or np.ndarray. Writing to a temp file is safest.
+        with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as tmp:
+            tmp.write(audio_bytes)
+            tmp_path = tmp.name
+
+        try:
+            # Transcribe
+            result = model.transcribe(
+                tmp_path,
+                language=whisper_lang,
+                fp16=False  # CPU only, no CUDA
+            )
+        finally:
+            # Clean up temp file
+            if os.path.exists(tmp_path):
+                os.remove(tmp_path)
 
         return {
             "text": result["text"].strip(),

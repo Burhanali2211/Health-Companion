@@ -1,12 +1,22 @@
 {
   "rules": [
     {
+      "id": "immediate_cold_relief_001",
+      "triggers": ["بہت سردی", "ٹھنڈ لگ رہی", "کانپ رہا", "freezing", "too cold"],
+      "seasons": ["chilla_kalan", "chilla_khurd", "chilla_bachha", "early_winter"],
+      "age_modes": ["buzurg", "jawaan", "bacha"],
+      "response_ur": "ارے، جلدی سے ایک گرم کمبل لیں۔ اپنے ہاتھوں کو آپس میں رگڑیں اور اگر ممکن ہو تو گرم پانی یا کہوہ پئیں۔ میں آپ کو 2 منٹ کی سانس کی مشق بھی سکھا سکتا ہوں جو آپ کو اندر سے گرم کر دے گی۔",
+      "response_en": "Oh no, quickly grab a warm blanket. Rub your hands together and if possible, drink some warm water or Kahwa. I can also teach you a 2-minute breathing exercise to warm you up from the inside.",
+      "tip_ur": "گرم کہوہ یا گرم پانی فوراً پئیں۔",
+      "confidence": 0.98
+    },
+    {
       "id": "cold_elderly_001",
       "triggers": ["بزرگوں", "بزرگ", "بوڑھے", "سردی", "احتیاط", "سرد"],
       "seasons": ["chilla_kalan", "chilla_khurd", "chilla_bachha", "early_winter"],
       "age_modes": ["buzurg", "jawaan", "bacha"],
-      "response_ur": "بزرگوں کو چلہ کلاں میں گھر سے باہر کم نکلنا چاہیے۔ گرم لباس پہنیں، کانگڑی احتیاط سے استعمال کریں، اور گرم پانی پیتے رہیں۔ صبح کی چائے میں سونٹھ اور شہد ملائیں۔",
-      "response_en": "Elderly should minimize outdoor exposure during Chilla Kalan. Wear warm clothes, use kangri carefully, and stay hydrated with warm water.",
+      "response_ur": "السلام علیکم، آج بہت سردی ہے۔ بزرگوں کو چلہ کلاں میں گھر سے باہر کم نکلنا چاہیے۔ گرم لباس پہنیں، کانگڑی احتیاط سے استعمال کریں، اور گرم پانی پیتے رہیں۔ صبح کی چائے میں سونٹھ اور شہد ملائیں۔",
+      "response_en": "As-salamu alaykum, it is very cold today. Elderly should minimize outdoor exposure during Chilla Kalan. Wear warm clothes, use kangri carefully, and stay hydrated with warm water.",
       "tip_ur": "روزانہ دو کپ کہوہ پئیں۔",
       "confidence": 0.95
     },
@@ -85,8 +95,8 @@
       "triggers": ["جوڑوں", "گھٹنے", "درد", "آرتھرائٹس", "جوڑ"],
       "seasons": ["chilla_kalan", "chilla_khurd", "chilla_bachha", "early_winter"],
       "age_modes": ["buzurg", "jawaan"],
-      "response_ur": "سردی میں جوڑوں کا درد عام ہے۔ گرم سیک کریں، سرسوں کا تیل مالش کریں، اور اومیگا-3 کے لیے اخروٹ کھائیں۔ ڈاکٹر کی ہدایت پر ہلکی ورزش جاری رکھیں۔",
-      "response_en": "Joint pain is common in winter. Apply warm compress, massage with mustard oil, eat walnuts for omega-3. Continue light exercise as advised.",
+      "response_ur": "کیا آپ کو درد ہو رہا ہے؟ سردی میں جوڑوں کا درد بڑھ جاتا ہے۔ ابھی ایک گرم کپڑا لیں اور درد کی جگہ پر سیک کریں۔ بعد میں سرسوں کا تیل مالش کریں، اور اخروٹ کھائیں۔",
+      "response_en": "Are you in pain? Joint pain worsens in winter. Right now, take a warm cloth and apply it to the painful area. Later, massage with mustard oil and eat walnuts.",
       "tip_ur": "روز رات سونے سے پہلے سرسوں تیل سے مالش کریں۔",
       "confidence": 0.89
     },
@@ -382,7 +392,7 @@
     },
     {
       "id": "greeting_001",
-      "triggers": ["السلام", "سلام", "ہیلو", "hello", "آداب", "وعلیکم", "خیریت"],
+      "triggers": ["السلام", "سلام", "ہیلو", "hello", "hey", "how are you", "what are you doing", "who are you", "آداب", "وعلیکم", "خیریت"],
       "seasons": [],
       "age_modes": ["buzurg", "jawaan", "bacha"],
       "response_ur": "وعلیکم السلام! میں صحت ساتھی ہوں — آپ کا کشمیری صحت معاون۔ موسم، خوراک، یا صحت کے بارے میں کچھ پوچھیں۔",

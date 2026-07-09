@@ -1,0 +1,116 @@
+{
+  "resource_type": "medication_knowledge",
+  "category": "tablets",
+  "entries": [
+    {
+      "id": "tab_paracetamol_001",
+      "name": "Paracetamol (Dolo 650 / Crocin / Calpol)",
+      "usage": "Fever, mild to moderate pain (headache, body ache).",
+      "safe_for_elderly": true,
+      "safe_for_children": true,
+      "contraindications": "Severe liver disease. Do not exceed 4 tablets of 650mg per day.",
+      "season_warnings": "Often used in Winter (Chilla Kalan) for cold-related body aches.",
+      "text_content": "Paracetamol is the most common and safe tablet in India for reducing fever and treating mild pain. It is generally safe for all ages if taken in the correct dosage. Dolo 650 is widely used for high fever. Overdose can cause severe liver damage."
+    },
+    {
+      "id": "tab_ibuprofen_001",
+      "name": "Ibuprofen (Brufen 400 / Combiflam)",
+      "usage": "Inflammation, joint pain, muscle pain, fever.",
+      "safe_for_elderly": false,
+      "safe_for_children": true,
+      "contraindications": "Stomach ulcers, severe kidney disease, asthma (in some patients), heart disease, Dengue fever.",
+      "season_warnings": "Used for joint pain which worsens in extreme winter (Chilla Kalan).",
+      "text_content": "Ibuprofen is a strong painkiller used to reduce inflammation and pain. Elderly patients (Buzurg) should avoid it as it can increase blood pressure and cause severe stomach bleeding or kidney issues. In India, Combiflam (Ibuprofen + Paracetamol) is very popular but must be taken after meals to avoid acidity."
+    },
+    {
+      "id": "tab_cetirizine_001",
+      "name": "Cetirizine (Cetzine / Alerid / Okacet)",
+      "usage": "Allergies, runny nose, sneezing, hay fever, skin itching.",
+      "safe_for_elderly": true,
+      "safe_for_children": true,
+      "contraindications": "Severe kidney impairment. Can cause drowsiness.",
+      "season_warnings": "Highly relevant in Sonth (Spring) and Wahaar due to pollen allergies from Chinar and Poplar trees in Kashmir.",
+      "text_content": "Cetirizine is a standard anti-allergy tablet. It is extremely useful during Kashmir's spring pollen season (from Poplar/Russi Phrasi trees). It may cause drowsiness, so it is best taken at night before sleeping. Do not drive after taking it."
+    },
+    {
+      "id": "tab_omeprazole_001",
+      "name": "Omeprazole / Pantoprazole (Omez / Pan 40 / Pantocid)",
+      "usage": "Acidity, heartburn, GERD, stomach ulcers, gas.",
+      "safe_for_elderly": true,
+      "safe_for_children": false,
+      "contraindications": "Long term daily use can cause Vitamin B12 deficiency and bone weakness.",
+      "season_warnings": "Highly relevant after heavy Wazwan meals (marriages) or consuming excessive Noon Chai empty stomach.",
+      "text_content": "These are gas and acidity tablets (PPIs). In Kashmir, acidity is common due to heavy meat consumption (Wazwan) or drinking too much salty tea (Noon Chai). Pan 40 or Omez must be taken empty stomach in the morning, 30 minutes before breakfast, for best results."
+    },
+    {
+      "id": "tab_azithromycin_001",
+      "name": "Azithromycin (Azithral 500 / Azee 500)",
+      "usage": "Bacterial infections (throat, chest, sinus, typhoid).",
+      "safe_for_elderly": true,
+      "safe_for_children": true,
+      "contraindications": "Liver dysfunction, irregular heartbeat.",
+      "season_warnings": "Often prescribed for severe winter chest infections common in Kashmir during Chilla Kalan.",
+      "text_content": "Azithromycin is a strong antibiotic (commonly a 3-day or 5-day course). IT DOES NOT CURE VIRAL COLDS OR FLU. It must only be used if a doctor diagnoses a bacterial infection (like a severe chest infection). Misuse leads to dangerous antibiotic resistance."
+    },
+    {
+      "id": "tab_meftal_spas_001",
+      "name": "Mefenamic Acid + Dicyclomine (Meftal-Spas)",
+      "usage": "Severe stomach cramps, menstrual cramps, abdominal pain.",
+      "safe_for_elderly": false,
+      "safe_for_children": false,
+      "contraindications": "Stomach ulcers, kidney disease, active bleeding.",
+      "season_warnings": "General year-round use.",
+      "text_content": "Meftal-Spas is extremely popular in India for menstrual cramps and sudden stomach spasms. However, it is a strong medicine that can cause acidity or dizziness. It should be taken with food and is not recommended for young children or the elderly without strict doctor guidance."
+    },
+    {
+      "id": "tab_antacid_001",
+      "name": "Antacid Liquids/Chewables (Digene / Gelusil)",
+      "usage": "Immediate relief from acidity, heartburn, and gas.",
+      "safe_for_elderly": true,
+      "safe_for_children": true,
+      "contraindications": "Severe kidney failure (due to magnesium/aluminum accumulation).",
+      "season_warnings": "Useful during wedding seasons (Wazwan).",
+      "text_content": "Digene and Gelusil provide immediate, cooling relief from acidity and heartburn. Unlike Pan 40 (which prevents acidity), these neutralize existing acid. Excellent to keep handy in Kashmiri households after consuming rich traditional foods."
+    },
+    {
+      "id": "tab_cheston_cold_001",
+      "name": "Cetirizine + Paracetamol + Phenylephrine (Cheston Cold / Sinarest)",
+      "usage": "Cold, blocked nose, fever, sinus headache.",
+      "safe_for_elderly": true,
+      "safe_for_children": true,
+      "contraindications": "High blood pressure, severe heart disease.",
+      "season_warnings": "Highly used during the onset of Harud and Chilla Kalan.",
+      "text_content": "Cheston Cold and Sinarest are combination tablets used for common cold symptoms. They relieve nasal congestion, fever, and headache. It can cause slight drowsiness. People with high blood pressure should be cautious as phenylephrine can raise BP."
+    },
+    {
+      "id": "tab_saridon_001",
+      "name": "Paracetamol + Propyphenazone + Caffeine (Saridon / Dart)",
+      "usage": "Severe headache, migraine.",
+      "safe_for_elderly": false,
+      "safe_for_children": false,
+      "contraindications": "Insomnia, severe liver/kidney issues, pregnancy.",
+      "season_warnings": "General year-round use.",
+      "text_content": "Saridon is a fast-acting remedy for severe headaches. It contains caffeine, which makes it work faster but can also cause sleeplessness if taken late at night. It should not be given to children under 12."
+    },
+    {
+      "id": "ors_001",
+      "name": "Oral Rehydration Salts (ORS / Electral)",
+      "usage": "Dehydration, diarrhea, vomiting, weakness.",
+      "safe_for_elderly": true,
+      "safe_for_children": true,
+      "contraindications": "Kidney failure (due to potassium content).",
+      "season_warnings": "Critical in Grind (Summer) to prevent heat exhaustion.",
+      "text_content": "ORS is a life-saving solution for dehydration caused by diarrhea or vomiting. It replaces lost salts and water. Always mix a packet in the exact amount of clean drinking water specified on the packet (usually 1 liter). Do not boil the solution after mixing."
+    },
+    {
+      "id": "tab_metronidazole_001",
+      "name": "Metronidazole (Metrogyl 400)",
+      "usage": "Stomach infection, diarrhea, dysentery, dental infections.",
+      "safe_for_elderly": true,
+      "safe_for_children": true,
+      "contraindications": "Alcohol consumption (causes severe nausea/vomiting), liver disease.",
+      "season_warnings": "More common in summer/monsoon months when waterborne infections peak.",
+      "text_content": "Metrogyl is an antibiotic and antiprotozoal tablet used for stomach infections and severe loose motions. You MUST strictly avoid alcohol while taking this medicine and for 3 days after, or you will become very sick. It can leave a metallic taste in the mouth."
+    }
+  ]
+}

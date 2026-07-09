@@ -53,7 +53,7 @@ if _static.exists():
 # ─── Health Check ────────────────────────────────────────────────────
 @app.get("/")
 async def health_check() -> dict:
-    return {"status": "ok", "app": "Watan Sehat", "version": "1.0.0", "offline": True}
+    return {"status": "ok", "app": "Health Wellness Companion", "version": "1.0.0", "offline": True}
 
 
 # ─── Season & Context ───────────────────────────────────────────────
@@ -178,6 +178,38 @@ async def voice_tts(body: dict):
         return StreamingResponse(mp3_fp, media_type="audio/mpeg")
     except Exception as e:
         return {"status": "error", "message": str(e)}
+
+
+# ─── Chat History (in-memory, session-scoped) ───────────────────────
+from datetime import datetime, timezone
+
+_chat_history: list[dict] = []
+
+@app.post("/api/chats/save")
+async def save_chat(body: dict) -> dict:
+    entry = {
+        "id": len(_chat_history) + 1,
+        "query": body.get("query", ""),
+        "responsePreview": body.get("responsePreview", ""),
+        "ageMode": body.get("ageMode", "jawaan"),
+        "source": body.get("source", "unknown"),
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+    }
+    _chat_history.insert(0, entry)
+    if len(_chat_history) > 50:
+        _chat_history.pop()
+    return {"status": "ok", "data": entry}
+
+
+@app.get("/api/chats")
+async def get_chats() -> dict:
+    return {"status": "ok", "data": _chat_history}
+
+
+@app.delete("/api/chats")
+async def clear_chats() -> dict:
+    _chat_history.clear()
+    return {"status": "ok"}
 
 
 # ─── Kangri Safety ──────────────────────────────────────────────────

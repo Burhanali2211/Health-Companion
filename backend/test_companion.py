@@ -1,5 +1,5 @@
 """
-Watan Sehat — Companion Engine Test Script
+Health Companion — Companion Engine Test Script
 Tests both rule matching (instant) and Ollama fallback.
 Run: python test_companion.py
 """

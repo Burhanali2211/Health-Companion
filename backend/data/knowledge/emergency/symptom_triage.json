@@ -1,0 +1,36 @@
+{
+  "resource_type": "symptom_triage",
+  "name": "Symptom Triage & Red Flags",
+  "entries": [
+    {
+      "category": "RED FLAG",
+      "title": "Heart Attack Symptoms",
+      "keywords": ["chest pain", "crushing pain", "left arm pain", "jaw pain", "heart attack", "sweating and chest pain"],
+      "text_content": "[URGENT MEDICAL EMERGENCY] These symptoms may indicate a heart attack. DO NOT wait. Call 108 for an ambulance immediately or go directly to the nearest major hospital like SMHS or SKIMS. Do not rely on home remedies."
+    },
+    {
+      "category": "RED FLAG",
+      "title": "Stroke Symptoms",
+      "keywords": ["face drooping", "arm weakness", "slurred speech", "cannot speak", "sudden numbness", "stroke"],
+      "text_content": "[URGENT MEDICAL EMERGENCY] These symptoms strongly indicate a stroke. Time is critical. Call 108 for an ambulance immediately. The faster you reach the hospital (like SKIMS Soura), the better the chances of recovery."
+    },
+    {
+      "category": "RED FLAG",
+      "title": "Severe Breathing Issues",
+      "keywords": ["cannot breathe", "gasping for air", "choking", "blue lips", "severe asthma attack"],
+      "text_content": "[URGENT MEDICAL EMERGENCY] Severe difficulty breathing is life-threatening. Seek immediate emergency medical care at the nearest hospital or call 108."
+    },
+    {
+      "category": "YELLOW FLAG",
+      "title": "High Fever (Prolonged)",
+      "keywords": ["fever for 3 days", "fever not going down", "103 fever", "104 fever", "shivering with high fever"],
+      "text_content": "[DOCTOR VISIT REQUIRED] A high fever that doesn't respond to Paracetamol or lasts more than 3 days requires a doctor's diagnosis to check for infections like Typhoid or severe pneumonia. Please visit a local clinic."
+    },
+    {
+      "category": "YELLOW FLAG",
+      "title": "Severe Abdominal Pain",
+      "keywords": ["severe stomach pain", "unbearable abdominal pain", "appendicitis", "sharp stomach pain"],
+      "text_content": "[DOCTOR VISIT REQUIRED] Sudden, severe, or unbearable stomach pain could indicate appendicitis or a gallbladder issue. Please do not take strong painkillers without a diagnosis. Go to a hospital emergency room."
+    }
+  ]
+}
