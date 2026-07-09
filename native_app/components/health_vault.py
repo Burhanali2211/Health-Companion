@@ -11,6 +11,7 @@ BG = "#FAFAFA"
 CARD = "#FFFFFF"
 BORDER = "#E4E4E7"
 TEXT = "#18181B"
+TEXT_FADE = "#A1A1AA"
 DAL = "#0EA5E9"
 
 class HealthVaultWidget(QWidget):

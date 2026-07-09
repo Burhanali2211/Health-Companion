@@ -39,6 +39,11 @@ fi
 sudo systemctl enable ollama
 sudo systemctl start ollama
 
+echo ""
+echo "[5/5] Downloading Local AI Model (qwen2.5:1.5b)..."
+echo "This might take a few minutes depending on your internet connection."
+ollama pull qwen2.5:1.5b
+
 echo "=============================================="
 echo " Setup Complete! You can now run the app via: "
 echo " ./run_app.sh                                 "
