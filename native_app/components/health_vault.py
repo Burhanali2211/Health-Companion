@@ -19,10 +19,10 @@ class HealthVaultWidget(QWidget):
         super().__init__()
         self.setStyleSheet(f"background-color: {BG};")
         self.layout = QVBoxLayout(self)
-        self.layout.setContentsMargins(24, 20, 24, 20)
+        self.layout.setContentsMargins(12, 10, 12, 10)
         
-        title = QLabel("🔐 Local Health Vault")
-        title.setFont(QFont("Segoe UI", 17, QFont.Weight.Bold))
+        title = QLabel("🔐 Health Vault")
+        title.setFont(QFont("Segoe UI", 14, QFont.Weight.Bold))
         title.setStyleSheet(f"color: {TEXT};")
         self.layout.addWidget(title)
         
@@ -47,8 +47,8 @@ class HealthVaultWidget(QWidget):
         sl.addLayout(self.profiles_layout)
         sl.addStretch()
         
-        add_btn = QPushButton(" + Create New Profile")
-        add_btn.setStyleSheet(f"background: {CARD}; border: 1px solid {BORDER}; padding: 16px; border-radius: 12px; font-size: 14pt;")
+        add_btn = QPushButton(" + New Profile")
+        add_btn.setStyleSheet(f"background: {CARD}; border: 1px solid {BORDER}; padding: 12px; border-radius: 8px; font-size: 11pt;")
         add_btn.clicked.connect(lambda: self.stacked.setCurrentIndex(1))
         sl.addWidget(add_btn)
         self.stacked.addWidget(self.sel_screen)
@@ -59,11 +59,11 @@ class HealthVaultWidget(QWidget):
         form = QFormLayout()
         
         self.name_in = QLineEdit()
-        self.name_in.setStyleSheet(f"padding: 12px; border: 1px solid {BORDER}; border-radius: 8px; font-size: 12pt;")
+        self.name_in.setStyleSheet(f"padding: 8px; border: 1px solid {BORDER}; border-radius: 6px; font-size: 11pt;")
         self.age_in = QLineEdit()
-        self.age_in.setStyleSheet(f"padding: 12px; border: 1px solid {BORDER}; border-radius: 8px; font-size: 12pt;")
+        self.age_in.setStyleSheet(f"padding: 8px; border: 1px solid {BORDER}; border-radius: 6px; font-size: 11pt;")
         self.blood_in = QComboBox()
-        self.blood_in.setStyleSheet(f"padding: 12px; border: 1px solid {BORDER}; border-radius: 8px; font-size: 12pt;")
+        self.blood_in.setStyleSheet(f"padding: 8px; border: 1px solid {BORDER}; border-radius: 6px; font-size: 11pt;")
         self.blood_in.addItems(["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-", "Unknown"])
         
         form.addRow("Name:", self.name_in)
@@ -73,12 +73,12 @@ class HealthVaultWidget(QWidget):
         cl.addStretch()
         
         save_btn = QPushButton("Save Profile")
-        save_btn.setStyleSheet(f"background: {DAL}; color: white; padding: 16px; border-radius: 12px; font-size: 14pt;")
+        save_btn.setStyleSheet(f"background: {DAL}; color: white; padding: 12px; border-radius: 8px; font-size: 11pt;")
         save_btn.clicked.connect(self._save_profile)
         cl.addWidget(save_btn)
         
         back_btn = QPushButton("Cancel")
-        back_btn.setStyleSheet(f"background: {CARD}; border: 1px solid {BORDER}; padding: 16px; border-radius: 12px; font-size: 14pt;")
+        back_btn.setStyleSheet(f"background: {CARD}; border: 1px solid {BORDER}; padding: 12px; border-radius: 8px; font-size: 11pt;")
         back_btn.clicked.connect(lambda: self.stacked.setCurrentIndex(0))
         cl.addWidget(back_btn)
         self.stacked.addWidget(self.create_screen)
@@ -87,18 +87,18 @@ class HealthVaultWidget(QWidget):
         self.dash_screen = QWidget()
         dl = QVBoxLayout(self.dash_screen)
         self.dash_title = QLabel()
-        self.dash_title.setFont(QFont("Segoe UI", 16, QFont.Weight.Bold))
+        self.dash_title.setFont(QFont("Segoe UI", 14, QFont.Weight.Bold))
         dl.addWidget(self.dash_title)
         
-        info = QLabel("Your medical records are stored securely on this device.")
-        info.setFont(QFont("Segoe UI", 12))
+        info = QLabel("Records securely stored on-device.")
+        info.setFont(QFont("Segoe UI", 11))
         info.setStyleSheet(f"color: {TEXT_FADE};")
         dl.addWidget(info)
         
         dl.addStretch()
         
         out_btn = QPushButton("Sign Out")
-        out_btn.setStyleSheet(f"background: {BORDER}; padding: 16px; border-radius: 12px; font-size: 14pt;")
+        out_btn.setStyleSheet(f"background: {BORDER}; padding: 12px; border-radius: 8px; font-size: 11pt;")
         out_btn.clicked.connect(lambda: self.stacked.setCurrentIndex(0))
         dl.addWidget(out_btn)
         self.stacked.addWidget(self.dash_screen)
@@ -111,7 +111,7 @@ class HealthVaultWidget(QWidget):
         users = get_all_users()
         for u in users:
             btn = QPushButton(f"👤 {u['name']} (Age: {u['age']})")
-            btn.setStyleSheet(f"background: {CARD}; border: 1px solid {BORDER}; padding: 20px; border-radius: 12px; font-size: 14pt; text-align: left;")
+            btn.setStyleSheet(f"background: {CARD}; border: 1px solid {BORDER}; padding: 12px; border-radius: 8px; font-size: 11pt; text-align: left;")
             btn.clicked.connect(lambda checked, user=u: self.login(user))
             self.profiles_layout.addWidget(btn)
             

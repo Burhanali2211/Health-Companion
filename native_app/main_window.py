@@ -776,7 +776,7 @@ class MainWindow(QMainWindow):
 
         self.splitter.addWidget(self.sidebar_widget)
         self.splitter.addWidget(self.main_area)
-        self.splitter.setSizes([280, 744])  # Wider sidebar for touch targets
+        self.splitter.setSizes([180, 844])
         
         self._setup_system_tray()
 
@@ -813,81 +813,52 @@ class MainWindow(QMainWindow):
     # ── Sidebar ───────────────────────────────────────────────────────
     def _build_sidebar(self):
         self.sidebar_widget = QWidget()
+        self.sidebar_widget.setFixedWidth(180)
         self.sidebar_widget.setStyleSheet(
             f"background-color: {SIDEBAR}; border-right: 1px solid {BORDER};"
         )
         sb = QVBoxLayout(self.sidebar_widget)
-        sb.setContentsMargins(16, 20, 16, 20)
-        sb.setSpacing(12)
+        sb.setContentsMargins(12, 12, 12, 12)
+        sb.setSpacing(10)
 
         brand_frame = QFrame()
         brand_frame.setStyleSheet(
             f"background: {SAFFRON_BG}; border: 1px solid {SAFFRON}; border-radius: 10px;"
         )
         bf = QVBoxLayout(brand_frame)
-        bf.setContentsMargins(12, 10, 12, 10)
+        bf.setContentsMargins(8, 8, 8, 8)
         bf.setSpacing(2)
         b1 = QLabel("Health Companion")
-        b1.setFont(QFont("Segoe UI", 13, QFont.Weight.Bold))
+        b1.setFont(QFont("Segoe UI", 11, QFont.Weight.Bold))
         b1.setStyleSheet(f"color: {SAFFRON}; border: none;")
-        b2 = QLabel("Sehat Saathi — Health Companion")
+        b2 = QLabel("Sehat Saathi")
         b2.setFont(QFont("Segoe UI", 9))
         b2.setStyleSheet(f"color: {TEXT_MED}; border: none;")
         bf.addWidget(b1)
         bf.addWidget(b2)
         sb.addWidget(brand_frame)
-        sb.addSpacing(8)
 
         for icon_name, label, color, bg, border_clr, action in [
-            ("fa5s.plus",      "New Chat",         TEXT,   CARD,      BORDER,    self.start_new_chat),
-            ("fa5s.clipboard-list", "Symptom Triage", CHINAR, "#FFF1F2", "#FECDD3", lambda: self.stacked_widget.setCurrentIndex(3)),
-            ("fa5s.lock",      "Health Vault",      DAL,   "#F0F9FF", "#BAE6FD", lambda: self.stacked_widget.setCurrentIndex(4)),
-            ("fa5s.medkit",    "Medical Kit",       CHINAR, "#FFF1F2", "#FECDD3", lambda: self.stacked_widget.setCurrentIndex(1)),
-            ("fa5s.heartbeat", "Health Dashboard",  PINE,   "#F0FDF4", "#BBF7D0", lambda: self.stacked_widget.setCurrentIndex(2)),
+            ("fa5s.plus",      "New",      TEXT,   CARD,      BORDER,    self.start_new_chat),
+            ("fa5s.clipboard-list", "Triage", CHINAR, "#FFF1F2", "#FECDD3", lambda: self.stacked_widget.setCurrentIndex(3)),
+            ("fa5s.lock",      "Vault",      DAL,   "#F0F9FF", "#BAE6FD", lambda: self.stacked_widget.setCurrentIndex(4)),
+            ("fa5s.medkit",    "Kit",    CHINAR, "#FFF1F2", "#FECDD3", lambda: self.stacked_widget.setCurrentIndex(1)),
+            ("fa5s.heartbeat", "Dash",  PINE,   "#F0FDF4", "#BBF7D0", lambda: self.stacked_widget.setCurrentIndex(2)),
         ]:
             btn = QPushButton(f"  {label}")
             btn.setIcon(qta.icon(icon_name, color=color))
-            btn.setIconSize(qta.icon(icon_name).actualSize(btn.size()) * 1.5)  # Larger icons
-            btn.setFont(QFont("Segoe UI", 12, QFont.Weight.Medium))  # Larger font for touch
             btn.setStyleSheet(f"""
                 QPushButton {{
-                    background-color: {bg};
-                    border: 1px solid {border_clr};
-                    border-radius: 12px; padding: 16px 12px;
-                    color: {TEXT}; text-align: left;
+                    background-color: {bg}; border: 1px solid {border_clr};
+                    border-radius: 8px; padding: 12px 8px;
+                    text-align: left; font-size: 11pt; color: {color}; font-weight: 500;
                 }}
-                QPushButton:hover {{ border-color: {SAFFRON}; }}
-                QPushButton:pressed {{ background-color: {BORDER}; }}
+                QPushButton:hover {{ background-color: {border_clr}; }}
             """)
             btn.clicked.connect(action)
             sb.addWidget(btn)
 
-        sb.addSpacing(6)
-        history_label = QLabel("Recent Chats")
-        history_label.setFont(QFont("Segoe UI", 9, QFont.Weight.Bold))
-        history_label.setStyleSheet(f"color: {TEXT_FADE}; padding: 2px 4px 0 4px; letter-spacing: 0.5px;")
-        sb.addWidget(history_label)
-
-        self.history_list = QListWidget()
-        self.history_list.setStyleSheet(f"""
-            QListWidget {{ border: none; background: transparent; }}
-            QListWidget::item {{ padding: 9px 8px; border-radius: 8px; color: {TEXT}; }}
-            QListWidget::item:hover {{ background-color: {BORDER}; }}
-            QListWidget::item:selected {{ background-color: {SAFFRON_BG}; color: {SAFFRON}; }}
-        """)
-        self.history_list.setFont(QFont("Segoe UI", 10))
-        self.history_list.itemClicked.connect(self.restore_session)
-        sb.addWidget(self.history_list, stretch=1)
-
-        self.clear_history_btn = QPushButton("Clear History")
-        self.clear_history_btn.setFont(QFont("Segoe UI", 9))
-        self.clear_history_btn.setStyleSheet(f"""
-            QPushButton {{ border: none; background: transparent; color: {TEXT_FADE}; padding: 4px; }}
-            QPushButton:hover {{ color: {CHINAR}; }}
-        """)
-        self.clear_history_btn.clicked.connect(self.clear_history)
-        self.clear_history_btn.hide()
-        sb.addWidget(self.clear_history_btn)
+        sb.addStretch()
 
     # ── Main area ─────────────────────────────────────────────────────
     def _build_main_area(self):

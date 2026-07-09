@@ -22,10 +22,10 @@ class TriageWizardWidget(QWidget):
         super().__init__()
         self.setStyleSheet(f"background-color: {BG};")
         self.layout = QVBoxLayout(self)
-        self.layout.setContentsMargins(24, 20, 24, 20)
+        self.layout.setContentsMargins(12, 10, 12, 10)
         
-        title = QLabel("🚑 Symptom Triage Wizard")
-        title.setFont(QFont("Segoe UI", 17, QFont.Weight.Bold))
+        title = QLabel("🚑 Symptom Triage")
+        title.setFont(QFont("Segoe UI", 14, QFont.Weight.Bold))
         title.setStyleSheet(f"color: {TEXT};")
         self.layout.addWidget(title)
         
@@ -77,7 +77,7 @@ class TriageWizardWidget(QWidget):
         l = QVBoxLayout(w)
         
         lbl = QLabel(question)
-        lbl.setFont(QFont("Segoe UI", 14, QFont.Weight.Bold))
+        lbl.setFont(QFont("Segoe UI", 12, QFont.Weight.Bold))
         lbl.setStyleSheet(f"color: {TEXT};")
         lbl.setWordWrap(True)
         l.addWidget(lbl)
@@ -88,15 +88,15 @@ class TriageWizardWidget(QWidget):
         content = QWidget()
         content.setStyleSheet("background: transparent;")
         c_layout = QVBoxLayout(content)
-        c_layout.setSpacing(10)
+        c_layout.setSpacing(6)
         
         for item in items:
             btn = QPushButton(item["title"] + "\n(" + ", ".join(item["keywords"][:3]) + ")")
-            btn.setFont(QFont("Segoe UI", 12))
+            btn.setFont(QFont("Segoe UI", 11))
             btn.setStyleSheet(f"""
                 QPushButton {{
                     background-color: {CARD}; border: 2px solid {BORDER};
-                    border-radius: 12px; padding: 20px; text-align: left;
+                    border-radius: 8px; padding: 12px; text-align: left;
                     color: {TEXT};
                 }}
                 QPushButton:hover {{ border-color: {DAL}; }}
@@ -109,11 +109,11 @@ class TriageWizardWidget(QWidget):
         l.addWidget(scroll, stretch=1)
         
         none_btn = QPushButton("None of the above")
-        none_btn.setFont(QFont("Segoe UI", 12, QFont.Weight.Bold))
+        none_btn.setFont(QFont("Segoe UI", 11, QFont.Weight.Bold))
         none_btn.setStyleSheet(f"""
             QPushButton {{
                 background-color: {TEXT}; color: white;
-                border-radius: 12px; padding: 16px;
+                border-radius: 8px; padding: 12px;
             }}
             QPushButton:pressed {{ background-color: #3F3F46; }}
         """)
