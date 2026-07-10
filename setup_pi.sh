@@ -9,7 +9,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 echo "[1/4] Installing system dependencies (PyQt6 & Venv)..."
 sudo apt-get update
-sudo apt-get install -y python3-pyqt6 python3-pyqt6.qtwebengine python3-venv curl portaudio19-dev libasound2-dev
+sudo apt-get install -y python3-pyqt6 python3-pyqt6.qtwebengine python3-venv curl portaudio19-dev libasound2-dev ffmpeg espeak-ng
 
 echo ""
 echo "[2/4] Setting up Python Virtual Environment..."
@@ -52,13 +52,13 @@ echo "=============================================="
 
 echo ""
 echo "[6/6] Creating Desktop Shortcut..."
-chmod +x "$DIR/run_app.sh"
+chmod +x "$DIR/run_app.sh" || true
 DESKTOP_FILE="$HOME/Desktop/WatanSehat.desktop"
 cat << EOF > "$DESKTOP_FILE"
 [Desktop Entry]
 Name=Watan Sehat
 Comment=Health Companion AI
-Exec=$DIR/run_app.sh
+Exec=bash -c "$DIR/run_app.sh"
 Terminal=true
 Type=Application
 Categories=Utility;

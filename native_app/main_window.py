@@ -98,6 +98,13 @@ class VoiceRecorderThread(QThread):
             import sounddevice as sd
             import scipy.io.wavfile as wavfile
 
+            # Query default device sample rate for Raspberry Pi compatibility
+            try:
+                device_info = sd.query_devices(sd.default.device[0], 'input')
+                actual_rate = int(device_info['default_samplerate'])
+            except Exception:
+                actual_rate = self.RATE
+
             self.state_changed.emit("listening")
             chunks: list = []
 
@@ -105,7 +112,7 @@ class VoiceRecorderThread(QThread):
                 if not self._should_stop:
                     chunks.append(indata.copy())
 
-            with sd.InputStream(samplerate=self.RATE, channels=1,
+            with sd.InputStream(samplerate=actual_rate, channels=1,
                                 dtype="float32", blocksize=2048, callback=_cb):
                 while not self._should_stop:
                     sd.sleep(50)
@@ -120,7 +127,7 @@ class VoiceRecorderThread(QThread):
             audio_int16 = (audio * 32767).astype(np.int16)
 
             buf = io.BytesIO()
-            wavfile.write(buf, self.RATE, audio_int16)
+            wavfile.write(buf, actual_rate, audio_int16)
             wav_bytes = buf.getvalue()
 
             backend_path = str(Path(__file__).parent.parent / "backend")
