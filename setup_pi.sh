@@ -9,7 +9,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 echo "[1/4] Installing system dependencies (PyQt6 & Venv)..."
 sudo apt-get update
-sudo apt-get install -y python3-pyqt6 python3-pyqt6.qtwebengine python3-venv curl
+sudo apt-get install -y python3-pyqt6 python3-pyqt6.qtwebengine python3-venv curl portaudio19-dev libasound2-dev
 
 echo ""
 echo "[2/4] Setting up Python Virtual Environment..."
@@ -47,4 +47,21 @@ ollama pull qwen2.5:1.5b
 echo "=============================================="
 echo " Setup Complete! You can now run the app via: "
 echo " ./run_app.sh                                 "
+echo " Or by double-clicking 'Watan Sehat' on your Desktop."
 echo "=============================================="
+
+echo ""
+echo "[6/6] Creating Desktop Shortcut..."
+chmod +x "$DIR/run_app.sh"
+DESKTOP_FILE="$HOME/Desktop/WatanSehat.desktop"
+cat << EOF > "$DESKTOP_FILE"
+[Desktop Entry]
+Name=Watan Sehat
+Comment=Health Companion AI
+Exec=$DIR/run_app.sh
+Terminal=true
+Type=Application
+Categories=Utility;
+EOF
+chmod +x "$DESKTOP_FILE"
+echo "Shortcut created on Desktop!"
