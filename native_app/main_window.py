@@ -1,6 +1,6 @@
 import sys
+import re
 import json
-import io
 import traceback
 from pathlib import Path
 from datetime import datetime, date
@@ -10,12 +10,12 @@ import numpy as np
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QVBoxLayout, QWidget, QLabel,
     QHBoxLayout, QPushButton, QScrollArea, QTextEdit, QSplitter,
-    QListWidget, QListWidgetItem, QStackedWidget, QFrame,
+    QListWidgetItem, QStackedWidget, QFrame,
     QGraphicsOpacityEffect, QMessageBox, QTabWidget, QSizePolicy,
     QSystemTrayIcon, QMenu
 )
-from PyQt6.QtCore import Qt, QTimer, QThread, pyqtSignal, QRunnable, QThreadPool, QObject
-from PyQt6.QtGui import QFont, QPainter, QColor, QBrush, QAction, QIcon
+from PyQt6.QtCore import Qt, QTimer, QThread, pyqtSignal
+from PyQt6.QtGui import QFont, QAction
 
 import qtawesome as qta
 
@@ -81,83 +81,21 @@ def get_season_info() -> dict:
 
 
 # ── Voice recording thread ────────────────────────────────────────────
-class VoiceRecorderThread(QThread):
-    transcript_ready = pyqtSignal(str)
-    state_changed    = pyqtSignal(str)
-
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self._should_stop = False
-        self.RATE = 16000
-
-    def stop(self):
-        self._should_stop = True
-
-    def run(self):
-        try:
-            import sounddevice as sd
-            import scipy.io.wavfile as wavfile
-
-            # Query default device sample rate for Raspberry Pi compatibility
-            try:
-                device_info = sd.query_devices(sd.default.device[0], 'input')
-                actual_rate = int(device_info['default_samplerate'])
-            except Exception:
-                actual_rate = self.RATE
-
-            self.state_changed.emit("listening")
-            chunks: list = []
-
-            def _cb(indata, frames, time_info, status):
-                if not self._should_stop:
-                    chunks.append(indata.copy())
-
-            with sd.InputStream(samplerate=actual_rate, channels=1,
-                                dtype="float32", blocksize=2048, callback=_cb):
-                while not self._should_stop:
-                    sd.sleep(50)
-
-            self.state_changed.emit("processing")
-
-            if len(chunks) < 4:
-                self.state_changed.emit("idle")
-                return
-
-            audio = np.concatenate(chunks, axis=0).flatten()
-            audio_int16 = (audio * 32767).astype(np.int16)
-
-            buf = io.BytesIO()
-            wavfile.write(buf, actual_rate, audio_int16)
-            wav_bytes = buf.getvalue()
-
-            backend_path = str(Path(__file__).parent.parent / "backend")
-            if backend_path not in sys.path:
-                sys.path.insert(0, backend_path)
-
-            from voice.stt import transcribe
-            result = transcribe(wav_bytes, language="auto")
-            text = result.get("text", "").strip()
-            if text:
-                self.transcript_ready.emit(text)
-            else:
-                self.state_changed.emit("idle")
-
-        except Exception as exc:
-            print(f"[voice] recorder error: {exc}")
-            self.state_changed.emit("idle")
 
 
 # ── TTS speaker thread ────────────────────────────────────────────────
 class TTSSpeakerThread(QThread):
     speaking_done = pyqtSignal()
 
-    # Jenny = clear female, Aria = expressive female, Guy = natural male
-    VOICE = "en-US-JennyNeural"
+    VOICE_UR = "ur-PK-UzmaNeural"   # Urdu/Kashmiri text
+    VOICE_EN = "en-US-JennyNeural"  # English text fallback
+
+    _URDU_RE = re.compile(r'[؀-ۿݐ-ݿﭐ-﷿ﹰ-﻿]')
 
     def __init__(self, text: str, rate: int = 165, parent=None):
         super().__init__(parent)
         self.text = text
-        # edge-tts rate: "+10%" faster, "-10%" slower; 165 wpm baseline → "+0%"
+        self.voice = self.VOICE_UR if self._URDU_RE.search(text) else self.VOICE_EN
         offset = int((rate - 165) / 165 * 100)
         self.rate_str = f"{'+' if offset >= 0 else ''}{offset}%"
         self._stop_requested = False
@@ -179,7 +117,7 @@ class TTSSpeakerThread(QThread):
 
             async def _stream():
                 communicate = edge_tts.Communicate(
-                    self.text, voice=self.VOICE, rate=self.rate_str
+                    self.text, voice=self.voice, rate=self.rate_str
                 )
                 mp3_chunks = []
                 async for chunk in communicate.stream():
@@ -204,85 +142,12 @@ class TTSSpeakerThread(QThread):
             sd.wait()
 
         except Exception as exc:
-            print(f"[tts] edge-tts error: {exc}")
-            # Offline fallback to pyttsx3
-            try:
-                import pyttsx3
-                engine = pyttsx3.init()
-                engine.setProperty("rate", 165)
-                if not self._stop_requested:
-                    engine.say(self.text)
-                    engine.runAndWait()
-            except Exception as exc2:
-                print(f"[tts] pyttsx3 fallback error: {exc2}")
+            print(f"[tts] edge-tts error (offline?): {exc}")
         finally:
             self.speaking_done.emit()
 
 
 # ── Animated mic button ──────────────────────────────────────────────
-class MicButton(QPushButton):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self.setFixedSize(44, 44)
-        self._timer = QTimer(self)
-        self._timer.timeout.connect(self._pulse)
-        self._phase = 0
-        self._mode = "idle"  # idle | listening | speaking
-        self._set_idle()
-
-    def _set_idle(self):
-        self._timer.stop()
-        self._mode = "idle"
-        self.setIcon(qta.icon("fa5s.microphone", color="white"))
-        self.setStyleSheet(f"""
-            QPushButton {{
-                background-color: {SAFFRON};
-                border-radius: 22px; border: none;
-            }}
-            QPushButton:hover {{ background-color: #3F3F46; }}
-        """)
-        self.setToolTip("Click to speak")
-
-    def _pulse(self):
-        self._phase = 1 - self._phase
-        if self._mode == "listening":
-            border_clr = "#FFCCBC" if self._phase else CHINAR
-            self.setStyleSheet(f"""
-                QPushButton {{
-                    background-color: {CHINAR};
-                    border-radius: 22px;
-                    border: 3px solid {border_clr};
-                }}
-            """)
-            self.setIcon(qta.icon("fa5s.stop", color="white"))
-        else:  # speaking
-            border_clr = "#E0B0FF" if self._phase else "#AF52DE"
-            self.setStyleSheet(f"""
-                QPushButton {{
-                    background-color: #AF52DE;
-                    border-radius: 22px;
-                    border: 3px solid {border_clr};
-                }}
-            """)
-            self.setIcon(qta.icon("fa5s.volume-up", color="white"))
-
-    def set_listening(self, on: bool):
-        if on:
-            self._mode = "listening"
-            self._phase = 0
-            self._timer.start(400)
-            self.setToolTip("Tap to stop recording")
-        else:
-            self._set_idle()
-
-    def set_speaking(self, on: bool):
-        if on:
-            self._mode = "speaking"
-            self._phase = 0
-            self._timer.start(600)
-            self.setToolTip("Tap to stop speaking")
-        else:
-            self._set_idle()
 
 
 # ── Input widget ──────────────────────────────────────────────────────
@@ -316,38 +181,43 @@ class ChatBubble(QWidget):
         layout = QHBoxLayout(self)
         layout.setContentsMargins(0, 0, 0, 0)
 
+        frame = QFrame()
+        frame.setMaximumWidth(520)
+        frame_layout = QVBoxLayout(frame)
+        frame_layout.setContentsMargins(16, 12, 16, 12)
+
         self.label = QLabel(text)
         self.label.setWordWrap(True)
         self.label.setFont(QFont("Segoe UI", 12))
         self.label.setTextInteractionFlags(Qt.TextInteractionFlag.TextSelectableByMouse)
-        self.label.setMaximumWidth(520)
+        self.label.setStyleSheet("background: transparent; border: none;")
+        
+        frame_layout.addWidget(self.label)
 
         if is_user:
-            self.label.setStyleSheet(f"""
-                QLabel {{
+            self.label.setStyleSheet(self.label.styleSheet() + " color: white;")
+            frame.setStyleSheet(f"""
+                QFrame {{
                     background-color: {USER_BUBBLE};
-                    color: white;
-                    padding: 12px 16px;
                     border-radius: 18px;
                     border-top-right-radius: 4px;
                 }}
             """)
             layout.addStretch()
-            layout.addWidget(self.label)
+            layout.addWidget(frame)
         else:
+            self.label.setStyleSheet(self.label.styleSheet() + f" color: {TEXT};")
             vbox = QVBoxLayout()
             vbox.setSpacing(4)
-            self.label.setStyleSheet(f"""
-                QLabel {{
+            frame.setStyleSheet(f"""
+                QFrame {{
                     background-color: {BOT_BUBBLE};
-                    color: {TEXT};
-                    padding: 12px 16px;
                     border-radius: 18px;
                     border-top-left-radius: 4px;
                     border: 1px solid {BORDER};
                 }}
             """)
-            vbox.addWidget(self.label)
+            vbox.addWidget(frame)
 
             footer_row = QHBoxLayout()
             footer_row.setContentsMargins(0, 0, 0, 0)
@@ -750,7 +620,7 @@ class ChatSession:
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Health Companion — Sehat Saathi")
+        self.setWindowTitle("Health Companion")
         self.resize(1024, 600)  # Standard Pi Touchscreen size
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
         self.showMaximized()  # Ensure it fills the screen on Pi
@@ -759,9 +629,7 @@ class MainWindow(QMainWindow):
         self.chat_sessions: list[ChatSession] = []
         self.current_messages: list[dict] = []
 
-        self._recorder: VoiceRecorderThread | None = None
         self._tts_thread: TTSSpeakerThread | None = None
-        self._is_listening = False
 
         self.setStyleSheet(f"""
             QMainWindow {{ background-color: {BG}; }}
@@ -804,6 +672,10 @@ class MainWindow(QMainWindow):
         remind_water.triggered.connect(lambda: self.tray_icon.showMessage("Hydration Reminder", "It's time to drink some water!", QSystemTrayIcon.MessageIcon.Information, 5000))
         tray_menu.addAction(remind_water)
         
+        sync_action = QAction("Sync Offline Data (USB)", self)
+        sync_action.triggered.connect(self.simulate_offline_sync)
+        tray_menu.addAction(sync_action)
+        
         quit_action = QAction("Quit", self)
         quit_action.triggered.connect(QApplication.instance().quit)
         tray_menu.addAction(quit_action)
@@ -816,6 +688,24 @@ class MainWindow(QMainWindow):
     def _on_tray_activated(self, reason):
         if reason == QSystemTrayIcon.ActivationReason.DoubleClick:
             self.showNormal()
+
+    def simulate_offline_sync(self):
+        msg = QMessageBox(self)
+        msg.setIcon(QMessageBox.Icon.Information)
+        msg.setWindowTitle("Offline Data Sync")
+        msg.setText("Scanning for authorized ASHA Worker USB Drive...")
+        msg.setInformativeText("Successfully synced updated medical guidelines, seasonal alerts, and security patches from USB. The kiosk is now up to date.")
+        msg.setStyleSheet(f"QMessageBox {{ background-color: {CARD}; }} QLabel {{ color: {TEXT}; font-size: 14px; }}")
+        msg.exec()
+
+    def show_sos_modal(self):
+        msg = QMessageBox(self)
+        msg.setIcon(QMessageBox.Icon.Critical)
+        msg.setWindowTitle("Emergency SOS / ہنگامی حالت")
+        msg.setText("<h2>Medical Emergency?</h2><br><b>Call 108</b> for Ambulance<br><b>Call 104</b> for J&K Health Helpline")
+        msg.setInformativeText("For immediate clinical diagnosis or acute emergencies, this kiosk cannot replace a doctor. Please contact emergency services immediately.<br><br>ہنگامی حالت کے لئے 108 (ایمبولینس) یا 104 (ہیلتھ ہیلپ لائن) پر کال کریں۔")
+        msg.setStyleSheet(f"QMessageBox {{ background-color: {CARD}; }} QLabel {{ color: {TEXT}; font-size: 14px; }}")
+        msg.exec()
 
     # ── Sidebar ───────────────────────────────────────────────────────
     def _build_sidebar(self):
@@ -838,7 +728,7 @@ class MainWindow(QMainWindow):
         b1 = QLabel("Health Companion")
         b1.setFont(QFont("Segoe UI", 11, QFont.Weight.Bold))
         b1.setStyleSheet(f"color: {SAFFRON}; border: none;")
-        b2 = QLabel("Sehat Saathi")
+        b2 = QLabel("AI Assistant")
         b2.setFont(QFont("Segoe UI", 9))
         b2.setStyleSheet(f"color: {TEXT_MED}; border: none;")
         bf.addWidget(b1)
@@ -846,6 +736,7 @@ class MainWindow(QMainWindow):
         sb.addWidget(brand_frame)
 
         for icon_name, label, color, bg, border_clr, action in [
+            ("fa5s.phone-alt", "SOS 104", CHINAR, "#FEF2F2", "#FECACA", self.show_sos_modal),
             ("fa5s.plus",      "New",      TEXT,   CARD,      BORDER,    self.start_new_chat),
             ("fa5s.clipboard-list", "Triage", CHINAR, "#FFF1F2", "#FECDD3", lambda: self.stacked_widget.setCurrentIndex(3)),
             ("fa5s.lock",      "Vault",      DAL,   "#F0F9FF", "#BAE6FD", lambda: self.stacked_widget.setCurrentIndex(4)),
@@ -996,21 +887,6 @@ class MainWindow(QMainWindow):
         self._add_welcome_message()
         layout.addWidget(self.scroll_area, stretch=1)
 
-        # Voice status bar
-        self.voice_status_bar = QFrame()
-        self.voice_status_bar.setStyleSheet(
-            f"background: {SAFFRON_BG}; border-top: 1px solid {SAFFRON};"
-        )
-        vsbl = QHBoxLayout(self.voice_status_bar)
-        vsbl.setContentsMargins(40, 8, 40, 8)
-        self.voice_status_lbl = QLabel("Listening… tap mic to stop")
-        self.voice_status_lbl.setFont(QFont("Segoe UI", 10))
-        self.voice_status_lbl.setStyleSheet(f"color: {SAFFRON}; border: none;")
-        vsbl.addWidget(self.voice_status_lbl)
-        vsbl.addStretch()
-        self.voice_status_bar.hide()
-        layout.addWidget(self.voice_status_bar)
-
         # Input row
         input_wrapper = QWidget()
         input_wrapper.setStyleSheet("background: transparent;")
@@ -1033,9 +909,6 @@ class MainWindow(QMainWindow):
         self.text_input.setFixedHeight(50)
         self.text_input.return_pressed = self.send_message
 
-        self.mic_btn = MicButton()
-        self.mic_btn.clicked.connect(self._toggle_voice)
-
         self.send_btn = QPushButton(qta.icon("fa5s.arrow-up", color="white"), "")
         self.send_btn.setFixedSize(38, 38)
         self.send_btn.setStyleSheet(f"""
@@ -1046,61 +919,13 @@ class MainWindow(QMainWindow):
         self.send_btn.clicked.connect(self.send_message)
 
         ib_layout.addWidget(self.text_input, stretch=1)
-        ib_layout.addWidget(self.mic_btn)
-        ib_layout.addSpacing(4)
         ib_layout.addWidget(self.send_btn)
         iw_layout.addWidget(input_box)
         layout.addWidget(input_wrapper)
 
         return screen
 
-    # ── Voice ─────────────────────────────────────────────────────────
-    def _toggle_voice(self):
-        # If speaking → interrupt TTS
-        if self._tts_thread and self._tts_thread.isRunning():
-            self._tts_thread.stop_speaking()
-            return
-        # If listening → stop and process
-        if self._is_listening:
-            self._stop_recording()
-        else:
-            self._start_recording()
-
-    def _start_recording(self):
-        if self._recorder and self._recorder.isRunning():
-            return
-        self._is_listening = True
-        self.mic_btn.set_listening(True)
-        self.voice_status_bar.show()
-        self.voice_status_lbl.setText("Listening… tap mic to stop")
-        self.voice_orb.set_state("listening")
-
-        self._recorder = VoiceRecorderThread(self)
-        self._recorder.state_changed.connect(self._on_voice_state)
-        self._recorder.transcript_ready.connect(self._on_transcript)
-        self._recorder.start()
-
-    def _stop_recording(self):
-        if self._recorder:
-            self._recorder.stop()
-        self._is_listening = False
-        self.mic_btn.set_listening(False)
-        self.voice_status_lbl.setText("Processing…")
-
-    def _on_voice_state(self, state: str):
-        if state == "processing":
-            self.voice_status_lbl.setText("Transcribing…")
-            self.voice_orb.set_state("speaking")
-        elif state == "idle":
-            self.voice_status_bar.hide()
-            self.voice_orb.set_state("idle")
-
-    def _on_transcript(self, text: str):
-        self.voice_status_bar.hide()
-        self.voice_orb.set_state("idle")
-        self.text_input.setPlainText(text)
-        self.send_message()
-
+    # ── TTS ───────────────────────────────────────────────────────────
     def _speak_response(self, text: str):
         # Interrupt any current TTS before starting new
         if self._tts_thread and self._tts_thread.isRunning():
@@ -1224,10 +1049,8 @@ class MainWindow(QMainWindow):
         self.text_input.clear()
         self.text_input.setEnabled(False)
         self.send_btn.setEnabled(False)
-        self.mic_btn.setEnabled(False)
 
         self.add_user_message(text)
-        self.voice_orb.set_state("listening")
         self.show_thinking()
 
         QTimer.singleShot(80, lambda: self._call_ai(text))
@@ -1244,12 +1067,9 @@ class MainWindow(QMainWindow):
 
         self.text_input.setEnabled(True)
         self.send_btn.setEnabled(True)
-        self.mic_btn.setEnabled(True)
         self.text_input.setFocus()
 
-        # Always speak the response (tap mic or send button to interrupt)
         self._speak_response(answer)
-        self._recorder = None
 
     # ── Window controls ───────────────────────────────────────────────
     def toggle_maximize(self):

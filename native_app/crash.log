@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "F:\watan-sehat\native_app\main_window.py", line 1153, in start_new_chat
+    self._refresh_history()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "F:\watan-sehat\native_app\main_window.py", line 1167, in _refresh_history
+    self.history_list.clear()
+    ^^^^^^^^^^^^^^^^^
+AttributeError: 'MainWindow' object has no attribute 'history_list'

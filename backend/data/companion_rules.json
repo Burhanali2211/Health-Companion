@@ -15,8 +15,8 @@
       "triggers": ["بزرگوں", "بزرگ", "بوڑھے", "سردی", "احتیاط", "سرد"],
       "seasons": ["chilla_kalan", "chilla_khurd", "chilla_bachha", "early_winter"],
       "age_modes": ["buzurg", "jawaan", "bacha"],
-      "response_ur": "السلام علیکم، آج بہت سردی ہے۔ بزرگوں کو چلہ کلاں میں گھر سے باہر کم نکلنا چاہیے۔ گرم لباس پہنیں، کانگڑی احتیاط سے استعمال کریں، اور گرم پانی پیتے رہیں۔ صبح کی چائے میں سونٹھ اور شہد ملائیں۔",
-      "response_en": "As-salamu alaykum, it is very cold today. Elderly should minimize outdoor exposure during Chilla Kalan. Wear warm clothes, use kangri carefully, and stay hydrated with warm water.",
+      "response_ur": "ہیلو، آج بہت سردی ہے۔ بزرگوں کو چلہ کلاں میں گھر سے باہر کم نکلنا چاہیے۔ گرم لباس پہنیں، کانگڑی احتیاط سے استعمال کریں، اور گرم پانی پیتے رہیں۔ صبح کی چائے میں سونٹھ اور شہد ملائیں۔",
+      "response_en": "Hello, it is very cold today. Elderly should minimize outdoor exposure during Chilla Kalan. Wear warm clothes, use kangri carefully, and stay hydrated with warm water.",
       "tip_ur": "روزانہ دو کپ کہوہ پئیں۔",
       "confidence": 0.95
     },
@@ -35,8 +35,8 @@
       "triggers": ["سردی میں کیا کھائیں", "سرد موسم خوراک", "کھانا سردی", "غذا سردی"],
       "seasons": ["chilla_kalan", "chilla_khurd", "chilla_bachha"],
       "age_modes": ["buzurg", "jawaan", "bacha"],
-      "response_ur": "سردی میں گرم تاثیر کی غذائیں کھائیں: مٹن یخنی، ہاک ساگ، شلجم، گڑ، اور خشک میوے۔ ستو کا شربت صبح پئیں۔ ٹھنڈی چیزیں اور دہی سے پرہیز کریں۔",
-      "response_en": "Eat warm-natured foods in winter: mutton broth, haak, turnips, jaggery, dry fruits. Avoid cold foods and yogurt.",
+      "response_ur": "سردی میں گرم تاثیر کی غذائیں کھائیں: گرم سوپ، ہاک ساگ، شلجم، گڑ، اور خشک میوے۔ ستو کا شربت صبح پئیں۔ ٹھنڈی چیزیں اور دہی سے پرہیز کریں۔",
+      "response_en": "Eat warm-natured foods in winter: warm soups, vegetable stews, haak, turnips, jaggery, dry fruits. Avoid cold foods and yogurt.",
       "tip_ur": "روز صبح خالی پیٹ شہد گرم پانی میں پئیں۔",
       "confidence": 0.92
     },
@@ -55,8 +55,8 @@
       "triggers": ["کہوہ", "قہوہ", "kahwa", "گرین ٹی", "چائے"],
       "seasons": [],
       "age_modes": ["buzurg", "jawaan", "bacha"],
-      "response_ur": "کشمیری کہوہ میں الائچی، دارچینی، اور زعفران ہوتا ہے جو ہاضمہ درست کرتا ہے، سردی دور کرتا ہے، اور دماغ کو تروتازہ رکھتا ہے۔",
-      "response_en": "Kashmiri kahwa with cardamom, cinnamon, and saffron aids digestion, warms the body, and refreshes the mind.",
+      "response_ur": "کشمیری کہوہ میں الائچی، دارچینی، (اور اگر میسر ہو تو زعفران) ہوتا ہے جو ہاضمہ درست کرتا ہے، سردی دور کرتا ہے، اور دماغ کو تروتازہ رکھتا ہے۔",
+      "response_en": "Kashmiri kahwa with cardamom, cinnamon, and saffron (if affordable) aids digestion, warms the body, and refreshes the mind.",
       "tip_ur": "صبح اور شام ایک کپ کہوہ پئیں۔",
       "confidence": 0.93
     },
@@ -95,9 +95,9 @@
       "triggers": ["جوڑوں", "گھٹنے", "درد", "آرتھرائٹس", "جوڑ"],
       "seasons": ["chilla_kalan", "chilla_khurd", "chilla_bachha", "early_winter"],
       "age_modes": ["buzurg", "jawaan"],
-      "response_ur": "کیا آپ کو درد ہو رہا ہے؟ سردی میں جوڑوں کا درد بڑھ جاتا ہے۔ ابھی ایک گرم کپڑا لیں اور درد کی جگہ پر سیک کریں۔ بعد میں سرسوں کا تیل مالش کریں، اور اخروٹ کھائیں۔",
-      "response_en": "Are you in pain? Joint pain worsens in winter. Right now, take a warm cloth and apply it to the painful area. Later, massage with mustard oil and eat walnuts.",
-      "tip_ur": "روز رات سونے سے پہلے سرسوں تیل سے مالش کریں۔",
+      "response_ur": "کیا آپ کو درد ہو رہا ہے؟ سردی میں جوڑوں کا درد بڑھ جاتا ہے۔ ابھی ایک گرم کپڑا لیں اور درد کی جگہ پر سیک کریں۔ بعد میں گرم تیل سے ہلکی مالش کریں۔",
+      "response_en": "Are you in pain? Joint pain worsens in winter. Right now, take a warm cloth and apply it to the painful area. Later, do a gentle massage with warm oil.",
+      "tip_ur": "روز رات سونے سے پہلے نرم مالش کریں۔",
       "confidence": 0.89
     },
     {
@@ -115,9 +115,9 @@
       "triggers": ["قوت مدافعت", "immunity", "بیماری سے بچاؤ", "صحت مند"],
       "seasons": [],
       "age_modes": ["buzurg", "jawaan", "bacha"],
-      "response_ur": "قوت مدافعت بڑھانے کے لیے: روز صبح لہسن کا ایک جوا کھائیں، ادرک زیادہ استعمال کریں، رات کو ہلدی والا دودھ پئیں، اور پوری نیند لیں۔",
-      "response_en": "To boost immunity: eat one garlic clove daily, use more ginger, drink turmeric milk at night, and get full sleep.",
-      "tip_ur": "ہلدی والا دودھ رات کو پئیں۔",
+      "response_ur": "قوت مدافعت بڑھانے کے لیے: روز صبح لہسن کا ایک جوا کھائیں، ادرک زیادہ استعمال کریں، رات کو ہلدی والا دودھ (یا پانی) پئیں، اور پوری نیند لیں۔",
+      "response_en": "To boost immunity: eat one garlic clove daily, use more ginger, drink turmeric milk (if tolerated) or water at night, and get full sleep.",
+      "tip_ur": "ہلدی والا دودھ یا پانی رات کو پئیں۔",
       "confidence": 0.91
     },
     {
@@ -135,8 +135,8 @@
       "triggers": ["نیند", "نہیں آتی", "بے خوابی", "sleep", "سونا"],
       "seasons": ["chilla_kalan", "chilla_khurd"],
       "age_modes": ["buzurg", "jawaan", "bacha"],
-      "response_ur": "سردی میں اچھی نیند کے لیے: سونے سے پہلے گرم دودھ پئیں، کمرہ گرم لیکن ہوادار رکھیں، اور موبائل بند کر دیں۔ بادام کے 5 دانے رات کو کھانا فائدہ مند ہے۔",
-      "response_en": "For good sleep in winter: drink warm milk before bed, keep room warm but ventilated, switch off phone. Eating 5 almonds at night helps.",
+      "response_ur": "سردی میں اچھی نیند کے لیے: سونے سے پہلے گرم دودھ (یا ہربل چائے) پئیں، کمرہ گرم لیکن ہوادار رکھیں، اور موبائل بند کر دیں۔ بادام کے 5 دانے رات کو کھانا فائدہ مند ہے۔",
+      "response_en": "For good sleep in winter: drink warm milk (if tolerated) or herbal tea before bed, keep room warm but ventilated, switch off phone. Eating 5 almonds at night helps.",
       "tip_ur": "ہر رات ایک ہی وقت پر سوئیں۔",
       "confidence": 0.88
     },
@@ -185,8 +185,8 @@
       "triggers": ["بچوں", "بچہ", "بچے", "children", "بچوں کی صحت"],
       "seasons": ["chilla_kalan", "chilla_khurd", "chilla_bachha"],
       "age_modes": ["bacha", "jawaan"],
-      "response_ur": "بچوں کو سردی میں گرم رکھیں — خاص طور پر سر اور پاؤں۔ گرم دودھ میں ہلدی ملا کر دیں۔ اسکول سے آنے پر فوری گرم کھانا دیں۔",
-      "response_en": "Keep children warm in winter — especially head and feet. Give warm milk with turmeric. Feed hot food immediately after school.",
+      "response_ur": "بچوں کو سردی میں گرم رکھیں — خاص طور پر سر اور پاؤں۔ اگر وہ دودھ پیتے ہیں تو گرم دودھ میں ہلدی ملا کر دیں۔ اسکول سے آنے پر فوری گرم کھانا دیں۔",
+      "response_en": "Keep children warm in winter — especially head and feet. Give warm milk (if tolerated) or herbal tea with turmeric. Feed hot food immediately after school.",
       "tip_ur": "بچوں کو اسکول جاتے وقت گرم موزے پہنائیں۔",
       "confidence": 0.92
     },
@@ -195,8 +195,8 @@
       "triggers": ["سر درد", "سردرد", "headache", "درد سر"],
       "seasons": [],
       "age_modes": ["buzurg", "jawaan", "bacha"],
-      "response_ur": "سردی کی وجہ سے سردرد ہو تو گرم پانی سے سر دھوئیں۔ پیشانی پر سرسوں تیل ملیں۔ اگر درد شدید یا بار بار ہو تو ڈاکٹر سے ملیں۔",
-      "response_en": "For cold-related headache, wash head with warm water. Apply mustard oil to forehead. See doctor if severe or recurring.",
+      "response_ur": "سردی کی وجہ سے سردرد ہو تو گرم پانی سے سر دھوئیں۔ پیشانی پر گرم یا ٹھنڈا سیک کریں۔ اگر درد شدید یا بار بار ہو تو ڈاکٹر سے ملیں۔",
+      "response_en": "For cold-related headache, wash head with warm water. Apply a warm or cold compress to the forehead. See doctor if severe or recurring.",
       "tip_ur": "گرم پانی کی بھاپ لیں — فوری آرام ملے گا۔",
       "confidence": 0.85
     },
@@ -205,8 +205,8 @@
       "triggers": ["بخار", "fever", "سردی لگنا", "زکام", "نزلہ"],
       "seasons": ["chilla_kalan", "chilla_khurd", "chilla_bachha", "early_winter"],
       "age_modes": ["buzurg", "jawaan", "bacha"],
-      "response_ur": "بخار میں آرام کریں، پانی زیادہ پئیں، اور ادرک لہسن کا کاڑھا پئیں۔ 3 دن سے زیادہ بخار رہے تو فوری ڈاکٹر سے ملیں۔ میں صرف ابتدائی مشورہ دے سکتا ہوں۔",
-      "response_en": "For fever: rest, drink more water, take ginger-garlic decoction. See doctor immediately if fever lasts more than 3 days.",
+      "response_ur": "بخار میں آرام کریں، پانی زیادہ پئیں، اور گرم سوپ یا ہربل چائے پئیں۔ 3 دن سے زیادہ بخار رہے تو فوری ڈاکٹر سے ملیں۔ میں صرف ابتدائی مشورہ دے سکتا ہوں۔",
+      "response_en": "For fever: rest, drink more water, and take warm soothing liquids like clear soups or herbal tea. See doctor immediately if fever lasts more than 3 days.",
       "tip_ur": "بخار میں سادہ خوراک کھائیں، مصالحے سے پرہیز کریں۔",
       "confidence": 0.88
     },
@@ -215,8 +215,8 @@
       "triggers": ["وازوان", "گوشت", "مٹن", "wazwan", "قورمہ"],
       "seasons": [],
       "age_modes": ["buzurg", "jawaan", "bacha"],
-      "response_ur": "وازوان اور گوشت اعتدال میں کھائیں۔ بزرگوں اور دل کے مریضوں کو ہفتے میں دو بار سے زیادہ نہ کھانا چاہیے۔ یخنی صحت مند ترین انتخاب ہے۔",
-      "response_en": "Eat wazwan and meat in moderation. Elderly and heart patients should not exceed twice a week. Yakhni is the healthiest choice.",
+      "response_ur": "وازوان اور گوشت اعتدال میں کھائیں۔ بزرگوں اور دل کے مریضوں کو بہت کم کھانا چاہیے۔ چربی والے کھانوں سے بچیں، اور سبزیاں زیادہ کھائیں۔",
+      "response_en": "Eat wazwan and meat in strict moderation. Elderly and heart patients should minimize it. Lean meats or plant-based dishes are healthier choices.",
       "tip_ur": "گوشت کے ساتھ ہاک یا سبزی ضرور کھائیں۔",
       "confidence": 0.87
     },
@@ -235,8 +235,8 @@
       "triggers": ["زعفران", "کیسر", "saffron", "zaafran"],
       "seasons": [],
       "age_modes": ["buzurg", "jawaan", "bacha"],
-      "response_ur": "کشمیری زعفران دنیا کا بہترین ہے۔ دودھ میں ملا کر پینے سے نیند بہتر آتی ہے، موڈ اچھا ہوتا ہے، اور ہاضمہ ٹھیک رہتا ہے۔ لیکن اعتدال میں استعمال کریں۔",
-      "response_en": "Kashmiri saffron is world's finest. Mixed in milk it improves sleep, mood, and digestion. Use in moderation.",
+      "response_ur": "کشمیری زعفران دنیا بھر میں مشہور ہے۔ دودھ یا گرم پانی میں ملا کر پینے سے نیند بہتر آتی ہے، اور موڈ اچھا ہوتا ہے۔ لیکن اعتدال میں استعمال کریں۔",
+      "response_en": "Kashmiri saffron is highly regarded globally. Mixed in milk or warm water, it improves sleep and mood. Use in moderation.",
       "tip_ur": "رات کو دودھ میں 3 تار زعفران ملائیں۔",
       "confidence": 0.91
     },
@@ -245,8 +245,8 @@
       "triggers": ["اخروٹ", "اکھروٹ", "walnut", "akharot"],
       "seasons": ["harud", "chilla_kalan", "chilla_khurd", "early_winter"],
       "age_modes": ["buzurg", "jawaan", "bacha"],
-      "response_ur": "کشمیری اخروٹ اومیگا-3 کا بہترین ذریعہ ہے۔ دل، دماغ، اور جوڑوں کے لیے مفید ہے۔ روز صبح 5 سے 7 اخروٹ کھانا بہترین عادت ہے۔",
-      "response_en": "Kashmiri walnuts are a superb omega-3 source. Excellent for heart, brain, and joints. 5-7 walnuts every morning is the ideal habit.",
+      "response_ur": "کشمیری اخروٹ اومیگا-3 کا بہترین ذریعہ ہے۔ دل، دماغ، اور جوڑوں کے لیے مفید ہے۔ اگر میسر ہوں تو روز صبح کچھ اخروٹ کھانا صحت کے لیے اچھا ہے۔",
+      "response_en": "Kashmiri walnuts are a superb omega-3 source. Excellent for heart, brain, and joints. A few walnuts every morning, if available, are a great addition.",
       "tip_ur": "اخروٹ رات کو بھگو کر صبح کھائیں — زیادہ فائدہ ہوگا۔",
       "confidence": 0.93
     },
@@ -305,8 +305,8 @@
       "triggers": ["گرمی میں کھانا", "گرمی خوراک", "summer diet", "گرم موسم غذا"],
       "seasons": ["grind"],
       "age_modes": ["buzurg", "jawaan", "bacha"],
-      "response_ur": "گرمی میں ہلکا اور ٹھنڈی تاثیر کی غذا کھائیں: دہی، تربوز، کھیرا، پودینہ۔ مسالہ دار کھانے کم کریں۔ دوپہر کے کھانے میں پھل اور دہی بہترین ہے۔",
-      "response_en": "Eat light and cooling foods in summer: yogurt, watermelon, cucumber, mint. Reduce spicy food. Fruits and yogurt are ideal for lunch.",
+      "response_ur": "گرمی میں ہلکا اور ٹھنڈی تاثیر کی غذا کھائیں: تربوز، کھیرا، پودینہ اور دہی (اگر ہضم ہو سکے)۔ مسالہ دار کھانے کم کریں۔ دوپہر کے کھانے میں پھل اور سبزیاں بہترین ہیں۔",
+      "response_en": "Eat light and cooling foods in summer: watermelon, cucumber, mint, and yogurt (if tolerated). Reduce spicy food. Fruits and veggies are ideal for lunch.",
       "tip_ur": "دہی میں کھیرا اور پودینہ ملا کر رائتہ بنائیں۔",
       "confidence": 0.90
     },
@@ -315,8 +315,8 @@
       "triggers": ["شہد", "honey", "shehad"],
       "seasons": [],
       "age_modes": ["jawaan", "buzurg", "bacha"],
-      "response_ur": "کشمیری شہد قدرتی اینٹی بایوٹک ہے۔ سردی میں روز صبح گرم پانی میں ایک چمچ شہد پینا بیماریوں سے بچاتا ہے۔ ایک سال سے کم عمر بچوں کو شہد نہ دیں۔",
-      "response_en": "Kashmiri honey is a natural antibiotic. Daily morning warm water with one spoon honey prevents illness in winter. Do not give honey to children under 1 year.",
+      "response_ur": "کشمیری شہد میں قدرتی شفا بخش اور جراثیم کش خصوصیات ہیں۔ سردی میں روز صبح گرم پانی میں ایک چمچ شہد پینا فائدہ مند ہے۔ ایک سال سے کم عمر بچوں کو شہد نہ دیں۔",
+      "response_en": "Kashmiri honey has natural soothing and antibacterial properties. Daily morning warm water with one spoon honey is beneficial. Do not give honey to children under 1 year.",
       "tip_ur": "شہد کو گرم پانی میں ملائیں، کبھی ابلتے پانی میں نہیں۔",
       "confidence": 0.92
     },
@@ -342,7 +342,7 @@
     },
     {
       "id": "morning_routine_001",
-      "triggers": ["صبح کا معمول", "morning routine", "صبح اٹھنا", "فجر"],
+      "triggers": ["صبح کا معمول", "morning routine", "صبح اٹھنا", "صبح سویرے"],
       "seasons": [],
       "age_modes": ["buzurg", "jawaan", "bacha"],
       "response_ur": "صبح اٹھتے ہی: ایک گلاس گرم پانی، پانچ منٹ سانس کی مشق، اور ہلکی ورزش۔ ناشتہ ضرور کریں — یہ سب سے اہم کھانا ہے۔",
@@ -355,8 +355,8 @@
       "triggers": ["کولیسٹرول", "cholesterol", "چربی"],
       "seasons": [],
       "age_modes": ["buzurg", "jawaan"],
-      "response_ur": "کولیسٹرول کم کرنے کے لیے: لہسن روز کھائیں، سرسوں کا تیل استعمال کریں، تلی ہوئی چیزیں کم کریں، اور روز چلیں۔ ڈاکٹر کی ہدایت ضروری ہے۔",
-      "response_en": "To reduce cholesterol: eat garlic daily, use mustard oil, reduce fried foods, and walk daily. Doctor guidance is essential.",
+      "response_ur": "کولیسٹرول کم کرنے کے لیے: لہسن کھائیں، صحت بخش تیل اعتدال میں استعمال کریں، تلی ہوئی چیزیں کم کریں، اور روز چلیں۔ ڈاکٹر کی ہدایت ضروری ہے۔",
+      "response_en": "To reduce cholesterol: eat garlic, use healthy cooking oils in strict moderation, reduce fried foods, and walk daily. Doctor guidance is essential.",
       "tip_ur": "روز صبح خالی پیٹ ایک جوا لہسن کھائیں۔",
       "confidence": 0.87
     },
@@ -392,13 +392,43 @@
     },
     {
       "id": "greeting_001",
-      "triggers": ["السلام", "سلام", "ہیلو", "hello", "hey", "how are you", "what are you doing", "who are you", "آداب", "وعلیکم", "خیریت"],
+      "triggers": ["السلام", "سلام", "ہیلو", "hello", "hey", "how are you", "what are you doing", "آداب", "وعلیکم", "خیریت", "hi", "assalam", "aoa", "good morning", "good evening", "good afternoon"],
       "seasons": [],
       "age_modes": ["buzurg", "jawaan", "bacha"],
-      "response_ur": "وعلیکم السلام! میں صحت ساتھی ہوں — آپ کا کشمیری صحت معاون۔ موسم، خوراک، یا صحت کے بارے میں کچھ پوچھیں۔",
-      "response_en": "Wa alaikum assalam! I am Sehat Saathi — your Kashmiri health companion. Ask me anything about the season, diet, or health.",
-      "tip_ur": "آج کا موسم اور صحت مشورہ اوپر دیکھیں۔",
+      "response_ur": "وعلیکم السلام! میں وطن صحت کا صحت ساتھی ہوں — کشمیر کے لیے بنا ہوا آپ کا ذاتی صحت معاون۔ موسم، خوراک، ورزش، یا کسی بھی صحت کے سوال کے لیے حاضر ہوں۔",
+      "response_en": "Hello! I am Sehat Saathi — your personal health companion built specifically for Kashmir. Ask me about the season, diet, exercise, or any health concern. I am here to help.",
+      "tip_ur": "آج کشمیر کے موسم کے مطابق صحت مشورہ لیں۔",
       "confidence": 0.95
+    },
+    {
+      "id": "identity_001",
+      "triggers": ["who are you", "what are you", "introduce yourself", "tell me about yourself", "آپ کون ہیں", "آپ کیا ہیں", "اپنا تعارف", "تم کون"],
+      "seasons": [],
+      "age_modes": ["buzurg", "jawaan", "bacha"],
+      "response_ur": "میں صحت ساتھی ہوں — وطن صحت ایپ کا حصہ، کشمیر کے لیے خاص طور پر بنایا گیا۔ میں کشمیر کے آٹھ موسموں کو سمجھتا ہوں، مقامی کھانوں کی معلومات رکھتا ہوں، اور بغیر انٹرنیٹ کے آپ کے صحت کے سوالوں کا جواب دیتا ہوں۔",
+      "response_en": "I am Sehat Saathi, the health companion inside Watan Sehat — built exclusively for Kashmir. I understand all 8 Kashmiri seasons, know traditional Kashmiri foods and remedies, and work completely offline. Ask me anything health-related.",
+      "tip_ur": "کشمیر میں بنا، کشمیر کے لیے — بغیر انٹرنیٹ کے۔",
+      "confidence": 0.97
+    },
+    {
+      "id": "capabilities_001",
+      "triggers": ["what can you do", "how can you help", "what do you know", "آپ کیا کر سکتے", "کیا مدد کر سکتے", "کیا جانتے ہو", "help me", "مدد کریں"],
+      "seasons": [],
+      "age_modes": ["buzurg", "jawaan", "bacha"],
+      "response_ur": "میں ان موضوعات پر مدد کر سکتا ہوں: کشمیر کے موسمی صحت مشورے، روایتی کشمیری غذا، ورزش، کانگڑی حفاظت، ذہنی صحت، اور عمومی صحت کے سوالات۔ سب کچھ بغیر انٹرنیٹ کے!",
+      "response_en": "I can help with: Kashmir seasonal health advice, traditional Kashmiri diet and remedies, exercise guidance, kangri safety, mental health tips, and general health questions. Everything works offline — no internet needed.",
+      "tip_ur": "آواز میں بھی پوچھ سکتے ہیں — اردو یا کشمیری میں۔",
+      "confidence": 0.96
+    },
+    {
+      "id": "thanks_001",
+      "triggers": ["thank you", "thanks", "شکریہ", "مہربانی", "jazakallah", "جزاک اللہ", "bahut acha", "بہت اچھا", "great", "helpful"],
+      "seasons": [],
+      "age_modes": ["buzurg", "jawaan", "bacha"],
+      "response_ur": "خوشی ہوئی آپ کی مدد کر کے! اور کوئی صحت کا سوال ہو تو بلا جھجھک پوچھیں۔ آپ کی صحت ہمارا مقصد ہے۔",
+      "response_en": "Happy to help! Feel free to ask any other health questions — your wellbeing is what we are here for.",
+      "tip_ur": "صحت مند رہیں، خوش رہیں!",
+      "confidence": 0.94
     },
     {
       "id": "noon_chai_001",
@@ -485,8 +515,8 @@
       "triggers": ["حمل", "pregnancy", "ماں", "ماں بننا", "گابھن"],
       "seasons": [],
       "age_modes": ["jawaan"],
-      "response_ur": "حمل کے دوران کشمیر میں: زعفران، اخروٹ، اور سبز سبزیاں مفید ہیں۔ سردی میں گرم رہیں اور ڈاکٹر کی ہر ہدایت پر عمل کریں۔ میں صرف عمومی معلومات دے سکتا ہوں۔",
-      "response_en": "During pregnancy in Kashmir: saffron, walnuts, and green vegetables are beneficial. Stay warm in winter and follow all doctor instructions. I provide general information only.",
+      "response_ur": "حمل کے دوران کشمیر میں: اخروٹ، سبز سبزیاں اور فولک ایسڈ مفید ہیں۔ زعفران کے زیادہ استعمال سے گریز کریں۔ سردی میں گرم رہیں اور ڈاکٹر کی ہر ہدایت پر عمل کریں۔",
+      "response_en": "During pregnancy in Kashmir: walnuts, green vegetables, and folic acid are beneficial. Avoid excessive saffron. Stay warm and follow all doctor instructions.",
       "tip_ur": "حمل میں ڈاکٹر کی ہدایت سب سے ضروری ہے۔",
       "confidence": 0.80
     },
@@ -495,8 +525,8 @@
       "triggers": ["پروٹین", "protein", "گوشت کا متبادل", "سبزی خور"],
       "seasons": [],
       "age_modes": ["buzurg", "jawaan", "bacha"],
-      "response_ur": "کشمیر میں پروٹین کے اچھے ذرائع: مٹن، مچھلی، پنیر، چنے، دال، اور اخروٹ۔ ہر کھانے میں پروٹین شامل کریں تاکہ طاقت ملے۔",
-      "response_en": "Good protein sources in Kashmir: mutton, fish, paneer, chickpeas, lentils, and walnuts. Include protein in every meal for strength.",
+      "response_ur": "کشمیر میں پروٹین کے اچھے ذرائع: دالیں، چنے، پنیر، اخروٹ، اور اگر آپ کھاتے ہیں تو مچھلی یا لین گوشت۔ ہر کھانے میں پروٹین شامل کریں تاکہ طاقت ملے۔",
+      "response_en": "Good protein sources in Kashmir: lentils, chickpeas, paneer, walnuts, and lean meats or fish if you eat them. Include protein in every meal for strength.",
       "tip_ur": "روز دال یا چنے ضرور کھائیں۔",
       "confidence": 0.88
     },
@@ -515,9 +545,9 @@
       "triggers": ["روزہ", "رمضان", "فاسٹنگ", "سحری", "افطاری"],
       "seasons": [],
       "age_modes": ["buzurg", "jawaan"],
-      "response_ur": "روزے میں سحری میں پروٹین اور پانی زیادہ لیں۔ افطاری کھجور اور پانی سے کریں۔ ذیابیطس یا دل کے مریض روزے سے پہلے ڈاکٹر سے مشورہ کریں۔",
-      "response_en": "During fasting, take more protein and water at sehri. Break fast with dates and water. Diabetics and heart patients must consult doctor before fasting.",
-      "tip_ur": "افطاری میں ایک ساتھ بہت نہ کھائیں — آہستہ آہستہ کھائیں۔",
+      "response_ur": "روزہ رکھنے کی صورت میں سحری میں پروٹین اور پانی زیادہ لیں۔ افطاری پانی اور صحت بخش غذا سے کریں۔ ذیابیطس یا دل کے مریض روزے سے پہلے ڈاکٹر سے مشورہ کریں۔",
+      "response_en": "If fasting, ensure you take more protein and water before the fast. Break the fast with water and healthy food. Diabetics and heart patients must consult a doctor before fasting.",
+      "tip_ur": "افطاری یا روزے کے بعد ایک ساتھ بہت نہ کھائیں — آہستہ آہستہ کھائیں۔",
       "confidence": 0.89
     },
     {
@@ -525,9 +555,9 @@
       "triggers": ["ہلدی", "turmeric", "haldi"],
       "seasons": [],
       "age_modes": ["buzurg", "jawaan", "bacha"],
-      "response_ur": "ہلدی قدرتی اینٹی انفلامیٹری ہے۔ کشمیری کھانوں میں ہلدی استعمال کریں، رات کو دودھ میں ملا کر پئیں۔ زخم اور انفیکشن میں مفید ہے۔",
-      "response_en": "Turmeric is a natural anti-inflammatory. Use in Kashmiri cooking, mix in milk at night. Helpful for wounds and infections.",
-      "tip_ur": "رات کو سونے سے پہلے ہلدی والا دودھ پئیں۔",
+      "response_ur": "ہلدی قدرتی اینٹی انفلامیٹری ہے۔ کشمیری کھانوں میں ہلدی استعمال کریں، رات کو دودھ یا گرم پانی میں ملا کر پئیں۔ زخم اور انفیکشن میں مفید ہے۔",
+      "response_en": "Turmeric is a natural anti-inflammatory. Use in Kashmiri cooking, mix in milk (if tolerated) or warm water at night. Helpful for wounds and infections.",
+      "tip_ur": "رات کو سونے سے پہلے ہلدی والا دودھ یا پانی پئیں۔",
       "confidence": 0.92
     },
     {

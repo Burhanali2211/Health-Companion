@@ -41,50 +41,52 @@ class VoiceOrb(QWidget):
         self._state = state
 
     def paintEvent(self, event):
-        painter = QPainter(self)
-        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
-        
-        cx = float(self.rect().center().x())
-        cy = float(self.rect().center().y())
-        
-        glow_r = float(self._glow_radius)
-        core_r = float(self._core_radius)
-        
-        # Siri/ChatGPT inspired vibrant colors
-        if self._state == "idle":
-            outer_color = QColor(0, 122, 255, 60)   # iOS Blue
-            inner_color = QColor(0, 122, 255, 180)
-            core_color1 = QColor(100, 200, 255)
-            core_color2 = QColor(0, 122, 255)
-        elif self._state == "listening":
-            outer_color = QColor(255, 59, 48, 80)   # iOS Red
-            inner_color = QColor(255, 59, 48, 200)
-            core_color1 = QColor(255, 150, 150)
-            core_color2 = QColor(255, 59, 48)
-        else: # speaking
-            outer_color = QColor(175, 82, 222, 80)  # iOS Purple
-            inner_color = QColor(88, 86, 214, 200)  # iOS Indigo
-            core_color1 = QColor(200, 150, 255)
-            core_color2 = QColor(175, 82, 222)
-
-        # Draw outer glowing halo
-        gradient = QRadialGradient(QPointF(cx, cy), glow_r)
-        gradient.setColorAt(0, inner_color)
-        gradient.setColorAt(1, QColor(0, 0, 0, 0))
-        
-        painter.setPen(Qt.PenStyle.NoPen)
-        painter.setBrush(gradient)
-        painter.drawEllipse(QPointF(cx, cy), glow_r, glow_r)
-        
-        # Draw solid pulsating core
-        core_gradient = QRadialGradient(QPointF(cx, cy), core_r)
-        core_gradient.setColorAt(0, core_color1)
-        core_gradient.setColorAt(1, core_color2)
+        painter = QPainter()
+        painter.begin(self)
+        try:
+            painter.setRenderHint(QPainter.RenderHint.Antialiasing)
             
-        painter.setBrush(core_gradient)
-        painter.drawEllipse(QPointF(cx, cy), core_r, core_r)
-        
-        painter.end()
+            cx = float(self.rect().center().x())
+            cy = float(self.rect().center().y())
+            
+            glow_r = float(self._glow_radius)
+            core_r = float(self._core_radius)
+            
+            # Siri/ChatGPT inspired vibrant colors
+            if self._state == "idle":
+                outer_color = QColor(0, 122, 255, 60)   # iOS Blue
+                inner_color = QColor(0, 122, 255, 180)
+                core_color1 = QColor(100, 200, 255)
+                core_color2 = QColor(0, 122, 255)
+            elif self._state == "listening":
+                outer_color = QColor(255, 59, 48, 80)   # iOS Red
+                inner_color = QColor(255, 59, 48, 200)
+                core_color1 = QColor(255, 150, 150)
+                core_color2 = QColor(255, 59, 48)
+            else: # speaking
+                outer_color = QColor(175, 82, 222, 80)  # iOS Purple
+                inner_color = QColor(88, 86, 214, 200)  # iOS Indigo
+                core_color1 = QColor(200, 150, 255)
+                core_color2 = QColor(175, 82, 222)
+
+            # Draw outer glowing halo
+            gradient = QRadialGradient(QPointF(cx, cy), glow_r)
+            gradient.setColorAt(0, inner_color)
+            gradient.setColorAt(1, QColor(0, 0, 0, 0))
+            
+            painter.setPen(Qt.PenStyle.NoPen)
+            painter.setBrush(gradient)
+            painter.drawEllipse(QPointF(cx, cy), glow_r, glow_r)
+            
+            # Draw solid pulsating core
+            core_gradient = QRadialGradient(QPointF(cx, cy), core_r)
+            core_gradient.setColorAt(0, core_color1)
+            core_gradient.setColorAt(1, core_color2)
+                
+            painter.setBrush(core_gradient)
+            painter.drawEllipse(QPointF(cx, cy), core_r, core_r)
+        finally:
+            painter.end()
 
     def mousePressEvent(self, event):
         self.clicked.emit()

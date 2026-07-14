@@ -122,9 +122,9 @@ def _match_rules(query: str, season: str, age_mode: str) -> Optional[dict]:
 
 # ─── Language Handling ───────────────────────────────────────────────
 _LANGUAGE_NAMES = {
-    "ur": "Roman Urdu",
+    "ur": "Urdu (use Nastaliq script — اردو)",
     "en": "English",
-    "ks": "Koshur (Kashmiri) written in Roman/Urdu script",
+    "ks": "Koshur (Kashmiri in Nastaliq script)",
     "auto": None,  # resolved per-query
 }
 
@@ -171,10 +171,24 @@ def get_system_prompt(page_context: str, language: str, retrieved_context: str =
         "output ONLY the triage alert text — this is a medical emergency."
     ) if retrieved_context and "[CRITICAL TRIAGE ALERT" in retrieved_context else ""
 
-    return f"""You are Sehat Saathi, a health assistant for Kashmir.
-{grounding}{triage_rule}
-Answer the user's actual question directly and specifically — do not change the topic.{ctx_instruction}{context_section}
-Respond in {_language_name(language)}, under 60 words, plain and factual. End with one actionable tip. Never diagnose. Do not restate the question.{medical_disclaimer}"""
+    guardrail = (
+        "\nSTRICT MEDICAL GUARDRAIL: You are NOT a doctor. You MUST NOT describe, prescribe, or provide information about specific medications. "
+        "If the user asks for medication information, medication dosages, clinical diagnoses, "
+        "or describes acute emergencies (chest pain, breathing issues), you MUST refuse. "
+        "Instead, immediately tell them to use the SOS button to contact the J&K 104 Health Helpline or 108 Ambulance."
+    )
+
+    return f"""You are Sehat Saathi, a warm and knowledgeable health companion built for Kashmir.
+{grounding}{triage_rule}{guardrail}
+Answer the user's actual question directly — do not change the topic.{ctx_instruction}{context_section}
+
+Response style by message type:
+- Greetings/chitchat: Warm, brief, invite a health question. 1-2 sentences.
+- Health questions: Caring tone, specific to Kashmir context. End with one actionable tip.
+- Emotional/stress: Empathetic first, then practical. Acknowledge before advising.
+- Unclear questions: Gently ask for clarification in one sentence.
+
+CRITICAL: Respond ONLY in {_language_name(language)}. HARD LIMIT: 60 words maximum — stop immediately at 60 words. Never diagnose. Do not restate the question. Reference Kashmiri foods, seasons, or local practices where relevant.{medical_disclaimer}"""
 
 OLLAMA_MODEL = os.environ.get("WATAN_OLLAMA_MODEL", "qwen2.5:1.5b")
 
@@ -257,7 +271,7 @@ def _ollama_response(query: str, age_mode: str, district: str, season: str, page
                 {"role": "system", "content": get_system_prompt(page_context, language, retrieved_context)},
                 {"role": "user", "content": f"{context}\n\nQuestion: {query}"}
             ],
-            options={"temperature": 0.3, "num_predict": 220, "top_p": 0.85}
+            options={"temperature": 0.3, "num_predict": 120, "top_p": 0.85}
         )
         return {
             "response_text": response['message']['content'].strip(),
