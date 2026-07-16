@@ -844,9 +844,27 @@
       "confidence": 0.0
     },
     {
-      "id": "greeting_001",
+      "id": "greeting_islamic",
       "triggers": [
         "السلام",
+        "وعلیکم",
+        "assalam",
+        "aoa"
+      ],
+      "seasons": [],
+      "age_modes": [
+        "buzurg",
+        "jawaan",
+        "bacha"
+      ],
+      "response_ur": "وعلیکم السلام! میں وطن صحت کا صحت ساتھی ہوں — کشمیر کے لیے بنا ہوا آپ کا ذاتی صحت معاون۔ موسم، خوراک، ورزش، یا کسی بھی صحت کے سوال کے لیے حاضر ہوں۔",
+      "response_en": "Walaikum Assalam! I am Sehat Saathi — your personal health companion built specifically for Kashmir. Ask me about the season, diet, exercise, or any health concern. I am here to help.",
+      "tip_ur": "آج کشمیر کے موسم کے مطابق صحت مشورہ لیں۔",
+      "confidence": 0.95
+    },
+    {
+      "id": "greeting_secular",
+      "triggers": [
         "سلام",
         "ہیلو",
         "hello",
@@ -854,11 +872,8 @@
         "how are you",
         "what are you doing",
         "آداب",
-        "وعلیکم",
         "خیریت",
         "hi",
-        "assalam",
-        "aoa",
         "good morning",
         "good evening",
         "good afternoon"
@@ -869,7 +884,7 @@
         "jawaan",
         "bacha"
       ],
-      "response_ur": "وعلیکم السلام! میں وطن صحت کا صحت ساتھی ہوں — کشمیر کے لیے بنا ہوا آپ کا ذاتی صحت معاون۔ موسم، خوراک، ورزش، یا کسی بھی صحت کے سوال کے لیے حاضر ہوں۔",
+      "response_ur": "آداب! میں وطن صحت کا صحت ساتھی ہوں — کشمیر کے لیے بنا ہوا آپ کا ذاتی صحت معاون۔ موسم، خوراک، ورزش، یا کسی بھی صحت کے سوال کے لیے حاضر ہوں۔",
       "response_en": "Hello! I am Sehat Saathi — your personal health companion built specifically for Kashmir. Ask me about the season, diet, exercise, or any health concern. I am here to help.",
       "tip_ur": "آج کشمیر کے موسم کے مطابق صحت مشورہ لیں۔",
       "confidence": 0.95

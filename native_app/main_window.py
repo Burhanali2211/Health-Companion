@@ -1,4 +1,5 @@
 import sys
+import tempfile
 import re
 import json
 import traceback
@@ -10,7 +11,7 @@ import numpy as np
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QVBoxLayout, QWidget, QLabel,
     QHBoxLayout, QPushButton, QScrollArea, QTextEdit, QSplitter,
-    QListWidgetItem, QStackedWidget, QFrame,
+    QListWidget, QListWidgetItem, QStackedWidget, QFrame,
     QGraphicsOpacityEffect, QMessageBox, QTabWidget, QSizePolicy,
     QSystemTrayIcon, QMenu
 )
@@ -81,6 +82,124 @@ def get_season_info() -> dict:
 
 
 # ── Voice recording thread ────────────────────────────────────────────
+class VoiceRecorderThread(QThread):
+    recording_finished = pyqtSignal(str)      # Emits temp file path
+    amplitude_changed = pyqtSignal(float)     # Emits current amplitude level
+
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self._stop_requested = False
+        self.temp_dir = Path(tempfile.gettempdir())
+        self.filepath = self.temp_dir / "kiosk_mic_input.wav"
+
+    def stop_recording(self):
+        self._stop_requested = True
+
+    def run(self):
+        try:
+            import sounddevice as sd
+            import scipy.io.wavfile as wavfile
+            import numpy as np
+        except ImportError as e:
+            print(f"[recorder] Missing voice dependencies: {e}")
+            self.recording_finished.emit("")
+            return
+
+        self._stop_requested = False
+        sample_rate = 16000
+        channels = 1
+        chunk_size = 1024
+        recording_data = []
+
+        try:
+            # Open stream
+            with sd.InputStream(samplerate=sample_rate, channels=channels, dtype='int16') as stream:
+                while not self._stop_requested:
+                    data, overflowed = stream.read(chunk_size)
+                    recording_data.append(data.copy())
+                    if len(data) > 0:
+                        amplitude = float(np.max(np.abs(data)) / 32768.0)
+                        self.amplitude_changed.emit(amplitude)
+            
+            # Save to WAV
+            if recording_data:
+                full_data = np.concatenate(recording_data, axis=0)
+                wavfile.write(self.filepath, sample_rate, full_data)
+                self.recording_finished.emit(str(self.filepath))
+            else:
+                self.recording_finished.emit("")
+        except Exception as e:
+            print(f"[recorder] Error recording audio: {e}")
+            self.recording_finished.emit("")
+
+
+class TranscribeWorker(QThread):
+    finished = pyqtSignal(str)
+
+    def __init__(self, filepath: str, parent=None):
+        super().__init__(parent)
+        self.filepath = filepath
+
+    def run(self):
+        try:
+            from voice.stt import transcribe
+            with open(self.filepath, "rb") as f:
+                audio_bytes = f.read()
+            res = transcribe(audio_bytes, language="auto")
+            text = res.get("text", "")
+            self.finished.emit(text)
+        except Exception as e:
+            print(f"[transcribe] Error during voice STT: {e}")
+            self.finished.emit("")
+
+
+# ── Animated mic button ──────────────────────────────────────────────
+class MicButton(QPushButton):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setFixedSize(38, 38)
+        self.is_recording = False
+        self.is_speaking = False
+        self.update_style()
+
+    def set_recording(self, state: bool):
+        self.is_recording = state
+        self.update_style()
+
+    def set_speaking(self, state: bool):
+        self.is_speaking = state
+        self.update_style()
+
+    def update_style(self):
+        if self.is_recording:
+            self.setIcon(qta.icon("fa5s.stop", color="white", options=[{"scale_factor": 0.6}]))
+            self.setStyleSheet(f"""
+                QPushButton {{
+                    background-color: {CHINAR};
+                    border-radius: 19px;
+                    border: none;
+                }}
+                QPushButton:hover {{ background-color: #C0392B; }}
+            """)
+        elif self.is_speaking:
+            self.setIcon(qta.icon("fa5s.volume-up", color="white", options=[{"scale_factor": 0.6}]))
+            self.setStyleSheet(f"""
+                QPushButton {{
+                    background-color: {DAL};
+                    border-radius: 19px;
+                    border: none;
+                }}
+            """)
+        else:
+            self.setIcon(qta.icon("fa5s.mic", color="white", options=[{"scale_factor": 0.6}]))
+            self.setStyleSheet(f"""
+                QPushButton {{
+                    background-color: {USER_BUBBLE};
+                    border-radius: 19px;
+                    border: none;
+                }}
+                QPushButton:hover {{ background-color: {PINE}; }}
+            """)
 
 
 # ── TTS speaker thread ────────────────────────────────────────────────
@@ -756,7 +875,58 @@ class MainWindow(QMainWindow):
             btn.clicked.connect(action)
             sb.addWidget(btn)
 
-        sb.addStretch()
+        # Past Chats Header
+        history_label = QLabel("Recent Chats")
+        history_label.setFont(QFont("Segoe UI", 10, QFont.Weight.Bold))
+        history_label.setStyleSheet(f"color: {TEXT_MED}; margin-top: 10px; border: none; background: transparent;")
+        sb.addWidget(history_label)
+
+        # History List
+        self.history_list = QListWidget()
+        self.history_list.setFont(QFont("Segoe UI", 10))
+        self.history_list.setStyleSheet(f"""
+            QListWidget {{
+                background: transparent;
+                border: none;
+                color: {TEXT};
+            }}
+            QListWidget::item {{
+                padding: 6px 4px;
+                border-radius: 4px;
+            }}
+            QListWidget::item:hover {{
+                background-color: {BORDER};
+            }}
+            QListWidget::item:selected {{
+                background-color: {SAFFRON_BG};
+                color: {SAFFRON};
+                font-weight: bold;
+            }}
+        """)
+        self.history_list.itemClicked.connect(self.restore_session)
+        sb.addWidget(self.history_list, stretch=1)
+
+        # Clear History Button
+        self.clear_history_btn = QPushButton("Clear History")
+        self.clear_history_btn.setIcon(qta.icon("fa5s.trash-alt", color=CHINAR))
+        self.clear_history_btn.setStyleSheet(f"""
+            QPushButton {{
+                background: transparent;
+                border: none;
+                color: {CHINAR};
+                font-size: 9pt;
+                font-weight: bold;
+                padding: 6px;
+                text-align: left;
+            }}
+            QPushButton:hover {{
+                background-color: #FEF2F2;
+                border-radius: 4px;
+            }}
+        """)
+        self.clear_history_btn.clicked.connect(self.clear_history)
+        self.clear_history_btn.hide()  # Hidden initially
+        sb.addWidget(self.clear_history_btn)
 
     # ── Main area ─────────────────────────────────────────────────────
     def _build_main_area(self):
@@ -918,12 +1088,68 @@ class MainWindow(QMainWindow):
         """)
         self.send_btn.clicked.connect(self.send_message)
 
+        self.mic_btn = MicButton()
+        self.mic_btn.clicked.connect(self.toggle_recording)
+        self.voice_orb.clicked.connect(self.toggle_recording)
+
         ib_layout.addWidget(self.text_input, stretch=1)
+        ib_layout.addWidget(self.mic_btn)
         ib_layout.addWidget(self.send_btn)
         iw_layout.addWidget(input_box)
         layout.addWidget(input_wrapper)
 
         return screen
+
+    # ── Voice Recording & STT Methods ─────────────────────────────────
+    def toggle_recording(self):
+        if self._tts_thread and self._tts_thread.isRunning():
+            self._tts_thread.stop_speaking()
+            self._tts_thread.wait(300)
+
+        if hasattr(self, "_recorder_thread") and self._recorder_thread.isRunning():
+            self.voice_orb.set_state("idle")
+            self.mic_btn.set_recording(False)
+            self.text_input.setPlaceholderText("Type a health question or press the mic to speak…")
+            self._recorder_thread.stop_recording()
+        else:
+            self.voice_orb.set_state("listening")
+            self.mic_btn.set_recording(True)
+            self.text_input.setPlaceholderText("Listening... Speak now...")
+            self._recorder_thread = VoiceRecorderThread(self)
+            self._recorder_thread.recording_finished.connect(self.process_recorded_audio)
+            self._recorder_thread.amplitude_changed.connect(self.handle_recording_amplitude)
+            self._recorder_thread.start()
+
+    def handle_recording_amplitude(self, amplitude: float):
+        pass
+
+    def process_recorded_audio(self, filepath: str):
+        self.mic_btn.set_recording(False)
+        self.text_input.setPlaceholderText("Type a health question or press the mic to speak…")
+        if not filepath:
+            self.voice_orb.set_state("idle")
+            return
+
+        self.voice_orb.set_state("processing")
+        self.show_thinking()
+
+        self._transcribe_thread = TranscribeWorker(filepath, self)
+        self._transcribe_thread.finished.connect(self.handle_transcription_result)
+        self._transcribe_thread.start()
+
+    def handle_transcription_result(self, text: str):
+        self.voice_orb.set_state("idle")
+        if self.thinking_bubble:
+            self.chat_layout.removeWidget(self.thinking_bubble)
+            self.thinking_bubble.deleteLater()
+            self.thinking_bubble = None
+
+        if text.strip():
+            self.add_user_message(text)
+            self.show_thinking()
+            QTimer.singleShot(80, lambda: self._call_ai(text))
+        else:
+            QMessageBox.information(self, "Voice Input", "No speech detected. Please try again.")
 
     # ── TTS ───────────────────────────────────────────────────────────
     def _speak_response(self, text: str):

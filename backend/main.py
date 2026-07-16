@@ -207,29 +207,39 @@ async def voice_stt(file: UploadFile = File(...)) -> dict:
         }
 
 
-# ─── Voice (TTS placeholder — Coqui integration Week 3) ─────────────
+# ─── Voice (TTS Endpoint using fallback-aware synthesize) ───────────
 from io import BytesIO
 from fastapi.responses import StreamingResponse
-from gtts import gTTS
+import re
 
 @app.post("/api/voice/tts")
 async def voice_tts(body: dict):
-    text = body.get("text", "")
-    language = body.get("language", "ur")
+    text = body.get("text", "").strip()
+    language = body.get("language", "auto")
+    age_mode = body.get("age_mode", "jawaan")
     
     if not text:
         return {"status": "error", "message": "No text provided"}
         
     try:
-        # Generate speech using Google TTS (works instantly)
-        # Use 'hi' for better pronunciation of Roman Urdu/Hindi if 'ur' sounds robotic
-        lang_code = 'hi' if language == 'ur' else language
-        tts = gTTS(text=text, lang=lang_code)
-        mp3_fp = BytesIO()
-        tts.write_to_fp(mp3_fp)
-        mp3_fp.seek(0)
+        # Auto-resolve language based on the text contents
+        resolved_lang = language
+        if language == "auto" or not language or language == "en":
+            if re.search(r'[؀-ۿ]', text):
+                resolved_lang = "ur"
+            elif re.search(r'\b(kya|hai|hain|nahi|kar|kheyn|sehat|chhu|chhi|karan|kyah|sardi|ilaj)\b', text, re.IGNORECASE):
+                resolved_lang = "ur"  # Roman Urdu/Kashmiri gets Urdu/Hindi voice
+            else:
+                resolved_lang = "en"
+
+        from voice.tts import synthesize
+        res = synthesize(text, language=resolved_lang, age_mode=age_mode)
         
-        return StreamingResponse(mp3_fp, media_type="audio/mpeg")
+        if res["audio_bytes"]:
+            media_type = "audio/wav" if res["source"] in ("coqui", "pyttsx3") else "audio/mpeg"
+            return StreamingResponse(BytesIO(res["audio_bytes"]), media_type=media_type)
+        else:
+            raise Exception(res.get("error") or "Audio generation failed")
     except Exception as e:
         return {"status": "error", "message": str(e)}
 

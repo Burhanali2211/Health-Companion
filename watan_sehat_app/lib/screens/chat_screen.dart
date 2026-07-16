@@ -289,7 +289,7 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
     try {
       while (_pendingSentences.isNotEmpty && _isVoiceMode) {
         final sentence = _pendingSentences.removeAt(0);
-        final audio = await _apiService.synthesizeSpeech(sentence, 'en');
+        final audio = await _apiService.synthesizeSpeech(sentence, 'auto');
         if (!_isVoiceMode) break;
         if (audio != null) {
           await _audioPlayer.play(BytesSource(audio));
@@ -425,7 +425,10 @@ class _ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
             child: InkWell(
               onTap: () {
                 Provider.of<ChatProvider>(context, listen: false).clearChat();
-                if (Navigator.canPop(context)) Navigator.pop(context);
+                final scaffold = Scaffold.maybeOf(context);
+                if (scaffold != null && scaffold.isDrawerOpen) {
+                  Navigator.pop(context);
+                }
               },
               borderRadius: BorderRadius.circular(8),
               child: Container(

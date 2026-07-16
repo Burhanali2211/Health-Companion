@@ -141,15 +141,16 @@ _KASHMIRI_MARKERS = re.compile(
     r'بہ چھُس|تہ چھُہ|ما کر|ییہ|تھاوان|وانان|کران|پکھان)'
 )
 
-# Common Roman-script Urdu/Hindi function words — signals "Hinglish" (Latin-script
-# Urdu-English code-mixing) rather than plain English when the query has no Nastaliq script.
+# Common Roman-script Urdu/Hindi/Kashmiri function/content words — signals "Hinglish"
+# (Latin-script Urdu/Kashmiri) rather than plain English when the query has no Nastaliq script.
 _HINGLISH_MARKERS = re.compile(
     r'\b(kya|kyu+n|kaise|kaisa|kaisi|hai|hain|nahi+|nahin|mujhe|mujhko|tumhe|aapko|apko|'
     r'mera|meri|mere|tumhara|tumhari|aapka|aapki|acha|accha|theek|thik|sakta|sakte|sakti|'
     r'karo|karna|karein|kare|hona|hoga|hogi|bhi|aur|lekin|magar|bohot|bahut|thoda|thodi|'
     r'zyada|jyada|sath|saath|pata|chahiye|dard|dawai|dawa|bemari|tabiyat|khana|peena|'
     r'raha|rahi|rahe|gaya|gayi|gaye|abhi|kal|aaj|kyunki|matlab|samajh|bata|batao|bolo|'
-    r'mai|main|hum|tum|aap|iska|uska|kuch|sab|koi)\b',
+    r'mai|main|hum|tum|aap|iska|uska|kuch|sab|koi|'
+    r'chhu|chhi|chhas|chhih|kyah|karun|karan|kheyn|chyun|koshur|kasheer|bemaar|sardi|garmi|sehat|ilaj)\b',
     flags=re.IGNORECASE,
 )
 
@@ -165,7 +166,7 @@ def _resolve_language(query: str, language: str) -> str:
     if _URDU_SCRIPT_RE.search(query):
         return "ur"
     hinglish_hits = len(_HINGLISH_MARKERS.findall(query))
-    if hinglish_hits >= 2 or (hinglish_hits == 1 and len(query.split()) <= 5):
+    if hinglish_hits >= 1:
         return "hinglish"
     return "en"
 
@@ -210,6 +211,17 @@ def get_system_prompt(page_context: str, language: str, retrieved_context: str =
         "Instead, immediately tell them to use the SOS button to contact the J&K 104 Health Helpline or 108 Ambulance."
     )
 
+    # Strong language instruction to steer small local models
+    lang_instruction = ""
+    if language == "ur":
+        lang_instruction = "\nبغیر کسی استثنا کے، آپ کو صرف اور صرف اردو زبان (نستعلیق رسم الخط) میں جواب دینا ہے۔ انگریزی حروف یا رومن اردو کا استعمال بالکل نہ کریں۔"
+    elif language == "ks":
+        lang_instruction = "\nبغیر کسی استثنا کے، آپ کو صرف اور صرف کشمیری زبان (نستعلیق رسم الخط) میں جواب دینا ہے۔"
+    elif language == "hinglish":
+        lang_instruction = "\nYou MUST respond ONLY in Roman Urdu / Hinglish (Latin script). Do NOT use Arabic/Urdu script, and do NOT write in plain English."
+    elif language == "en":
+        lang_instruction = "\nYou MUST respond ONLY in English. Do not use Urdu or Kashmiri script."
+
     return f"""You are Sehat Saathi, a warm and knowledgeable health companion built for Kashmir.
 {grounding}{triage_rule}{guardrail}
 Answer the user's actual question directly — do not change the topic.{ctx_instruction}{context_section}
@@ -228,7 +240,7 @@ KASHMIR LIFESTYLE ALIGNMENT — advice should fit how people actually live here,
 - Physical activity is shaped by terrain and season — walking is common, but winter and poor road/air conditions genuinely limit outdoor options; suggest realistic indoor alternatives, not generic "go for a walk" advice.
 - Only bring in a cultural or seasonal detail when it actually changes the advice — do not decorate every answer with the same reflexive mentions (kehwa, kangri, hamam) if they are not relevant to the specific question. Vary examples across foods/practices/seasons instead of repeating the same one or two each time.
 
-CRITICAL: Respond ONLY in {_language_name(language)}. HARD LIMIT: 60 words maximum — stop immediately at 60 words. Never diagnose. Do not restate the question.{medical_disclaimer}"""
+CRITICAL: Respond ONLY in {_language_name(language)}.{lang_instruction} HARD LIMIT: 60 words maximum — stop immediately at 60 words. Never diagnose. Do not restate the question.{medical_disclaimer}"""
 
 OLLAMA_MODEL = os.environ.get("WATAN_OLLAMA_MODEL", "qwen2.5:1.5b")
 
