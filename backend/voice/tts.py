@@ -33,6 +33,13 @@ try:
     HAS_PYTTSX3 = True
 except ImportError:
     HAS_PYTTSX3 = False
+# 4. Try edge-tts (High quality neural fallback)
+try:
+    import edge_tts
+    import asyncio
+    HAS_EDGE_TTS = True
+except ImportError:
+    HAS_EDGE_TTS = False
 
 
 def _get_coqui_model():
@@ -76,6 +83,34 @@ def synthesize(text: str, language: str = "ur", age_mode: str = "jawaan") -> dic
     speed = speed_map.get(age_mode, 1.0)
     
     is_buzurg = (age_mode == "buzurg")
+
+    # HIGH QUALITY PRIMARY: edge-tts (Neural, highly realistic)
+    if HAS_EDGE_TTS:
+        try:
+            import re
+            _URDU_RE = re.compile(r'[؀-ۿ]')
+            voice = "ur-PK-UzmaNeural" if _URDU_RE.search(text) else "en-US-JennyNeural"
+            
+            speed_percent = int((speed - 1.0) * 100)
+            rate_str = f"{'+' if speed_percent >= 0 else ''}{speed_percent}%"
+            
+            async def _generate():
+                communicate = edge_tts.Communicate(text, voice=voice, rate=rate_str)
+                mp3_chunks = []
+                async for chunk in communicate.stream():
+                    if chunk["type"] == "audio":
+                        mp3_chunks.append(chunk["data"])
+                return b"".join(mp3_chunks)
+                
+            audio_bytes = asyncio.run(_generate())
+            if audio_bytes:
+                return {
+                    "audio_bytes": audio_bytes,
+                    "source": "edge-tts",
+                    "error": None
+                }
+        except Exception as e:
+            print(f"[tts] edge-tts synthesis failed ({e}). Falling back...")
 
     # PRIMARY: Coqui TTS (Offline Neural)
     if HAS_COQUI:
