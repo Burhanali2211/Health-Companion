@@ -21,18 +21,9 @@ from rag_engine import retrieve_context, retrieve_qa_answer
 load_dotenv()
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 
-if GEMINI_API_KEY:
-    try:
-        from google import genai
-        from google.genai import types as genai_types
-        gemini_client = genai.Client(api_key=GEMINI_API_KEY)
-    except ImportError:
-        gemini_client = None
-        genai_types = None
-        print("[companion] google-genai not installed. Falling back to Ollama.")
-else:
-    gemini_client = None
-    genai_types = None
+# Force local offline Ollama only (disable Gemini fallback per user request)
+gemini_client = None
+genai_types = None
 
 def _no_thinking_config(temperature: float, max_output_tokens: int):
     """Plain dicts don't reliably apply nested thinking_config on this SDK

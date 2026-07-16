@@ -171,7 +171,7 @@ class TranscribeWorker(QThread):
                         "Content-Length": str(len(body))
                     }
                 )
-                with urllib.request.urlopen(req, timeout=15) as response:
+                with urllib.request.urlopen(req, timeout=30) as response:
                     res_data = json.loads(response.read().decode("utf-8"))
                     if res_data.get("status") == "ok" and res_data.get("data"):
                         self.finished.emit(res_data["data"].get("transcript", ""))
@@ -286,7 +286,7 @@ class TTSSpeakerThread(QThread):
                     data=data,
                     headers={"Content-Type": "application/json"}
                 )
-                with urllib.request.urlopen(req, timeout=15) as response:
+                with urllib.request.urlopen(req, timeout=30) as response:
                     audio_bytes = response.read()
                 
                 if not audio_bytes or self._stop_requested:

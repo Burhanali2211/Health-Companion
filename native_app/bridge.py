@@ -52,7 +52,7 @@ class CompanionTask(QRunnable):
                     data=data,
                     headers={"Content-Type": "application/json"}
                 )
-                with urllib.request.urlopen(req, timeout=12) as response:
+                with urllib.request.urlopen(req, timeout=30) as response:
                     res_data = json.loads(response.read().decode("utf-8"))
                     if res_data.get("status") == "ok":
                         self.signals.finished.emit(res_data["data"])
