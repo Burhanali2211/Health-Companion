@@ -21,16 +21,22 @@ if "%SERVER_IP%" == "ECHO is off. " set SERVER_IP=
 if "%SERVER_IP%" == "ECHO is off." set SERVER_IP=
 
 if "%SERVER_IP%" == "" (
-    set /p SERVER_IP="Enter Server IP Address (e.g. 192.168.1.232 or localhost): "
-    if not "%SERVER_IP%" == "" (
-        echo %SERVER_IP% > "%CONFIG_FILE%"
-    )
-) else (
-    echo ==================================================
-    echo  Saved Server IP: %SERVER_IP%
-    echo  To change this, run: .\run_pc_client.bat ^<new_ip^>
-    echo ==================================================
+    set /p SERVER_IP="Enter Server IP Address [Default: localhost]: "
 )
+
+if "%SERVER_IP%" == "" (
+    set SERVER_IP=localhost
+)
+
+REM Strip trailing spaces
+set SERVER_IP=%SERVER_IP: =%
+
+echo %SERVER_IP% > "%CONFIG_FILE%"
+
+echo ==================================================
+echo  Saved Server IP: %SERVER_IP%
+echo  To change this, run: .\run_pc_client.bat ^<new_ip^>
+echo ==================================================
 
 :launch
 echo Launching Health Companion UI connected to http://%SERVER_IP%:8000...
