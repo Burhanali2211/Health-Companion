@@ -86,9 +86,12 @@ class AIBridge:
             except Exception as e:
                 print(f"[bridge] Local model warm-up failed: {e}")
 
-    def ask(self, query: str, callback):
+    def ask(self, query: str, callback, error_callback=None):
         task = CompanionTask(query, backend_url=self.backend_url)
         task.signals.finished.connect(callback)
-        task.signals.error.connect(lambda err: print(f"Bridge Error: {err}"))
+        if error_callback:
+            task.signals.error.connect(error_callback)
+        else:
+            task.signals.error.connect(lambda err: print(f"Bridge Error: {err}"))
         self.thread_pool.start(task)
 

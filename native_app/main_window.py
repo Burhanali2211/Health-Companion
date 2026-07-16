@@ -1356,7 +1356,7 @@ class MainWindow(QMainWindow):
 
     def _call_ai(self, text: str):
         self.voice_orb.set_state("speaking")
-        self.ai.ask(text, self.handle_ai_response)
+        self.ai.ask(text, self.handle_ai_response, self.handle_ai_error)
 
     def handle_ai_response(self, response_data: dict):
         self.voice_orb.set_state("idle")
@@ -1369,6 +1369,14 @@ class MainWindow(QMainWindow):
         self.text_input.setFocus()
 
         self._speak_response(answer)
+
+    def handle_ai_error(self, err_msg: str):
+        self.voice_orb.set_state("idle")
+        self.add_bot_message(f"Connection Error: Could not connect to backend server.\nDetails: {err_msg}", source="error")
+
+        self.text_input.setEnabled(True)
+        self.send_btn.setEnabled(True)
+        self.text_input.setFocus()
 
     # ── Window controls ───────────────────────────────────────────────
     def toggle_maximize(self):
