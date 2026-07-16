@@ -1176,8 +1176,14 @@ class MainWindow(QMainWindow):
     # ── Voice Recording & STT Methods ─────────────────────────────────
     def toggle_recording(self):
         if self._tts_thread and self._tts_thread.isRunning():
+            try:
+                self._tts_thread.speaking_done.disconnect(self._on_tts_done)
+            except (TypeError, RuntimeError):
+                pass
             self._tts_thread.stop_speaking()
-            self._tts_thread.wait(300)
+            self._tts_thread.wait(400)
+            self._on_tts_done()
+            return
 
         if hasattr(self, "_recorder_thread") and self._recorder_thread.isRunning():
             self.voice_orb.set_state("idle")
@@ -1228,8 +1234,12 @@ class MainWindow(QMainWindow):
     def _speak_response(self, text: str):
         # Interrupt any current TTS before starting new
         if self._tts_thread and self._tts_thread.isRunning():
+            try:
+                self._tts_thread.speaking_done.disconnect(self._on_tts_done)
+            except (TypeError, RuntimeError):
+                pass
             self._tts_thread.stop_speaking()
-            self._tts_thread.wait(300)
+            self._tts_thread.wait(400)
         self._tts_thread = TTSSpeakerThread(text, backend_url=self.backend_url, rate=165, parent=self)
         self._tts_thread.speaking_done.connect(self._on_tts_done)
         self.voice_orb.set_state("speaking")
