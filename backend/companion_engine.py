@@ -209,7 +209,14 @@ def get_system_prompt(page_context: str, language: str, retrieved_context: str =
     elif language == "ks":
         lang_instruction = "\nبغیر کسی استثنا کے، آپ کو صرف اور صرف کشمیری زبان (نستعلیق رسم الخط) میں جواب دینا ہے۔"
     elif language == "hinglish":
-        lang_instruction = "\nYou MUST respond ONLY in Roman Urdu / Hinglish (Latin script). Do NOT use Arabic/Urdu script, and do NOT write in plain English."
+        lang_instruction = (
+            "\nYou MUST respond ONLY in simple, natural Roman Urdu / Hinglish (Latin script). "
+            "Write exactly how people text on WhatsApp. Do not translate literally or invent strange words (like 'saral satw' or 'sauceness'). "
+            "Use simple conversational terms like 'dil ka dora' (heart attack), 'turant' (immediately), 'doctor se contact karein'. "
+            "Example 1: 'Agar dil ka dora (heart attack) pade, toh turant SOS button dabayein aur 108/104 ambulance ko call karein. Mareez ko comfortable letayein.' "
+            "Example 2: 'Sardi me sirdard ke liye garam paani ki bhaap (steam) lein, aur thand se bachein. Agar dard zyaada ho toh doctor ko dikhayein.' "
+            "Keep the language extremely simple, conversational, and direct."
+        )
     elif language == "en":
         lang_instruction = "\nYou MUST respond ONLY in English. Do not use Urdu or Kashmiri script."
 
