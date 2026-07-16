@@ -1,4 +1,4 @@
-# Health Wellness Companion (Watan Sehat)
+# Health Wellness Companion (Health Companion)
 ## Problem Statement · Solution · Investment Case
 ### Islamia College of Science & Commerce
 
@@ -44,9 +44,9 @@ Villages near the Line of Control face cross-border shelling. During shelling, v
 
 ## THE SOLUTION
 
-### Watan Sehat — The Dual Offline Ecosystem (APK + Rugged Device)
+### Health Companion — The Dual Offline Ecosystem (APK + Rugged Device)
 
-We are not building a consumer gadget. We are building a B2G (Business-to-Government) Capacity Building Tool. Watan Sehat is a 100% offline, voice-first Clinical Copilot designed for disconnected environments.
+We are not building a consumer gadget. We are building a B2G (Business-to-Government) Capacity Building Tool. Health Companion is a 100% offline, voice-first Clinical Copilot designed for disconnected environments.
 
 It operates natively in **Koshur, Urdu, Gojri, and Pahari**. 
 

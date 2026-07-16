@@ -47,7 +47,7 @@ We need a solution that survives an internet blackout. We need a solution that s
 
 **[Walk back to the center. Hold up a basic smartphone, then point to the device.]**
 
-This is why we built **Watan Sehat** — a 100% offline, voice-first Clinical Copilot designed specifically for disconnected environments. 
+This is why we built **Health Companion** — a 100% offline, voice-first Clinical Copilot designed specifically for disconnected environments. 
 
 It exists in two forms.
 

@@ -125,17 +125,49 @@ _LANGUAGE_NAMES = {
     "ur": "Urdu (use Nastaliq script — اردو)",
     "en": "English",
     "ks": "Koshur (Kashmiri in Nastaliq script)",
+    "hinglish": (
+        "Hinglish / Roman Urdu (Latin script, Urdu-Hindi mixed naturally with English words, "
+        "exactly like the user wrote — do NOT switch to pure English and do NOT switch to Nastaliq script)"
+    ),
     "auto": None,  # resolved per-query
 }
 
 _URDU_SCRIPT_RE = re.compile(r'[؀-ۿ]')
 
+# Kashmiri-specific words that don't appear in Urdu naturally
+_KASHMIRI_MARKERS = re.compile(
+    r'(چھُہ|چھُ|آسُن|وُچھ|کیاہ|ہاو|دوپ|اوس|آو|گئِ|یِمن|تِمن|کُس|کُنہ|'
+    r'ہوو|تہ بہ|گرژ|وژ|کھیو|ییو|ہیکہ|چھیہ|کرِ|گچھ|چھُس|وُنتھ|آسِہ|'
+    r'بہ چھُس|تہ چھُہ|ما کر|ییہ|تھاوان|وانان|کران|پکھان)'
+)
+
+# Common Roman-script Urdu/Hindi function words — signals "Hinglish" (Latin-script
+# Urdu-English code-mixing) rather than plain English when the query has no Nastaliq script.
+_HINGLISH_MARKERS = re.compile(
+    r'\b(kya|kyu+n|kaise|kaisa|kaisi|hai|hain|nahi+|nahin|mujhe|mujhko|tumhe|aapko|apko|'
+    r'mera|meri|mere|tumhara|tumhari|aapka|aapki|acha|accha|theek|thik|sakta|sakte|sakti|'
+    r'karo|karna|karein|kare|hona|hoga|hogi|bhi|aur|lekin|magar|bohot|bahut|thoda|thodi|'
+    r'zyada|jyada|sath|saath|pata|chahiye|dard|dawai|dawa|bemari|tabiyat|khana|peena|'
+    r'raha|rahi|rahe|gaya|gayi|gaye|abhi|kal|aaj|kyunki|matlab|samajh|bata|batao|bolo|'
+    r'mai|main|hum|tum|aap|iska|uska|kuch|sab|koi)\b',
+    flags=re.IGNORECASE,
+)
+
 def _resolve_language(query: str, language: str) -> str:
-    """If the caller didn't pin a language, detect it from the query script
-    so the reply matches what the user actually typed/spoke."""
+    """Detect language from query script/wording. Kashmiri and Urdu (Nastaliq script)
+    checked first, then Hinglish/Roman Urdu (Latin script but Urdu-Hindi wording) before
+    falling back to plain English — so a Hinglish question gets a Hinglish reply, not a
+    pure-English one, closing the language barrier instead of switching scripts on the user."""
     if language and language != "auto":
         return language
-    return "ur" if _URDU_SCRIPT_RE.search(query) else "en"
+    if _KASHMIRI_MARKERS.search(query):
+        return "ks"
+    if _URDU_SCRIPT_RE.search(query):
+        return "ur"
+    hinglish_hits = len(_HINGLISH_MARKERS.findall(query))
+    if hinglish_hits >= 2 or (hinglish_hits == 1 and len(query.split()) <= 5):
+        return "hinglish"
+    return "en"
 
 def _language_name(language: str) -> str:
     return _LANGUAGE_NAMES.get(language) or "the same language as the user's question"
@@ -188,7 +220,15 @@ Response style by message type:
 - Emotional/stress: Empathetic first, then practical. Acknowledge before advising.
 - Unclear questions: Gently ask for clarification in one sentence.
 
-CRITICAL: Respond ONLY in {_language_name(language)}. HARD LIMIT: 60 words maximum — stop immediately at 60 words. Never diagnose. Do not restate the question. Reference Kashmiri foods, seasons, or local practices where relevant.{medical_disclaimer}"""
+KASHMIR LIFESTYLE ALIGNMENT — advice should fit how people actually live here, not sound generic:
+- Winters mean indoor living, hamam/kangri heating, less daylight, joint-family households, dried vegetables (hokh syun) and stored produce, closed schools/roads during heavy snow — factor this into activity, diet, and mood advice for Chilla Kalan/Khurd.
+- Summers (Sonth–Grind) mean orchard and farm labour, fresh produce, longer daylight, wedding/tourist season crowding — factor this into hydration, sun, and workload advice.
+- Households are usually multi-generational; elders' habits, decisions, and care often involve the whole family, not just the individual.
+- Diet is rice-and-Wazwan-rooted with strong salt/red-meat/ghee traditions, kehwa and noon chai as daily norms.
+- Physical activity is shaped by terrain and season — walking is common, but winter and poor road/air conditions genuinely limit outdoor options; suggest realistic indoor alternatives, not generic "go for a walk" advice.
+- Only bring in a cultural or seasonal detail when it actually changes the advice — do not decorate every answer with the same reflexive mentions (kehwa, kangri, hamam) if they are not relevant to the specific question. Vary examples across foods/practices/seasons instead of repeating the same one or two each time.
+
+CRITICAL: Respond ONLY in {_language_name(language)}. HARD LIMIT: 60 words maximum — stop immediately at 60 words. Never diagnose. Do not restate the question.{medical_disclaimer}"""
 
 OLLAMA_MODEL = os.environ.get("WATAN_OLLAMA_MODEL", "qwen2.5:1.5b")
 
@@ -239,7 +279,7 @@ def _gemini_response(query: str, age_mode: str, district: str, season: str, page
 
 
 # ─── Ollama LLM Fallback ────────────────────────────────────────────
-def _ollama_response(query: str, age_mode: str, district: str, season: str, page_context: str, language: str) -> dict:
+def _ollama_response(query: str, age_mode: str, district: str, season: str, page_context: str, language: str, chat_history: list | None = None) -> dict:
     try:
         context = f"User profile: {age_mode} age group, {district}, Kashmir. Season: {season}. Page context: {page_context}. Current Date: {datetime.now().strftime('%Y-%m-%d')}"
 
@@ -265,13 +305,21 @@ def _ollama_response(query: str, age_mode: str, district: str, season: str, page
         retrieved = retrieve_context(query, top_k=4, min_score=0.10, age_mode=age_mode)
         retrieved_context = "\n".join(retrieved) if retrieved else ""
 
+        history_messages: list[dict] = []
+        for h in (chat_history or [])[-10:]:
+            role = h.get("role", "user")
+            content = h.get("content", "")
+            if role in ("user", "assistant") and content:
+                history_messages.append({"role": role, "content": content})
+
         response = ollama.chat(
             model=OLLAMA_MODEL,
             messages=[
                 {"role": "system", "content": get_system_prompt(page_context, language, retrieved_context)},
+                *history_messages,
                 {"role": "user", "content": f"{context}\n\nQuestion: {query}"}
             ],
-            options={"temperature": 0.3, "num_predict": 120, "top_p": 0.85}
+            options={"temperature": 0.35, "num_predict": 150, "top_p": 0.85}
         )
         return {
             "response_text": response['message']['content'].strip(),
@@ -295,10 +343,82 @@ def _ollama_response(query: str, age_mode: str, district: str, season: str, page
         }
 
 
+# ─── Streaming Generator ─────────────────────────────────────────────
+def stream_companion_response(
+    query: str, age_mode: str, district: str, season: str,
+    page_context: str = "", language: str = "auto",
+    chat_history: list | None = None,
+    temperature: float = 0.35, max_tokens: int = 150,
+):
+    """Yields raw text tokens for SSE streaming. Ollama native stream, Gemini word-by-word."""
+    resolved_language = _resolve_language(query, language)
+    matched_rule = _match_rules(query, season, age_mode)
+
+    if matched_rule:
+        if resolved_language in ("en", "hinglish"):
+            # Hinglish is Latin-script — the English canned line reads naturally and
+            # avoids jarring the user with a Nastaliq-script reply to a Roman-script question.
+            text = matched_rule.get("response_en", "")
+        elif resolved_language == "ks":
+            text = matched_rule.get("response_ks") or matched_rule.get("response_ur", "")
+        else:
+            text = matched_rule.get("response_ur", "") or matched_rule.get("response_en", "")
+        for word in text.split():
+            yield word + " "
+        return
+
+    retrieved = retrieve_context(query, top_k=4, min_score=0.10, age_mode=age_mode)
+    retrieved_context = "\n".join(retrieved) if retrieved else ""
+    system_prompt = get_system_prompt(page_context, resolved_language, retrieved_context)
+    context_line = f"User profile: {age_mode}, {district}, Kashmir. Season: {season}. Date: {datetime.now().strftime('%Y-%m-%d')}"
+
+    messages: list[dict] = [{"role": "system", "content": system_prompt}]
+    for h in (chat_history or [])[-10:]:
+        role = h.get("role", "user")
+        content = h.get("content", "")
+        if role in ("user", "assistant") and content:
+            messages.append({"role": role, "content": content})
+    messages.append({"role": "user", "content": f"{context_line}\n\nQuestion: {query}"})
+
+    try:
+        stream = ollama.chat(
+            model=OLLAMA_MODEL,
+            messages=messages,
+            stream=True,
+            options={"temperature": temperature, "num_predict": max_tokens, "top_p": 0.85},
+        )
+        for chunk in stream:
+            token = chunk["message"]["content"]
+            if token:
+                yield token
+        return
+    except Exception as e:
+        print(f"[stream] Ollama error: {e}")
+
+    if gemini_client:
+        try:
+            if not api_limiter.can_proceed():
+                raise Exception("Rate limit")
+            response = gemini_client.models.generate_content(
+                model="gemini-2.5-flash",
+                contents=f"{system_prompt}\n\n{context_line}\n\nQuestion: {query}",
+                config=_no_thinking_config(0.5, 400),
+            )
+            text = (response.text or "").strip()
+            for word in text.split():
+                yield word + " "
+            return
+        except Exception as e:
+            print(f"[stream] Gemini error: {e}")
+
+    yield "Sorry, I could not generate a response. Please try again."
+
+
 # ─── Public API ──────────────────────────────────────────────────────
 def get_companion_response(
     query: str, age_mode: str, district: str, season: str,
-    page_context: str = "", language: str = "auto"
+    page_context: str = "", language: str = "auto",
+    chat_history: list | None = None
 ) -> dict:
     """
     Main entry point. Priority:
@@ -310,12 +430,17 @@ def get_companion_response(
     matched_rule = _match_rules(query, season, age_mode)
 
     if matched_rule:
-        text = matched_rule.get("response_en") if resolved_language == "en" else matched_rule.get("response_ur")
-        text = text or matched_rule.get("response_ur") or matched_rule.get("response_en", "")
+        if resolved_language in ("en", "hinglish"):
+            text = matched_rule.get("response_en", "")
+        elif resolved_language == "ks":
+            text = matched_rule.get("response_ks") or matched_rule.get("response_ur", "")
+        else:
+            text = matched_rule.get("response_ur", "") or matched_rule.get("response_en", "")
+        text = text or matched_rule.get("response_en", "")
 
-        # Online + non-Urdu/English request: ask Gemini to translate the
-        # vetted offline answer instead of forcing it into Urdu.
-        if gemini_client and resolved_language not in ("ur", "en"):
+        # Online + non-Urdu/English/Hinglish: ask Gemini to translate the vetted offline answer
+        # Skip Kashmiri if we already have response_ks (no need to translate)
+        if gemini_client and resolved_language not in ("ur", "en", "hinglish") and not (resolved_language == "ks" and matched_rule.get("response_ks")):
             try:
                 if not api_limiter.can_proceed():
                     raise Exception("Rate limit exceeded")
@@ -343,7 +468,7 @@ def get_companion_response(
     # Local model is primary (fast, no quota/rate limits). Gemini only
     # kicks in if Ollama itself errors out, so there's still a cloud
     # fallback rather than a hard failure.
-    ollama_result = _ollama_response(query, age_mode, district, season, page_context, resolved_language)
+    ollama_result = _ollama_response(query, age_mode, district, season, page_context, resolved_language, chat_history)
     if ollama_result["source"] == "ollama":
         return ollama_result
 

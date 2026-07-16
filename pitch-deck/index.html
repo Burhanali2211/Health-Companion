@@ -1,13 +1,14 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
-    <title>Watan Sehat - Pitch Deck</title>
+    <title>Health Companion - Pitch Deck</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Reveal.js CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
-    
+
     <!-- Google Fonts: Inter (The standard for serious SaaS / Enterprise) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,494 +18,750 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-    /* ── TOKENS ── */
-    :root {
-        --white:  #FFFFFF;
-        --bg:     #FFFFFF; /* Pure white background for a hyper-clean, serious look */
-        --line:   #E5E7EB; /* Very subtle grey border */
-        --line-dark: #D1D5DB;
-        --t1:     #111827; /* Near black */
-        --t2:     #4B5563; /* Medium grey */
-        --t3:     #9CA3AF;
-        
-        /* Serious Health Green */
-        --primary: #047857; /* Darker, more serious Emerald */
-        --accent: #B91C1C; /* Serious Red for warnings instead of playful orange */
-    }
+        /* ── TOKENS ── */
+        :root {
+            --white: #FFFFFF;
+            --bg: #FFFFFF;
+            /* Pure white background for a hyper-clean, serious look */
+            --line: #E5E7EB;
+            /* Very subtle grey border */
+            --line-dark: #D1D5DB;
+            --t1: #111827;
+            /* Near black */
+            --t2: #4B5563;
+            /* Medium grey */
+            --t3: #9CA3AF;
 
-    /* ── BASE ── */
-    *,*::before,*::after { box-sizing: border-box; }
-    html, body { background: var(--bg) !important; margin: 0; padding: 0; }
-    .reveal, .reveal .slides { background: var(--bg) !important; }
-    
-    .reveal { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--t1); }
+            /* Serious Health Green */
+            --primary: #047857;
+            /* Darker, more serious Emerald */
+            --accent: #B91C1C;
+            /* Serious Red for warnings instead of playful orange */
+        }
 
-    /* ── TYPE SCALE (Sharp, Vercel/Stripe style) ── */
-    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
-        font-family: 'Inter', sans-serif;
-        font-weight: 700;
-        text-transform: none; text-shadow: none; margin: 0;
-        letter-spacing: -0.03em; line-height: 1.1; color: var(--t1);
-    }
-    
-    .reveal h1 { font-size: 52px; margin-bottom: 16px; font-weight: 800; letter-spacing: -0.04em; }
-    .reveal h2 { font-size: 38px; margin-bottom: 24px; font-weight: 700; }
-    .reveal h3 { font-size: 22px; margin-bottom: 12px; font-weight: 600; }
-    .reveal h4 { font-size: 18px; font-weight: 600; margin: 0 0 8px 0; color: var(--t1); }
-    
-    .reveal p { margin: 0; font-size: 16px; line-height: 1.6; color: var(--t2); }
-    
-    /* Clean lists without generic discs */
-    .reveal ul { list-style: none; padding-left: 0; margin: 0; }
-    .reveal li { 
-        font-size: 16px; line-height: 1.6; color: var(--t2); margin-bottom: 12px;
-        position: relative; padding-left: 20px;
-    }
-    .reveal li::before {
-        content: "—";
-        position: absolute; left: 0; top: 0;
-        color: var(--t3);
-        font-weight: 500;
-    }
-    
-    .primary { color: var(--primary); }
-    .accent { color: var(--accent); }
-    .t1 { color: var(--t1); }
-    .t2 { color: var(--t2); }
-    
-    /* ── LABEL (Raw text, no pill backgrounds) ── */
-    .slide-label {
-        display: block;
-        font-size: 12px; font-weight: 600;
-        text-transform: uppercase; letter-spacing: 0.15em; color: var(--t3);
-        margin-bottom: 24px;
-        border-bottom: 1px solid var(--line);
-        padding-bottom: 8px;
-    }
+        /* ── BASE ── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
 
-    /* ── CARDS (Hyper-minimal, Sharp corners, no colored tops) ── */
-    .card {
-        background: var(--white);
-        border: 1px solid var(--line);
-        border-radius: 4px; /* Sharp corners */
-        padding: 24px;
-        box-shadow: 0 1px 2px rgba(0,0,0,0.03); /* Barely visible shadow */
-        transition: border-color 0.2s ease;
-    }
-    
-    /* For primary cards, just use a slightly darker border, no pastel backgrounds */
-    .card-primary {
-        border-color: var(--t1);
-        box-shadow: 0 2px 4px rgba(0,0,0,0.06);
-    }
+        html,
+        body {
+            background: var(--bg) !important;
+            margin: 0;
+            padding: 0;
+        }
 
-    /* ── GRIDS ── */
-    .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
-    .g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    
-    /* ── TABLE (Raw, data-focused) ── */
-    .stbl { width: 100%; border-collapse: collapse; margin-top: 16px; }
-    .stbl th { text-align: left; padding: 12px 0; font-size: 13px; font-weight: 600; color: var(--t2); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 2px solid var(--t1); }
-    .stbl td { padding: 16px 0; border-bottom: 1px solid var(--line); color: var(--t1); font-size: 15px; vertical-align: top; }
-    .stbl tr:last-child td { border-bottom: none; }
-    
-    /* ── ALERTS / HIGHLIGHTS (Minimal wireframe style) ── */
-    .highlight-box {
-        border: 1px solid var(--t1);
-        padding: 20px 24px;
-        background: var(--white);
-        border-radius: 4px;
-        margin: 24px 0;
-        font-size: 18px;
-        line-height: 1.5;
-        font-weight: 500;
-        color: var(--t1);
-    }
+        .reveal,
+        .reveal .slides {
+            background: var(--bg) !important;
+        }
 
-    /* ── ICONS (Bare, no boxes behind them) ── */
-    .icon-wrapper {
-        display: block; margin-bottom: 16px;
-    }
-    .icon-wrapper svg {
-        stroke-width: 1.5px;
-    }
-    .icon-primary { color: var(--primary); }
-    .icon-accent { color: var(--accent); }
-    .icon-neutral { color: var(--t1); }
+        .reveal {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--t1);
+        }
 
-    /* ── DATA CHARTS ── */
-    .data-row { margin-bottom: 24px; }
-    .data-label { display: flex; justify-content: space-between; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--t1); }
-    .data-bar-bg { width: 100%; height: 24px; background: var(--line); border-radius: 2px; overflow: hidden; display: flex; }
-    .data-bar-fill { height: 100%; display: flex; align-items: center; padding-left: 12px; font-size: 12px; font-weight: 700; color: var(--white); }
-    .fill-primary { background: var(--primary); }
-    .fill-accent { background: var(--accent); }
-    .fill-dark { background: var(--t1); }
+        /* ── TYPE SCALE (Sharp, Vercel/Stripe style) ── */
+        .reveal h1,
+        .reveal h2,
+        .reveal h3,
+        .reveal h4 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            text-transform: none;
+            text-shadow: none;
+            margin: 0;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: var(--t1);
+        }
 
-    /* ── SLIDE WRAPPER ── */
-    .si { text-align: left; padding: 40px 60px; height: 100%; display: flex; flex-direction: column; justify-content: center; }
+        .reveal h1 {
+            font-size: 52px;
+            margin-bottom: 16px;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+        }
 
-    /* Override reveal's default centered alignment */
-    .reveal .slides section { text-align: left; }
+        .reveal h2 {
+            font-size: 38px;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .reveal h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .reveal h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 8px 0;
+            color: var(--t1);
+        }
+
+        .reveal p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--t2);
+        }
+
+        /* Clean lists without generic discs */
+        .reveal ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .reveal li {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--t2);
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .reveal li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--t3);
+            font-weight: 500;
+        }
+
+        .primary {
+            color: var(--primary);
+        }
+
+        .accent {
+            color: var(--accent);
+        }
+
+        .t1 {
+            color: var(--t1);
+        }
+
+        .t2 {
+            color: var(--t2);
+        }
+
+        /* ── LABEL (Raw text, no pill backgrounds) ── */
+        .slide-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--t3);
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 8px;
+        }
+
+        /* ── CARDS (Hyper-minimal, Sharp corners, no colored tops) ── */
+        .card {
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            /* Sharp corners */
+            padding: 24px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+            /* Barely visible shadow */
+            transition: border-color 0.2s ease;
+        }
+
+        /* For primary cards, just use a slightly darker border, no pastel backgrounds */
+        .card-primary {
+            border-color: var(--t1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+        }
+
+        /* ── GRIDS ── */
+        .g2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        .g3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        /* ── TABLE (Raw, data-focused) ── */
+        .stbl {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        .stbl th {
+            text-align: left;
+            padding: 12px 0;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--t2);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 2px solid var(--t1);
+        }
+
+        .stbl td {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--line);
+            color: var(--t1);
+            font-size: 15px;
+            vertical-align: top;
+        }
+
+        .stbl tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* ── ALERTS / HIGHLIGHTS (Minimal wireframe style) ── */
+        .highlight-box {
+            border: 1px solid var(--t1);
+            padding: 20px 24px;
+            background: var(--white);
+            border-radius: 4px;
+            margin: 24px 0;
+            font-size: 18px;
+            line-height: 1.5;
+            font-weight: 500;
+            color: var(--t1);
+        }
+
+        /* ── ICONS (Bare, no boxes behind them) ── */
+        .icon-wrapper {
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .icon-wrapper svg {
+            stroke-width: 1.5px;
+        }
+
+        .icon-primary {
+            color: var(--primary);
+        }
+
+        .icon-accent {
+            color: var(--accent);
+        }
+
+        .icon-neutral {
+            color: var(--t1);
+        }
+
+        /* ── DATA CHARTS ── */
+        .data-row {
+            margin-bottom: 24px;
+        }
+
+        .data-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--t1);
+        }
+
+        .data-bar-bg {
+            width: 100%;
+            height: 24px;
+            background: var(--line);
+            border-radius: 2px;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .data-bar-fill {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding-left: 12px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .fill-primary {
+            background: var(--primary);
+        }
+
+        .fill-accent {
+            background: var(--accent);
+        }
+
+        .fill-dark {
+            background: var(--t1);
+        }
+
+        /* ── SLIDE WRAPPER ── */
+        .si {
+            text-align: left;
+            padding: 40px 60px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Override reveal's default centered alignment */
+        .reveal .slides section {
+            text-align: left;
+        }
     </style>
 </head>
+
 <body>
-<div class="reveal">
-<div class="slides">
+    <div class="reveal">
+        <div class="slides">
 
-    <!-- 1. Title & Hook -->
-    <section data-transition="fade">
-        <div class="si">
-            <h1>Watan Sehat</h1>
-            <h3 style="font-size: 22px; font-weight: 400; color: var(--t2); margin-bottom: 32px; line-height: 1.5; max-width: 750px;">
-                Equipping frontline health workers with offline triage systems so that isolated communities survive winter blockades.
-            </h3>
-            
-            <div class="highlight-box fragment fade-up" style="max-width: 800px; border-left: 4px solid var(--primary);">
-                "January 15th. <strong class="primary">5 feet of snow</strong> in Kupwara. Roads are blocked. An ASHA worker has a critical patient. <strong class="accent">The internet is down.</strong> She has to guess... and guessing costs lives."
-            </div>
-            
-            <div class="fragment fade-up" style="margin-top: 32px; border-top: 1px solid var(--line); padding-top: 16px;">
-                <p style="font-size: 15px; font-weight: 600; color: var(--t1);">Burhan Ali</p>
-                <p style="font-size: 13px; color: var(--t2);">Islamia College of Science & Commerce</p>
-            </div>
-        </div>
-    </section>
+            <!-- 1. Title & Hook -->
+            <section data-transition="fade">
+                <div class="si">
+                    <h1>Health Companion</h1>
+                    <h3
+                        style="font-size: 22px; font-weight: 400; color: var(--t2); margin-bottom: 32px; line-height: 1.5; max-width: 750px;">
+                        Equipping frontline health workers with offline triage systems so that isolated communities
+                        survive winter blockades.
+                    </h3>
 
-    <!-- 2. The Data (Validation) -->
-    <section data-transition="slide">
-        <div class="si">
-            <span class="slide-label">The Reality By The Numbers</span>
-            <h2 style="margin-bottom: 40px;">Why "Airy Ideas" fail in Kashmir.</h2>
-            
-            <div class="g2">
-                <div class="card fragment fade-up">
-                    <h4 class="t1">Urban vs Rural Doctor Deficit</h4>
-                    <p style="font-size: 14px; margin-bottom: 20px;">Out of a sample of 190 doctors in J&K, extreme clustering leaves rural areas abandoned.</p>
-                    
-                    <div class="data-row">
-                        <div class="data-label"><span>Urban Srinagar</span> <span>183 Doctors (96%)</span></div>
-                        <div class="data-bar-bg">
-                            <div class="data-bar-fill fill-dark" style="width: 96%;"></div>
+                    <div class="highlight-box fragment fade-up"
+                        style="max-width: 800px; border-left: 4px solid var(--primary);">
+                        "January 15th. <strong class="primary">5 feet of snow</strong> in Kupwara. Roads are blocked. An
+                        ASHA worker has a critical patient. <strong class="accent">The internet is down.</strong> She
+                        has to guess... and guessing costs lives."
+                    </div>
+
+                    <div class="fragment fade-up"
+                        style="margin-top: 32px; border-top: 1px solid var(--line); padding-top: 16px;">
+                        <p style="font-size: 15px; font-weight: 600; color: var(--t1);">Burhan Ali</p>
+                        <p style="font-size: 13px; color: var(--t2);">Islamia College of Science & Commerce</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. The Data (Validation) -->
+            <section data-transition="slide">
+                <div class="si">
+                    <span class="slide-label">The Reality By The Numbers</span>
+                    <h2 style="margin-bottom: 40px;">Why "Airy Ideas" fail in Kashmir.</h2>
+
+                    <div class="g2">
+                        <div class="card fragment fade-up">
+                            <h4 class="t1">Urban vs Rural Doctor Deficit</h4>
+                            <p style="font-size: 14px; margin-bottom: 20px;">Out of a sample of 190 doctors in J&K,
+                                extreme clustering leaves rural areas abandoned.</p>
+
+                            <div class="data-row">
+                                <div class="data-label"><span>Urban Srinagar</span> <span>183 Doctors (96%)</span></div>
+                                <div class="data-bar-bg">
+                                    <div class="data-bar-fill fill-dark" style="width: 96%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="data-row" style="margin-bottom: 0;">
+                                <div class="data-label"><span>Rural Clinics</span> <span class="accent">7 Doctors
+                                        (4%)</span></div>
+                                <div class="data-bar-bg">
+                                    <div class="data-bar-fill fill-accent" style="width: 4%;"></div>
+                                </div>
+                            </div>
+                            <p style="font-size: 10px; color: var(--t3); margin-top: 16px; font-weight: 500;">*Source:
+                                2025/2026 Medical Workforce Reports & Situational Analysis</p>
+                        </div>
+
+                        <div class="card fragment fade-up">
+                            <h4 class="t1">The Silent Mental Health Crisis</h4>
+                            <p style="font-size: 14px; margin-bottom: 20px;">Latest 2025/2026 Epidemiological Studies of
+                                young adults in Kashmir.</p>
+
+                            <div
+                                style="display: flex; gap: 24px; align-items: flex-end; height: 100px; border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-bottom: 16px;">
+                                <div
+                                    style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 8px;">
+                                    <div
+                                        style="width: 100%; background: var(--t1); height: 100%; border-radius: 2px 2px 0 0;">
+                                    </div>
+                                    <span style="font-size: 12px; font-weight: 600;">Severe Distress (36%)</span>
+                                </div>
+                                <div
+                                    style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 8px;">
+                                    <div
+                                        style="width: 100%; background: var(--primary); height: 66%; border-radius: 2px 2px 0 0;">
+                                    </div>
+                                    <span style="font-size: 12px; font-weight: 600;">Severe Anxiety (24%)</span>
+                                </div>
+                                <div
+                                    style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 8px;">
+                                    <div
+                                        style="width: 100%; background: var(--line-dark); height: 33%; border-radius: 2px 2px 0 0;">
+                                    </div>
+                                    <span style="font-size: 12px; font-weight: 600;">Depression (12%)</span>
+                                </div>
+                            </div>
+                            <p style="font-size: 13px; font-weight: 600; color: var(--accent);">Only 41 Psychiatrists
+                                for 14 Million People.</p>
+                            <p style="font-size: 10px; color: var(--t3); margin-top: 8px; font-weight: 500;">*Source:
+                                2025/2026 Cross-Sectional Studies on Mental Health in J&K</p>
                         </div>
                     </div>
-                    
-                    <div class="data-row" style="margin-bottom: 0;">
-                        <div class="data-label"><span>Rural Clinics</span> <span class="accent">7 Doctors (4%)</span></div>
-                        <div class="data-bar-bg">
-                            <div class="data-bar-fill fill-accent" style="width: 4%;"></div>
+
+                    <div class="highlight-box fragment fade-up"
+                        style="margin-top: 32px; padding: 16px 20px; font-size: 16px; border-left: 4px solid var(--accent);">
+                        <strong class="t1">The Digital Blackout:</strong> India leads the world in internet shutdowns.
+                        J&K recently suffered a continuous <strong class="accent">550-day 4G blackout</strong>.
+                        Cloud-based health tech is mathematically guaranteed to fail here.
+                        <p style="font-size: 10px; color: var(--t3); margin-top: 8px; font-weight: 500;">*Source:
+                            Software Freedom Law Center (SFLC.in)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. The Problem -->
+            <section data-transition="slide">
+                <div class="si">
+                    <span class="slide-label">The Problem</span>
+                    <h2>A healthcare collapse in disconnected zones.</h2>
+
+                    <div class="g3" style="margin-top: 24px;">
+                        <div class="card fragment fade-up">
+                            <div class="icon-wrapper icon-accent">
+                                <i data-lucide="wifi-off" style="width: 24px; height: 24px;"></i>
+                            </div>
+                            <h4 class="t1">The Cloud Illusion</h4>
+                            <p>J&K experiences the highest frequency of internet blackouts globally. When a crisis hits,
+                                "cloud-based" health apps <strong class="accent">simply die</strong>.</p>
+                        </div>
+                        <div class="card fragment fade-up">
+                            <div class="icon-wrapper icon-accent">
+                                <i data-lucide="stethoscope" style="width: 24px; height: 24px;"></i>
+                            </div>
+                            <h4 class="t1">The ASHA Burden</h4>
+                            <p>Specialists avoid rural transfers. ASHA workers are <strong class="accent">left
+                                    alone</strong> during winter to make life-or-death triage decisions without
+                                guidance.</p>
+                        </div>
+                        <div class="card fragment fade-up">
+                            <div class="icon-wrapper icon-accent">
+                                <i data-lucide="brain-circuit" style="width: 24px; height: 24px;"></i>
+                            </div>
+                            <h4 class="t1">Mental Health Stigma</h4>
+                            <p>Over 36% of young adults face severe psychological distress, but there are only 41
+                                psychiatrists. Stigma prevents seeking help.</p>
                         </div>
                     </div>
-                    <p style="font-size: 10px; color: var(--t3); margin-top: 16px; font-weight: 500;">*Source: 2025/2026 Medical Workforce Reports & Situational Analysis</p>
                 </div>
+            </section>
 
-                <div class="card fragment fade-up">
-                    <h4 class="t1">The Silent Mental Health Crisis</h4>
-                    <p style="font-size: 14px; margin-bottom: 20px;">Latest 2025/2026 Epidemiological Studies of young adults in Kashmir.</p>
-                    
-                    <div style="display: flex; gap: 24px; align-items: flex-end; height: 100px; border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-bottom: 16px;">
-                        <div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 8px;">
-                            <div style="width: 100%; background: var(--t1); height: 100%; border-radius: 2px 2px 0 0;"></div>
-                            <span style="font-size: 12px; font-weight: 600;">Severe Distress (36%)</span>
+            <!-- 3. Your Solution / Idea -->
+            <section data-transition="slide">
+                <div class="si">
+                    <span class="slide-label">The Solution</span>
+                    <h2>The Dual Offline Ecosystem</h2>
+                    <p style="font-size: 18px; margin-bottom: 32px; max-width: 800px;">A 100% offline, voice-first
+                        Clinical Copilot natively speaking Koshur, Urdu, Gojri, and Pahari.</p>
+
+                    <div class="g2">
+                        <div class="card card-primary fragment fade-right">
+                            <div class="icon-wrapper icon-primary">
+                                <i data-lucide="smartphone" style="width: 24px; height: 24px;"></i>
+                            </div>
+                            <h3>Tier 1: The Offline APK</h3>
+                            <ul>
+                                <li><strong class="t1">Target:</strong> Frontline ASHA Workers</li>
+                                <li><strong class="t1">Platform:</strong> Android App on government tablets</li>
+                                <li><strong class="t1">Hardware Cost:</strong> ₹0. Highly scalable.</li>
+                                <li><strong class="t1">Impact:</strong> Instant triage protocols during winter
+                                    emergencies, drastically reducing cognitive load.</li>
+                            </ul>
                         </div>
-                        <div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 8px;">
-                            <div style="width: 100%; background: var(--primary); height: 66%; border-radius: 2px 2px 0 0;"></div>
-                            <span style="font-size: 12px; font-weight: 600;">Severe Anxiety (24%)</span>
+                        <div class="card fragment fade-left">
+                            <div class="icon-wrapper icon-neutral">
+                                <i data-lucide="hard-drive" style="width: 24px; height: 24px;"></i>
+                            </div>
+                            <h3>Tier 2: The Rugged Device</h3>
+                            <ul>
+                                <li><strong class="t1">Target:</strong> Extreme Off-Grid Scenarios</li>
+                                <li><strong class="t1">Hardware:</strong> Solar-compatible Raspberry Pi box</li>
+                                <li><strong class="t1">Deployment:</strong> Nomadic Gujjar/Bakarwal tents, LoC border
+                                    bunkers.</li>
+                                <li><strong class="t1">Impact:</strong> Communal, zero-hour first responder.</li>
+                            </ul>
                         </div>
-                        <div style="flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 8px;">
-                            <div style="width: 100%; background: var(--line-dark); height: 33%; border-radius: 2px 2px 0 0;"></div>
-                            <span style="font-size: 12px; font-weight: 600;">Depression (12%)</span>
-                        </div>
                     </div>
-                    <p style="font-size: 13px; font-weight: 600; color: var(--accent);">Only 41 Psychiatrists for 14 Million People.</p>
-                    <p style="font-size: 10px; color: var(--t3); margin-top: 8px; font-weight: 500;">*Source: 2025/2026 Cross-Sectional Studies on Mental Health in J&K</p>
                 </div>
-            </div>
-            
-            <div class="highlight-box fragment fade-up" style="margin-top: 32px; padding: 16px 20px; font-size: 16px; border-left: 4px solid var(--accent);">
-                <strong class="t1">The Digital Blackout:</strong> India leads the world in internet shutdowns. J&K recently suffered a continuous <strong class="accent">550-day 4G blackout</strong>. Cloud-based health tech is mathematically guaranteed to fail here.
-                <p style="font-size: 10px; color: var(--t3); margin-top: 8px; font-weight: 500;">*Source: Software Freedom Law Center (SFLC.in)</p>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- 3. The Problem -->
-    <section data-transition="slide">
-        <div class="si">
-            <span class="slide-label">The Problem</span>
-            <h2>A healthcare collapse in disconnected zones.</h2>
-            
-            <div class="g3" style="margin-top: 24px;">
-                <div class="card fragment fade-up">
-                    <div class="icon-wrapper icon-accent">
-                        <i data-lucide="wifi-off" style="width: 24px; height: 24px;"></i>
-                    </div>
-                    <h4 class="t1">The Cloud Illusion</h4>
-                    <p>J&K experiences the highest frequency of internet blackouts globally. When a crisis hits, "cloud-based" health apps <strong class="accent">simply die</strong>.</p>
-                </div>
-                <div class="card fragment fade-up">
-                    <div class="icon-wrapper icon-accent">
-                        <i data-lucide="stethoscope" style="width: 24px; height: 24px;"></i>
-                    </div>
-                    <h4 class="t1">The ASHA Burden</h4>
-                    <p>Specialists avoid rural transfers. ASHA workers are <strong class="accent">left alone</strong> during winter to make life-or-death triage decisions without guidance.</p>
-                </div>
-                <div class="card fragment fade-up">
-                    <div class="icon-wrapper icon-accent">
-                        <i data-lucide="brain-circuit" style="width: 24px; height: 24px;"></i>
-                    </div>
-                    <h4 class="t1">Mental Health Stigma</h4>
-                    <p>Over 36% of young adults face severe psychological distress, but there are only 41 psychiatrists. Stigma prevents seeking help.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <!-- 4. How It Works & Current Stage -->
+            <section data-transition="slide">
+                <div class="si">
+                    <span class="slide-label">Architecture</span>
+                    <h2>Every byte processed on-device.</h2>
 
-    <!-- 3. Your Solution / Idea -->
-    <section data-transition="slide">
-        <div class="si">
-            <span class="slide-label">The Solution</span>
-            <h2>The Dual Offline Ecosystem</h2>
-            <p style="font-size: 18px; margin-bottom: 32px; max-width: 800px;">A 100% offline, voice-first Clinical Copilot natively speaking Koshur, Urdu, Gojri, and Pahari.</p>
-            
-            <div class="g2">
-                <div class="card card-primary fragment fade-right">
-                    <div class="icon-wrapper icon-primary">
-                        <i data-lucide="smartphone" style="width: 24px; height: 24px;"></i>
+                    <div class="fragment fade-up"
+                        style="margin-top: 16px; display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
+                        <div style="width: 8px; height: 8px; background: var(--primary); border-radius: 50%;"></div>
+                        <span
+                            style="font-size: 15px; font-weight: 600; color: var(--t1); text-transform: uppercase; letter-spacing: 0.05em;">Status:
+                            Live on Raspberry Pi 5 ARM</span>
                     </div>
-                    <h3>Tier 1: The Offline APK</h3>
-                    <ul>
-                        <li><strong class="t1">Target:</strong> Frontline ASHA Workers</li>
-                        <li><strong class="t1">Platform:</strong> Android App on government tablets</li>
-                        <li><strong class="t1">Hardware Cost:</strong> ₹0. Highly scalable.</li>
-                        <li><strong class="t1">Impact:</strong> Instant triage protocols during winter emergencies, drastically reducing cognitive load.</li>
-                    </ul>
-                </div>
-                <div class="card fragment fade-left">
-                    <div class="icon-wrapper icon-neutral">
-                        <i data-lucide="hard-drive" style="width: 24px; height: 24px;"></i>
-                    </div>
-                    <h3>Tier 2: The Rugged Device</h3>
-                    <ul>
-                        <li><strong class="t1">Target:</strong> Extreme Off-Grid Scenarios</li>
-                        <li><strong class="t1">Hardware:</strong> Solar-compatible Raspberry Pi box</li>
-                        <li><strong class="t1">Deployment:</strong> Nomadic Gujjar/Bakarwal tents, LoC border bunkers.</li>
-                        <li><strong class="t1">Impact:</strong> Communal, zero-hour first responder.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- 4. How It Works & Current Stage -->
-    <section data-transition="slide">
-        <div class="si">
-            <span class="slide-label">Architecture</span>
-            <h2>Every byte processed on-device.</h2>
-            
-            <div class="fragment fade-up" style="margin-top: 16px; display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
-                <div style="width: 8px; height: 8px; background: var(--primary); border-radius: 50%;"></div>
-                <span style="font-size: 15px; font-weight: 600; color: var(--t1); text-transform: uppercase; letter-spacing: 0.05em;">Status: Live on Raspberry Pi 5 ARM</span>
-            </div>
-            
-            <div class="fragment fade-up">
-                <table class="stbl">
-                    <thead>
-                        <tr>
-                            <th>Technology Layer</th>
-                            <th>Implementation</th>
-                            <th>Offline Advantage</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="fragment fade-in-then-semi-out">
-                            <td><strong>Voice Recognition</strong></td>
-                            <td>OpenAI Whisper (Tiny 39MB)</td>
-                            <td>Handles Kashmiri-accented Urdu natively with &lt;1.2s transcription.</td>
-                        </tr>
-                        <tr class="fragment fade-in-then-semi-out">
-                            <td><strong>Clinical Rule Engine</strong></td>
-                            <td>Local Python/SQLite Engine</td>
-                            <td>Contains 60+ strict protocols, completely immune to internet blackouts.</td>
-                        </tr>
-                        <tr class="fragment fade-in-then-semi-out">
-                            <td><strong>Season Intelligence</strong></td>
-                            <td>Custom 8-Season Logic</td>
-                            <td>Detects specific threats like Kangri CO poisoning during <em>Chilla Kalan</em>.</td>
-                        </tr>
-                        <tr class="fragment fade-in">
-                            <td><strong>Speech Synthesis</strong></td>
-                            <td>Coqui TTS (Neural Urdu)</td>
-                            <td>Generates clear, slow audio for elderly patients in under 0.8s.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. Impact & Opportunity -->
-    <section data-transition="slide">
-        <div class="si">
-            <span class="slide-label">Market Strategy</span>
-            <h2>B2G Scalability. Zero Acquisition Cost.</h2>
-            
-            <div class="g2" style="margin-top: 24px;">
-                <div>
-                    <div class="fragment fade-up" style="margin-bottom: 32px;">
-                        <h4 class="t1">The Geopolitical Moat</h4>
-                        <p>Every other health-tech startup dies when the 4G tower goes down. Our edge-compute architecture is the <strong>only</strong> one designed to survive Kashmir's realities.</p>
-                    </div>
-                    
                     <div class="fragment fade-up">
-                        <h4 class="t1">The Mental Health Data Layer</h4>
-                        <p>An AI doesn't judge. By placing this device in a private room, villagers bypass the stigma of psychiatric clinics. We capture the culturally native mental health data layer.</p>
+                        <table class="stbl">
+                            <thead>
+                                <tr>
+                                    <th>Technology Layer</th>
+                                    <th>Implementation</th>
+                                    <th>Offline Advantage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="fragment fade-in-then-semi-out">
+                                    <td><strong>Voice Recognition</strong></td>
+                                    <td>OpenAI Whisper (Tiny 39MB)</td>
+                                    <td>Handles Kashmiri-accented Urdu natively with &lt;1.2s transcription.</td>
+                                </tr>
+                                <tr class="fragment fade-in-then-semi-out">
+                                    <td><strong>Clinical Rule Engine</strong></td>
+                                    <td>Local Python/SQLite Engine</td>
+                                    <td>Contains 60+ strict protocols, completely immune to internet blackouts.</td>
+                                </tr>
+                                <tr class="fragment fade-in-then-semi-out">
+                                    <td><strong>Season Intelligence</strong></td>
+                                    <td>Custom 8-Season Logic</td>
+                                    <td>Detects specific threats like Kangri CO poisoning during <em>Chilla Kalan</em>.
+                                    </td>
+                                </tr>
+                                <tr class="fragment fade-in">
+                                    <td><strong>Speech Synthesis</strong></td>
+                                    <td>Coqui TTS (Neural Urdu)</td>
+                                    <td>Generates clear, slow audio for elderly patients in under 0.8s.</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                
-                <div class="card card-primary fragment fade-left">
-                    <div style="font-size: 32px; font-weight: 700; color: var(--primary); margin-bottom: 4px; letter-spacing: -0.03em;">1.5 Million</div>
-                    <p style="font-size: 14px; font-weight: 500; color: var(--t2); margin-bottom: 24px;">Gujjar & Bakarwal Nomads currently off-grid.</p>
-                    
-                    <div style="font-size: 32px; font-weight: 700; color: var(--primary); margin-bottom: 4px; letter-spacing: -0.03em;">100%</div>
-                    <p style="font-size: 14px; font-weight: 500; color: var(--t2); margin-bottom: 24px;">Dependency on ASHA workers during winter blockades.</p>
-                    
-                    <div style="font-size: 20px; font-weight: 700; color: var(--t1); margin-bottom: 6px;">B2G SaaS Model</div>
-                    <p style="font-size: 14px; font-weight: 400; color: var(--t2);">State health departments license the APK to upgrade frontline workforce capabilities.</p>
+            </section>
+
+            <!-- 5. Impact & Opportunity -->
+            <section data-transition="slide">
+                <div class="si">
+                    <span class="slide-label">Market Strategy</span>
+                    <h2>B2G Scalability. Zero Acquisition Cost.</h2>
+
+                    <div class="g2" style="margin-top: 24px;">
+                        <div>
+                            <div class="fragment fade-up" style="margin-bottom: 32px;">
+                                <h4 class="t1">The Geopolitical Moat</h4>
+                                <p>Every other health-tech startup dies when the 4G tower goes down. Our edge-compute
+                                    architecture is the <strong>only</strong> one designed to survive Kashmir's
+                                    realities.</p>
+                            </div>
+
+                            <div class="fragment fade-up">
+                                <h4 class="t1">The Mental Health Data Layer</h4>
+                                <p>An AI doesn't judge. By placing this device in a private room, villagers bypass the
+                                    stigma of psychiatric clinics. We capture the culturally native mental health data
+                                    layer.</p>
+                            </div>
+                        </div>
+
+                        <div class="card card-primary fragment fade-left">
+                            <div
+                                style="font-size: 32px; font-weight: 700; color: var(--primary); margin-bottom: 4px; letter-spacing: -0.03em;">
+                                1.5 Million</div>
+                            <p style="font-size: 14px; font-weight: 500; color: var(--t2); margin-bottom: 24px;">Gujjar
+                                & Bakarwal Nomads currently off-grid.</p>
+
+                            <div
+                                style="font-size: 32px; font-weight: 700; color: var(--primary); margin-bottom: 4px; letter-spacing: -0.03em;">
+                                100%</div>
+                            <p style="font-size: 14px; font-weight: 500; color: var(--t2); margin-bottom: 24px;">
+                                Dependency on ASHA workers during winter blockades.</p>
+
+                            <div style="font-size: 20px; font-weight: 700; color: var(--t1); margin-bottom: 6px;">B2G
+                                SaaS Model</div>
+                            <p style="font-size: 14px; font-weight: 400; color: var(--t2);">State health departments
+                                license the APK to upgrade frontline workforce capabilities.</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </section>
+
+            <!-- 6. Where the Ecosystem Fits -->
+            <section data-transition="slide">
+                <div class="si">
+                    <span class="slide-label">Ecosystem Fit</span>
+                    <h2>We need partners to scale.</h2>
+                    <p style="font-size: 18px; margin-bottom: 32px; color: var(--t2);">Transforming a student prototype
+                        into a state-wide public health asset.</p>
+
+                    <div class="fragment fade-up">
+                        <table class="stbl">
+                            <thead>
+                                <tr>
+                                    <th style="width: 30%;">Stakeholder</th>
+                                    <th>Required Support</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="fragment fade-in-then-semi-out">
+                                    <td class="t1"><strong>Incubators / Tech Spaces</strong></td>
+                                    <td>Mentorship on software licensing (SaaS) and access to PCB manufacturing networks
+                                        for refining rugged hardware units.</td>
+                                </tr>
+                                <tr class="fragment fade-in-then-semi-out">
+                                    <td class="t1"><strong>Medical Institutions</strong></td>
+                                    <td>Clinical validation of our triage rule engine and Koshur-native Cognitive
+                                        Behavioral Therapy (CBT) protocols (e.g., IMHANS).</td>
+                                </tr>
+                                <tr class="fragment fade-in">
+                                    <td class="t1"><strong>Government Agencies</strong></td>
+                                    <td>Regulatory approval and official channel access to deploy the offline APK
+                                        directly to ASHA workers' existing tablets (NHM J&K).</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. Your Ask -->
+            <section data-transition="slide">
+                <div class="si">
+                    <span class="slide-label">The Ask</span>
+                    <h2>A 90-Day Pilot Deployment.</h2>
+
+                    <div class="highlight-box fragment zoom-in">
+                        We are looking for a strategic introduction to the <strong>National Health Mission (NHM
+                            J&K)</strong> or a grassroots NGO to launch a controlled 90-day pilot.
+                    </div>
+
+                    <div class="g2" style="margin-top: 24px;">
+                        <div class="card fragment fade-up" style="border-top: 2px solid var(--primary);">
+                            <div style="font-size: 32px; font-weight: 700; color: var(--t1); letter-spacing: -0.03em;">
+                                50 Licenses</div>
+                            <p style="font-size: 15px; margin-top: 8px; color: var(--t2);">Of the Offline APK deployed
+                                to ASHA workers in winter-prone zones like Kupwara.</p>
+                        </div>
+                        <div class="card fragment fade-up" style="border-top: 2px solid var(--t1);">
+                            <div style="font-size: 32px; font-weight: 700; color: var(--t1); letter-spacing: -0.03em;">5
+                                Devices</div>
+                            <p style="font-size: 15px; margin-top: 8px; color: var(--t2);">Rugged hardware units placed
+                                in extreme off-grid Nomadic or LoC communities.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. Plan of Action -->
+            <section data-transition="slide">
+                <div class="si">
+                    <span class="slide-label">Execution</span>
+                    <h2>The Next 90 Days</h2>
+
+                    <div
+                        style="position: relative; border-left: 1px solid var(--line-dark); padding-left: 24px; margin-left: 10px; margin-top: 32px;">
+
+                        <div class="fragment fade-up" style="margin-bottom: 32px; position: relative;">
+                            <div
+                                style="position: absolute; left: -29.5px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--t1);">
+                            </div>
+                            <h4 style="font-size: 18px; margin-bottom: 6px;">Month 1: Clinical Validation & UI Freeze
+                            </h4>
+                            <p style="font-size: 15px;"><strong class="t1">Who:</strong> Team + Medical Mentors
+                                (IMHANS)<br>Locking down the 60+ medical protocols and finalizing the Android APK
+                                interface for low-literacy users.</p>
+                        </div>
+
+                        <div class="fragment fade-up" style="margin-bottom: 32px; position: relative;">
+                            <div
+                                style="position: absolute; left: -29.5px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--line-dark);">
+                            </div>
+                            <h4 style="font-size: 18px; margin-bottom: 6px;">Month 2: On-Boarding & Training</h4>
+                            <p style="font-size: 15px;"><strong class="t1">Who:</strong> Team + NHM/NGO
+                                Partner<br>Training the 50 selected ASHA workers on using the Copilot, and deploying the
+                                5 hardware units to the off-grid zones.</p>
+                        </div>
+
+                        <div class="fragment fade-up" style="position: relative;">
+                            <div
+                                style="position: absolute; left: -29.5px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--line-dark);">
+                            </div>
+                            <h4 style="font-size: 18px; margin-bottom: 6px;">Month 3: Field Testing & Data Gathering
+                            </h4>
+                            <p style="font-size: 15px;"><strong class="t1">Who:</strong> Team<br>Monitoring usage
+                                (offline logs synced when online). Proving that ASHA worker triage accuracy and mental
+                                health reporting have increased.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. Team & Closing -->
+            <section data-transition="zoom">
+                <div class="si" style="align-items: flex-start; justify-content: center;">
+                    <h2 style="font-size: 40px; margin-bottom: 24px; max-width: 800px; line-height: 1.1;">Give us 90
+                        days to prove that offline AI saves lives when the cloud fails.</h2>
+
+                    <p style="font-size: 18px; margin-bottom: 40px; max-width: 700px; color: var(--t2);">
+                        Built organically at Islamia College of Science & Commerce, our team has the embedded systems
+                        and AI expertise to scale this technology natively for Kashmir.
+                    </p>
+
+                    <div class="card card-primary fragment fade-up"
+                        style="text-align: left; padding: 24px 32px; display: inline-block;">
+                        <p
+                            style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--t3); margin-bottom: 12px; border-bottom: 1px solid var(--line); padding-bottom: 8px;">
+                            Contact</p>
+                        <h3 style="font-size: 24px; margin-bottom: 4px;">Burhan Ali</h3>
+                        <p style="font-size: 14px; margin-bottom: 4px; color: var(--t2);">Student Innovator · Islamia
+                            College of Science & Commerce</p>
+                        <p style="font-size: 14px; font-weight: 600; color: var(--t1);">easyio.tech@gmail.com</p>
+                    </div>
+
+                    <p class="fragment fade-in"
+                        style="margin-top: 40px; font-size: 18px; font-style: italic; font-weight: 500; color: var(--t1); border-left: 2px solid var(--t1); padding-left: 16px;">
+                        "We'd love to set up a follow-up — who here would be the right person to talk to at NHM?"
+                    </p>
+                </div>
+            </section>
+
         </div>
-    </section>
+    </div>
 
-    <!-- 6. Where the Ecosystem Fits -->
-    <section data-transition="slide">
-        <div class="si">
-            <span class="slide-label">Ecosystem Fit</span>
-            <h2>We need partners to scale.</h2>
-            <p style="font-size: 18px; margin-bottom: 32px; color: var(--t2);">Transforming a student prototype into a state-wide public health asset.</p>
-            
-            <div class="fragment fade-up">
-                <table class="stbl">
-                    <thead>
-                        <tr>
-                            <th style="width: 30%;">Stakeholder</th>
-                            <th>Required Support</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="fragment fade-in-then-semi-out">
-                            <td class="t1"><strong>Incubators / Tech Spaces</strong></td>
-                            <td>Mentorship on software licensing (SaaS) and access to PCB manufacturing networks for refining rugged hardware units.</td>
-                        </tr>
-                        <tr class="fragment fade-in-then-semi-out">
-                            <td class="t1"><strong>Medical Institutions</strong></td>
-                            <td>Clinical validation of our triage rule engine and Koshur-native Cognitive Behavioral Therapy (CBT) protocols (e.g., IMHANS).</td>
-                        </tr>
-                        <tr class="fragment fade-in">
-                            <td class="t1"><strong>Government Agencies</strong></td>
-                            <td>Regulatory approval and official channel access to deploy the offline APK directly to ASHA workers' existing tablets (NHM J&K).</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
 
-    <!-- 7. Your Ask -->
-    <section data-transition="slide">
-        <div class="si">
-            <span class="slide-label">The Ask</span>
-            <h2>A 90-Day Pilot Deployment.</h2>
-            
-            <div class="highlight-box fragment zoom-in">
-                We are looking for a strategic introduction to the <strong>National Health Mission (NHM J&K)</strong> or a grassroots NGO to launch a controlled 90-day pilot.
-            </div>
-            
-            <div class="g2" style="margin-top: 24px;">
-                <div class="card fragment fade-up" style="border-top: 2px solid var(--primary);">
-                    <div style="font-size: 32px; font-weight: 700; color: var(--t1); letter-spacing: -0.03em;">50 Licenses</div>
-                    <p style="font-size: 15px; margin-top: 8px; color: var(--t2);">Of the Offline APK deployed to ASHA workers in winter-prone zones like Kupwara.</p>
-                </div>
-                <div class="card fragment fade-up" style="border-top: 2px solid var(--t1);">
-                    <div style="font-size: 32px; font-weight: 700; color: var(--t1); letter-spacing: -0.03em;">5 Devices</div>
-                    <p style="font-size: 15px; margin-top: 8px; color: var(--t2);">Rugged hardware units placed in extreme off-grid Nomadic or LoC communities.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 8. Plan of Action -->
-    <section data-transition="slide">
-        <div class="si">
-            <span class="slide-label">Execution</span>
-            <h2>The Next 90 Days</h2>
-            
-            <div style="position: relative; border-left: 1px solid var(--line-dark); padding-left: 24px; margin-left: 10px; margin-top: 32px;">
-                
-                <div class="fragment fade-up" style="margin-bottom: 32px; position: relative;">
-                    <div style="position: absolute; left: -29.5px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--t1);"></div>
-                    <h4 style="font-size: 18px; margin-bottom: 6px;">Month 1: Clinical Validation & UI Freeze</h4>
-                    <p style="font-size: 15px;"><strong class="t1">Who:</strong> Team + Medical Mentors (IMHANS)<br>Locking down the 60+ medical protocols and finalizing the Android APK interface for low-literacy users.</p>
-                </div>
-                
-                <div class="fragment fade-up" style="margin-bottom: 32px; position: relative;">
-                    <div style="position: absolute; left: -29.5px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--line-dark);"></div>
-                    <h4 style="font-size: 18px; margin-bottom: 6px;">Month 2: On-Boarding & Training</h4>
-                    <p style="font-size: 15px;"><strong class="t1">Who:</strong> Team + NHM/NGO Partner<br>Training the 50 selected ASHA workers on using the Copilot, and deploying the 5 hardware units to the off-grid zones.</p>
-                </div>
-                
-                <div class="fragment fade-up" style="position: relative;">
-                    <div style="position: absolute; left: -29.5px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--line-dark);"></div>
-                    <h4 style="font-size: 18px; margin-bottom: 6px;">Month 3: Field Testing & Data Gathering</h4>
-                    <p style="font-size: 15px;"><strong class="t1">Who:</strong> Team<br>Monitoring usage (offline logs synced when online). Proving that ASHA worker triage accuracy and mental health reporting have increased.</p>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-
-    <!-- 9. Team & Closing -->
-    <section data-transition="zoom">
-        <div class="si" style="align-items: flex-start; justify-content: center;">
-            <h2 style="font-size: 40px; margin-bottom: 24px; max-width: 800px; line-height: 1.1;">Give us 90 days to prove that offline AI saves lives when the cloud fails.</h2>
-            
-            <p style="font-size: 18px; margin-bottom: 40px; max-width: 700px; color: var(--t2);">
-                Built organically at Islamia College of Science & Commerce, our team has the embedded systems and AI expertise to scale this technology natively for Kashmir.
-            </p>
-            
-            <div class="card card-primary fragment fade-up" style="text-align: left; padding: 24px 32px; display: inline-block;">
-                <p style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--t3); margin-bottom: 12px; border-bottom: 1px solid var(--line); padding-bottom: 8px;">Contact</p>
-                <h3 style="font-size: 24px; margin-bottom: 4px;">Burhan Ali</h3>
-                <p style="font-size: 14px; margin-bottom: 4px; color: var(--t2);">Student Innovator · Islamia College of Science & Commerce</p>
-                <p style="font-size: 14px; font-weight: 600; color: var(--t1);">easyio.tech@gmail.com</p>
-            </div>
-            
-            <p class="fragment fade-in" style="margin-top: 40px; font-size: 18px; font-style: italic; font-weight: 500; color: var(--t1); border-left: 2px solid var(--t1); padding-left: 16px;">
-                "We'd love to set up a follow-up — who here would be the right person to talk to at NHM?"
-            </p>
-        </div>
-    </section>
-
-</div>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
-<script>
-    // Initialize Lucide Icons
-    lucide.createIcons();
-
-    Reveal.initialize({
-        hash: true,
-        controls: true,
-        progress: true,
-        center: false,
-        transition: 'none', // Remove slide transitions for a more serious feel
-        width: 1024,  // Standard enterprise width
-        height: 768,
-        margin: 0.05,
-        minScale: 0.2,
-        maxScale: 2.0
-    });
-</script>
+        Reveal.initialize({
+            hash: true,
+            controls: true,
+            progress: true,
+            center: false,
+            transition: 'none', // Remove slide transitions for a more serious feel
+            width: 1024,  // Standard enterprise width
+            height: 768,
+            margin: 0.05,
+            minScale: 0.2,
+            maxScale: 2.0
+        });
+    </script>
 </body>
+
 </html>

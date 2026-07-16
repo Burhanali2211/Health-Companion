@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "=============================================="
-echo "    Watan Sehat - Raspberry Pi Auto Setup     "
+echo "    Health Companion - Raspberry Pi Auto Setup     "
 echo "=============================================="
 
 # Get the directory where the script is located
@@ -47,7 +47,7 @@ ollama pull qwen2.5:1.5b
 echo "=============================================="
 echo " Setup Complete! You can now run the app via: "
 echo " ./run_app.sh                                 "
-echo " Or by double-clicking 'Watan Sehat' on your Desktop."
+echo " Or by double-clicking 'Health Companion' on your Desktop."
 echo "=============================================="
 
 echo ""
@@ -56,7 +56,7 @@ chmod +x "$DIR/run_app.sh" || true
 DESKTOP_FILE="$HOME/Desktop/WatanSehat.desktop"
 cat << EOF > "$DESKTOP_FILE"
 [Desktop Entry]
-Name=Watan Sehat
+Name=Health Companion
 Comment=Health Companion AI
 Exec=bash -c "$DIR/run_app.sh"
 Terminal=true
