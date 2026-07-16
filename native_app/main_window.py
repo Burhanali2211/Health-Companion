@@ -227,7 +227,7 @@ class MicButton(QPushButton):
                 }}
             """)
         else:
-            self.setIcon(qta.icon("fa5s.mic", color="white", options=[{"scale_factor": 0.6}]))
+            self.setIcon(qta.icon("fa5s.microphone", color="white", options=[{"scale_factor": 0.6}]))
             self.setStyleSheet(f"""
                 QPushButton {{
                     background-color: {USER_BUBBLE};
