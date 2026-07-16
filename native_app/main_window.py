@@ -136,18 +136,54 @@ class VoiceRecorderThread(QThread):
 class TranscribeWorker(QThread):
     finished = pyqtSignal(str)
 
-    def __init__(self, filepath: str, parent=None):
+    def __init__(self, filepath: str, backend_url: str = None, parent=None):
         super().__init__(parent)
         self.filepath = filepath
+        self.backend_url = backend_url
 
     def run(self):
         try:
-            from voice.stt import transcribe
-            with open(self.filepath, "rb") as f:
-                audio_bytes = f.read()
-            res = transcribe(audio_bytes, language="auto")
-            text = res.get("text", "")
-            self.finished.emit(text)
+            if self.backend_url:
+                import urllib.request
+                import json
+                import uuid
+                
+                boundary = f"----WebKitFormBoundary{uuid.uuid4().hex}"
+                
+                with open(self.filepath, "rb") as f:
+                    file_bytes = f.read()
+                
+                body = (
+                    f"--{boundary}\r\n"
+                    f'Content-Disposition: form-data; name="file"; filename="stt_audio.wav"\r\n'
+                    f"Content-Type: audio/wav\r\n\r\n"
+                ).encode("utf-8")
+                
+                body += file_bytes
+                body += f"\r\n--{boundary}--\r\n".encode("utf-8")
+                
+                url = f"{self.backend_url}/api/voice/stt"
+                req = urllib.request.Request(
+                    url,
+                    data=body,
+                    headers={
+                        "Content-Type": f"multipart/form-data; boundary={boundary}",
+                        "Content-Length": str(len(body))
+                    }
+                )
+                with urllib.request.urlopen(req, timeout=15) as response:
+                    res_data = json.loads(response.read().decode("utf-8"))
+                    if res_data.get("status") == "ok" and res_data.get("data"):
+                        self.finished.emit(res_data["data"].get("transcript", ""))
+                    else:
+                        raise Exception(res_data.get("message", "API error"))
+            else:
+                from voice.stt import transcribe
+                with open(self.filepath, "rb") as f:
+                    audio_bytes = f.read()
+                res = transcribe(audio_bytes, language="auto")
+                text = res.get("text", "")
+                self.finished.emit(text)
         except Exception as e:
             print(f"[transcribe] Error during voice STT: {e}")
             self.finished.emit("")
@@ -211,9 +247,10 @@ class TTSSpeakerThread(QThread):
 
     _URDU_RE = re.compile(r'[؀-ۿݐ-ݿﭐ-﷿ﹰ-﻿]')
 
-    def __init__(self, text: str, rate: int = 165, parent=None):
+    def __init__(self, text: str, backend_url: str = None, rate: int = 165, parent=None):
         super().__init__(parent)
         self.text = text
+        self.backend_url = backend_url
         self.voice = self.VOICE_UR if self._URDU_RE.search(text) else self.VOICE_EN
         offset = int((rate - 165) / 165 * 100)
         self.rate_str = f"{'+' if offset >= 0 else ''}{offset}%"
@@ -229,39 +266,73 @@ class TTSSpeakerThread(QThread):
 
     def run(self):
         try:
-            import asyncio
-            import edge_tts
             import miniaudio
             import sounddevice as sd
+            import numpy as np
 
-            async def _stream():
-                communicate = edge_tts.Communicate(
-                    self.text, voice=self.voice, rate=self.rate_str
+            if self.backend_url:
+                import urllib.request
+                import json
+                
+                url = f"{self.backend_url}/api/voice/tts"
+                data = json.dumps({
+                    "text": self.text,
+                    "language": "auto",
+                    "age_mode": "jawaan"
+                }).encode("utf-8")
+                
+                req = urllib.request.Request(
+                    url,
+                    data=data,
+                    headers={"Content-Type": "application/json"}
                 )
-                mp3_chunks = []
-                async for chunk in communicate.stream():
-                    if self._stop_requested:
-                        return b""
-                    if chunk["type"] == "audio":
-                        mp3_chunks.append(chunk["data"])
-                return b"".join(mp3_chunks)
+                with urllib.request.urlopen(req, timeout=15) as response:
+                    audio_bytes = response.read()
+                
+                if not audio_bytes or self._stop_requested:
+                    return
 
-            mp3_bytes = asyncio.run(_stream())
-            if not mp3_bytes or self._stop_requested:
-                return
+                decoded = miniaudio.decode(
+                    audio_bytes,
+                    output_format=miniaudio.SampleFormat.FLOAT32,
+                    nchannels=1,
+                    sample_rate=24000,
+                )
+                samples = np.frombuffer(decoded.samples, dtype=np.float32)
+                sd.play(samples, samplerate=24000)
+                sd.wait()
+            else:
+                import asyncio
+                import edge_tts
 
-            decoded = miniaudio.decode(
-                mp3_bytes,
-                output_format=miniaudio.SampleFormat.FLOAT32,
-                nchannels=1,
-                sample_rate=24000,
-            )
-            samples = np.frombuffer(decoded.samples, dtype=np.float32)
-            sd.play(samples, samplerate=24000)
-            sd.wait()
+                async def _stream():
+                    communicate = edge_tts.Communicate(
+                        self.text, voice=self.voice, rate=self.rate_str
+                    )
+                    mp3_chunks = []
+                    async for chunk in communicate.stream():
+                        if self._stop_requested:
+                            return b""
+                        if chunk["type"] == "audio":
+                            mp3_chunks.append(chunk["data"])
+                    return b"".join(mp3_chunks)
+
+                mp3_bytes = asyncio.run(_stream())
+                if not mp3_bytes or self._stop_requested:
+                    return
+
+                decoded = miniaudio.decode(
+                    mp3_bytes,
+                    output_format=miniaudio.SampleFormat.FLOAT32,
+                    nchannels=1,
+                    sample_rate=24000,
+                )
+                samples = np.frombuffer(decoded.samples, dtype=np.float32)
+                sd.play(samples, samplerate=24000)
+                sd.wait()
 
         except Exception as exc:
-            print(f"[tts] edge-tts error (offline?): {exc}")
+            print(f"[tts] Error playing speech: {exc}")
         finally:
             self.speaking_done.emit()
 
@@ -737,14 +808,16 @@ class ChatSession:
 
 # ── Main window ───────────────────────────────────────────────────────
 class MainWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, backend_url: str = None):
         super().__init__()
+        import os
+        self.backend_url = backend_url or os.environ.get("WATAN_BACKEND_URL")
         self.setWindowTitle("Health Companion")
         self.resize(1024, 600)  # Standard Pi Touchscreen size
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
         self.showMaximized()  # Ensure it fills the screen on Pi
 
-        self.ai = AIBridge()
+        self.ai = AIBridge(backend_url=self.backend_url)
         self.chat_sessions: list[ChatSession] = []
         self.current_messages: list[dict] = []
 
@@ -1133,7 +1206,7 @@ class MainWindow(QMainWindow):
         self.voice_orb.set_state("processing")
         self.show_thinking()
 
-        self._transcribe_thread = TranscribeWorker(filepath, self)
+        self._transcribe_thread = TranscribeWorker(filepath, backend_url=self.backend_url, parent=self)
         self._transcribe_thread.finished.connect(self.handle_transcription_result)
         self._transcribe_thread.start()
 
@@ -1157,7 +1230,7 @@ class MainWindow(QMainWindow):
         if self._tts_thread and self._tts_thread.isRunning():
             self._tts_thread.stop_speaking()
             self._tts_thread.wait(300)
-        self._tts_thread = TTSSpeakerThread(text, rate=165, parent=self)
+        self._tts_thread = TTSSpeakerThread(text, backend_url=self.backend_url, rate=165, parent=self)
         self._tts_thread.speaking_done.connect(self._on_tts_done)
         self.voice_orb.set_state("speaking")
         self.mic_btn.set_speaking(True)
@@ -1306,7 +1379,12 @@ class MainWindow(QMainWindow):
 
 
 if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(description="Health Companion Client Kiosk")
+    parser.add_argument("--server", type=str, default=None, help="Remote backend server URL (e.g. http://192.168.1.232:8000)")
+    args, unknown = parser.parse_known_args()
+
     app = QApplication(sys.argv)
-    window = MainWindow()
+    window = MainWindow(backend_url=args.server)
     window.show()
     sys.exit(app.exec())
