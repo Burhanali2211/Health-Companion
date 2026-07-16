@@ -16,9 +16,15 @@ if exist "%CONFIG_FILE%" (
     set /p SERVER_IP=<"%CONFIG_FILE%"
 )
 
+REM Clean up any corrupted or empty config values
+if "%SERVER_IP%" == "ECHO is off. " set SERVER_IP=
+if "%SERVER_IP%" == "ECHO is off." set SERVER_IP=
+
 if "%SERVER_IP%" == "" (
     set /p SERVER_IP="Enter Server IP Address (e.g. 192.168.1.232 or localhost): "
-    echo %SERVER_IP% > "%CONFIG_FILE%"
+    if not "%SERVER_IP%" == "" (
+        echo %SERVER_IP% > "%CONFIG_FILE%"
+    )
 ) else (
     echo ==================================================
     echo  Saved Server IP: %SERVER_IP%

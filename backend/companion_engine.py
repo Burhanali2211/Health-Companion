@@ -481,7 +481,7 @@ def get_companion_response(
     # kicks in if Ollama itself errors out, so there's still a cloud
     # fallback rather than a hard failure.
     ollama_result = _ollama_response(query, age_mode, district, season, page_context, resolved_language, chat_history)
-    if ollama_result["source"] == "ollama":
+    if ollama_result["source"] != "error":
         return ollama_result
 
     if gemini_client:
