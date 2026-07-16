@@ -1343,6 +1343,104 @@
       "response_en": "Food spoils quickly in summer. Do not eat stale food. For vomiting and diarrhea drink ORS, and see doctor if it continues more than 24 hours.",
       "tip_ur": "گرمی میں کھانا فریج میں رکھیں اور 2 گھنٹے سے زیادہ باہر نہ چھوڑیں۔",
       "confidence": 0.90
+    },
+    {
+      "id": "heart_attack_first_aid",
+      "triggers": [
+        "dil ka dora",
+        "heart attack",
+        "chest pain",
+        "سینہ میں درد",
+        "سینے کا درد",
+        "سینہ درد",
+        "heart pain"
+      ],
+      "seasons": [],
+      "age_modes": [
+        "buzurg",
+        "jawaan",
+        "bacha"
+      ],
+      "response_ur": "دل کا دورہ ایک شدید ایمرجنسی ہے۔ ایمبولینس کے انتظار کے دوران: 1. مریض کو آرام دہ حالت میں بٹھائیں۔ 2. تنگ کپڑے ڈھیلے کریں۔ 3. اگر الرجی نہ ہو تو ایسپرین (300mg) چبانے کو دیں۔ 4. بے ہوش ہونے پر سی پی آر (CPR) شروع کریں۔",
+      "response_en": "A heart attack is a critical medical emergency. While waiting for the ambulance: 1. Sit the person down comfortably. 2. Loosen tight clothing. 3. Give one 300mg Aspirin tablet to chew (if not allergic). 4. If they pass out/stop breathing, start CPR.",
+      "response_ks": "دلُک دورہ چھُہ اکھ خطرناک ایمرجنسی۔ ایمبولینس ینہ تام: 1. مریضَس دِیو آرامَس سیتی بہناون۔ 2. تنگ کپڑہ کڈِو یا ڈھیل کرِو۔ 3. اگر الرجی نہ آسہ، اکھ ایسپرین (300mg) چبان دِیو۔ 4. بے ہوش گژھنس پؠٹھ سی پی آر (CPR) شروع کرِو۔",
+      "tip_ur": "فوری طور پر 108 یا 104 ہیلپ لائن پر کال کریں۔",
+      "confidence": 0.98
+    },
+    {
+      "id": "frostbite_first_aid",
+      "triggers": [
+        "frostbite",
+        "sheen pakun",
+        "سردی سے انگلیاں",
+        "ٹھنڈ سے ہاتھ سن",
+        "فراسٹ بائٹ"
+      ],
+      "seasons": [
+        "chilla_kalan",
+        "chilla_khurd",
+        "chilla_bachha",
+        "early_winter"
+      ],
+      "age_modes": [
+        "buzurg",
+        "jawaan",
+        "bacha"
+      ],
+      "response_ur": "فراسٹ بائٹ (سردی کی شدید چوٹ) ہے۔ ڈاکٹر کے پاس پہنچنے تک: 1. مریض کو گرم جگہ پر لائیں۔ 2. متاثرہ جگہ کو نیم گرم پانی (گرم نہیں) میں ڈبوئیں۔ 3. جلد کو رگڑنے یا مالش کرنے سے گریز کریں۔ 4. صاف پٹی لپیٹیں۔",
+      "response_en": "Frostbite is a serious cold injury. Until you see a doctor: 1. Move to a warm place. 2. Warm the frozen skin using lukewarm water (NOT hot water). 3. Avoid rubbing or massaging the skin. 4. Wrap with a clean, dry bandage.",
+      "response_ks": "سردی سیت ہاتھ یا پیر جم گژھن (فراسٹ بائٹ)۔ دوکھترس نیارنہ تام: 1. گرم جاے پؠٹھ گژھِو۔ 2. متاثرہ حصہ نیم گرم آبَس (زیادہ گرم نہ) منز تھاوِو۔ 3. جلدَس ملن یا مالش کرنہ نش پرہیز کرِو۔ 4. صاف پٹی لپیٹِو۔",
+      "tip_ur": "متاثرہ جگہ پر کبھی بھی سیدھی آگ یا ہیٹر سے گرمی نہ دیں۔",
+      "confidence": 0.95
+    },
+    {
+      "id": "co_poisoning_first_aid",
+      "triggers": [
+        "co poisoning",
+        "gas chadhna",
+        "dhooyin chadhna",
+        "دم گھٹنا",
+        "دھواں چڑھنا",
+        "کمرے میں گیس",
+        "gas leak"
+      ],
+      "seasons": [
+        "chilla_kalan",
+        "chilla_khurd",
+        "chilla_bachha",
+        "early_winter"
+      ],
+      "age_modes": [
+        "buzurg",
+        "jawaan",
+        "bacha"
+      ],
+      "response_ur": "حمام یا کوئلے کا دھواں (CO گیس) زہریلا ہے۔ دم گھٹنے کی صورت میں: 1. مریض کو فوراً کھلی ہوا میں لائیں۔ 2. کھڑکیاں اور دروازے کھول دیں۔ 3. 108/104 پر کال کریں۔ 4. سانس نہ آنے پر سی پی آر (CPR) شروع کریں۔",
+      "response_en": "Carbon Monoxide (CO) gas from heating is deadly and odorless. If someone gasps or faints: 1. Immediately move them into fresh air. 2. Open all doors and windows. 3. Call 108/104. 4. If breathing stops, start CPR immediately.",
+      "response_ks": "حمام یا کوئلے ہند گیس (CO) چھُہ جان لیوا۔ دم گھٹنے کی صورتس منز: 1. مریضَس فوراً کھلے ہواَس منز انِو۔ 2. کٹھہ ہند دروازہ تہ کھڑکیاں کھولِو۔ 3. 108 ہیلپ لائنَس کال کرِو۔ 4. اگر ضرورت آسہ سی پی آر (CPR) شروع کرِو۔",
+      "tip_ur": "کمروں کو ہمیشہ ہوادار رکھیں اور سوتے وقت انگیٹھی باہر رکھیں۔",
+      "confidence": 0.98
+    },
+    {
+      "id": "noon_chai_hypertension",
+      "triggers": [
+        "noon chai bp",
+        "namkeen chai blood pressure",
+        "نون چائے بی پی",
+        "لو نمک چائے",
+        "salt tea bp"
+      ],
+      "seasons": [],
+      "age_modes": [
+        "buzurg",
+        "jawaan",
+        "bacha"
+      ],
+      "response_ur": "نمکین چائے (نون چائے) بلڈ پریشر بڑھاتی ہے۔ ہائی بی پی کے مریض: 1. دن میں صرف ایک چھوٹا کپ پئیں۔ 2. چائے ابالتے وقت میٹھا سوڈا (پھول) بہت کم ڈالیں۔ 3. نمک کی جگہ چائے میں دودھ کی مقدار بڑھائیں۔ 4. روزانہ کیلے جیسے پوٹاشیم والے پھل کھائیں۔",
+      "response_en": "Kashmiri Noon Chai contains high sodium which raises blood pressure. If you have high BP: 1. Limit to max 1 small cup per day. 2. Minimize baking soda (phool) while brewing. 3. Drink more water. 4. Eat potassium-rich foods like bananas.",
+      "response_ks": "نون چائے منز چھُہ لوُن زیادہ آسان یُس بلڈ پریشر بڑھاوان چھُہ۔ اگر بی پی ہائی آسہ: 1. نون چائے دنَس منز صرف اکھ لوکٹ پیالہ پیوَن۔ 2. چائے بناونس منز سوڈا (پھُل) واریاہ کم وارتھ کرِو۔ 3. آب زیادہ پیوَن تہ کیلے کھائِو۔",
+      "tip_ur": "نمک کے اثر کو کم کرنے کے لیے پتے دار سبزیاں اور پھل زیادہ کھائیں۔",
+      "confidence": 0.93
     }
   ]
 }
