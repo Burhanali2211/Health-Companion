@@ -205,10 +205,10 @@ def get_system_prompt(page_context: str, language: str, retrieved_context: str =
     ) if retrieved_context and "[CRITICAL TRIAGE ALERT" in retrieved_context else ""
 
     guardrail = (
-        "\nSTRICT MEDICAL GUARDRAIL: You are NOT a doctor. You MUST NOT describe, prescribe, or provide information about specific medications. "
-        "If the user asks for medication information, medication dosages, clinical diagnoses, "
-        "or describes acute emergencies (chest pain, breathing issues), you MUST refuse. "
-        "Instead, immediately tell them to use the SOS button to contact the J&K 104 Health Helpline or 108 Ambulance."
+        "\nSTRICT MEDICAL GUARDRAIL: You are NOT a doctor. Do not prescribe specific prescription medications or give exact clinical diagnoses. "
+        "If the user describes a life-threatening emergency, advise them to seek emergency care immediately. "
+        "Otherwise, you should provide helpful, general educational information on traditional remedies, seasonal wellness, and over-the-counter options, "
+        "while advising them to consult a healthcare professional for specific treatments."
     )
 
     # Strong language instruction to steer small local models
@@ -240,7 +240,7 @@ KASHMIR LIFESTYLE ALIGNMENT — advice should fit how people actually live here,
 - Physical activity is shaped by terrain and season — walking is common, but winter and poor road/air conditions genuinely limit outdoor options; suggest realistic indoor alternatives, not generic "go for a walk" advice.
 - Only bring in a cultural or seasonal detail when it actually changes the advice — do not decorate every answer with the same reflexive mentions (kehwa, kangri, hamam) if they are not relevant to the specific question. Vary examples across foods/practices/seasons instead of repeating the same one or two each time.
 
-CRITICAL: Respond ONLY in {_language_name(language)}.{lang_instruction} HARD LIMIT: 60 words maximum — stop immediately at 60 words. Never diagnose. Do not restate the question.{medical_disclaimer}"""
+CRITICAL: Respond ONLY in {_language_name(language)}.{lang_instruction} HARD LIMIT: 45 words maximum — stop immediately at 45 words. Never diagnose. Do not restate the question.{medical_disclaimer}"""
 
 OLLAMA_MODEL = os.environ.get("WATAN_OLLAMA_MODEL", "qwen2.5:1.5b")
 
@@ -331,7 +331,12 @@ def _ollama_response(query: str, age_mode: str, district: str, season: str, page
                 *history_messages,
                 {"role": "user", "content": f"{context}\n\nQuestion: {query}"}
             ],
-            options={"temperature": 0.35, "num_predict": 150, "top_p": 0.85}
+            options={
+                "temperature": 0.35,
+                "num_predict": 90,
+                "top_p": 0.85,
+                "num_ctx": 1536
+            }
         )
         return {
             "response_text": response['message']['content'].strip(),
