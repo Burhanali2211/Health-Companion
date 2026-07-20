@@ -858,7 +858,7 @@
         "bacha"
       ],
       "response_ur": "وعلیکم السلام! میں وطن صحت کا صحت ساتھی ہوں — کشمیر کے لیے بنا ہوا آپ کا ذاتی صحت معاون۔ موسم، خوراک، ورزش، یا کسی بھی صحت کے سوال کے لیے حاضر ہوں۔",
-      "response_en": "Walaikum Assalam! I am Sehat Saathi — your personal health companion built specifically for Kashmir. Ask me about the season, diet, exercise, or any health concern. I am here to help.",
+      "response_en": "Walaikum Assalam! I am Health Companion — your personal health companion built specifically for Kashmir. Ask me about the season, diet, exercise, or any health concern. I am here to help.",
       "tip_ur": "آج کشمیر کے موسم کے مطابق صحت مشورہ لیں۔",
       "confidence": 0.95
     },
@@ -885,7 +885,7 @@
         "bacha"
       ],
       "response_ur": "آداب! میں وطن صحت کا صحت ساتھی ہوں — کشمیر کے لیے بنا ہوا آپ کا ذاتی صحت معاون۔ موسم، خوراک، ورزش، یا کسی بھی صحت کے سوال کے لیے حاضر ہوں۔",
-      "response_en": "Hello! I am Sehat Saathi — your personal health companion built specifically for Kashmir. Ask me about the season, diet, exercise, or any health concern. I am here to help.",
+      "response_en": "Hello! I am Health Companion — your personal health companion built specifically for Kashmir. Ask me about the season, diet, exercise, or any health concern. I am here to help.",
       "tip_ur": "آج کشمیر کے موسم کے مطابق صحت مشورہ لیں۔",
       "confidence": 0.95
     },
@@ -908,7 +908,7 @@
         "bacha"
       ],
       "response_ur": "میں صحت ساتھی ہوں — وطن صحت ایپ کا حصہ، کشمیر کے لیے خاص طور پر بنایا گیا۔ میں کشمیر کے آٹھ موسموں کو سمجھتا ہوں، مقامی کھانوں کی معلومات رکھتا ہوں، اور بغیر انٹرنیٹ کے آپ کے صحت کے سوالوں کا جواب دیتا ہوں۔",
-      "response_en": "I am Sehat Saathi, the health companion inside Health Companion — built exclusively for Kashmir. I understand all 8 Kashmiri seasons, know traditional Kashmiri foods and remedies, and work completely offline. Ask me anything health-related.",
+      "response_en": "I am Health Companion, the health companion inside Health Companion — built exclusively for Kashmir. I understand all 8 Kashmiri seasons, know traditional Kashmiri foods and remedies, and work completely offline. Ask me anything health-related.",
       "tip_ur": "کشمیر میں بنا، کشمیر کے لیے — بغیر انٹرنیٹ کے۔",
       "confidence": 0.97
     },

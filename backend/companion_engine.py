@@ -220,7 +220,7 @@ def get_system_prompt(page_context: str, language: str, retrieved_context: str =
     elif language == "en":
         lang_instruction = "\nYou MUST respond ONLY in English. Do not use Urdu or Kashmiri script."
 
-    return f"""You are Sehat Saathi, a warm and knowledgeable health companion built for Kashmir.
+    return f"""You are Health Companion, a warm and knowledgeable health companion built for Kashmir.
 {grounding}{triage_rule}{guardrail}
 Answer the user's actual question directly — do not change the topic.{ctx_instruction}{context_section}
 
